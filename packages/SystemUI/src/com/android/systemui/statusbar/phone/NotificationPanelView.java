@@ -96,6 +96,8 @@ public class NotificationPanelView extends PanelView implements
 
     private static final String STATUS_BAR_QUICK_QS_PULLDOWN =
             "cmsystem:" + CMSettings.System.STATUS_BAR_QUICK_QS_PULLDOWN;
+    private static final String STATUS_BAR_SMART_PULLDOWN =
+            "cmsystem:" + CMSettings.System.STATUS_BAR_SMART_PULLDOWN;
     private static final String DOUBLE_TAP_SLEEP_GESTURE =
             "cmsystem:" + CMSettings.System.DOUBLE_TAP_SLEEP_GESTURE;
     private static final String LOCK_SCREEN_WEATHER_ENABLED =
@@ -227,6 +229,7 @@ public class NotificationPanelView extends PanelView implements
     private int mOneFingerQuickSettingsIntercept;
     private boolean mDoubleTapToSleepAnywhere;
     private boolean mDoubleTapToSleepEnabled;
+    private int mQsSmartPullDown;
     private int mStatusBarHeaderHeight;
     private GestureDetector mDoubleTapGesture;
 
@@ -394,6 +397,7 @@ public class NotificationPanelView extends PanelView implements
         super.onAttachedToWindow();
         TunerService.get(mContext).addTunable(this,
                 STATUS_BAR_QUICK_QS_PULLDOWN,
+                STATUS_BAR_SMART_PULLDOWN,
                 DOUBLE_TAP_SLEEP_GESTURE,
                 LOCK_SCREEN_WEATHER_ENABLED,
                 DOUBLE_TAP_SLEEP_ANYWHERE);
@@ -910,6 +914,12 @@ public class NotificationPanelView extends PanelView implements
                 break;
         }
         showQsOverride &= mStatusBarState == StatusBarState.SHADE;
+
+        if (mQsSmartPullDown == 1 && !mStatusBar.hasActiveClearableNotifications()
+                || mQsSmartPullDown == 2 && !mStatusBar.hasActiveOngoingNotifications()
+                || mQsSmartPullDown == 3 && !mStatusBar.hasActiveVisibleNotifications()) {
+                showQsOverride = true;
+        }
 
         return twoFingerDrag || showQsOverride || stylusButtonClickDrag || mouseButtonClickDrag;
     }
@@ -2460,6 +2470,10 @@ public class NotificationPanelView extends PanelView implements
             case STATUS_BAR_QUICK_QS_PULLDOWN:
                 mOneFingerQuickSettingsIntercept =
                         newValue == null ? 0 : Integer.parseInt(newValue);
+                break;
+            case STATUS_BAR_SMART_PULLDOWN:
+                mQsSmartPullDown =
+                        newValue == null ? 1 : Integer.parseInt(newValue);
                 break;
             case LOCK_SCREEN_WEATHER_ENABLED:
                 final boolean wasKeyguardWeatherEnabled = mKeyguardWeatherEnabled;
