@@ -9,6 +9,8 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.Resources;
 import android.database.ContentObserver;
+import android.graphics.drawable.Drawable;
+import android.graphics.PorterDuff;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.TrafficStats;
@@ -285,7 +287,7 @@ public class NetworkTraffic extends TextView {
                     mTrafficHandler.sendEmptyMessage(1);
                 }
                 setVisibility(View.VISIBLE);
-                updateTrafficDrawable();
+                updateTrafficDrawable(mNetworkTrafficColor);
                 return;
             }
         } else {
@@ -309,8 +311,9 @@ public class NetworkTraffic extends TextView {
         mTrafficHandler.removeMessages(1);
     }
 
-    private void updateTrafficDrawable() {
+    private void updateTrafficDrawable(int trafcolor) {
         int intTrafficDrawable;
+        Drawable drawTrafficIcon = null;
         if (isSet(mState, MASK_UP + MASK_DOWN)) {
             intTrafficDrawable = R.drawable.stat_sys_network_traffic_updown;
         } else if (isSet(mState, MASK_UP)) {
@@ -320,6 +323,11 @@ public class NetworkTraffic extends TextView {
         } else {
             intTrafficDrawable = 0;
         }
-        setCompoundDrawablesWithIntrinsicBounds(0, 0, intTrafficDrawable, 0);
+        if (intTrafficDrawable != 0) {
+            drawTrafficIcon = getResources().getDrawable(intTrafficDrawable);
+            drawTrafficIcon.setColorFilter(null);
+            drawTrafficIcon.setColorFilter(trafcolor, PorterDuff.Mode.SRC_ATOP);
+        }
+        setCompoundDrawablesWithIntrinsicBounds(null, null, drawTrafficIcon, null);
     }
 }
