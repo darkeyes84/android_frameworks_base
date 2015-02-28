@@ -24,11 +24,14 @@ import android.app.SynchronousUserSwitchObserver;
 import android.bluetooth.BluetoothAssignedNumbers;
 import android.bluetooth.BluetoothHeadset;
 import android.content.BroadcastReceiver;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.UserInfo;
+import android.database.ContentObserver;
 import android.media.AudioManager;
+import android.net.Uri;
 import android.os.Handler;
 import android.os.RemoteException;
 import android.os.UserHandle;
@@ -86,6 +89,7 @@ public class PhoneStatusBarPolicy implements Callback, RotationLockController.Ro
     private final StatusBarIconController mIconController;
     private final RotationLockController mRotationLockController;
     private final DataSaverController mDataSaver;
+    private final SettingsObserver mSettingsObserver;
     private StatusBarKeyguardViewManager mStatusBarKeyguardViewManager;
     private final SuController mSuController;
 
@@ -105,6 +109,38 @@ public class PhoneStatusBarPolicy implements Callback, RotationLockController.Ro
     private boolean mManagedProfileInQuietMode = false;
 
     private BluetoothController mBluetooth;
+    private boolean mBluetoothIconVisible;
+    private boolean mBluetoothConnected = false;
+
+    class SettingsObserver extends ContentObserver {
+        SettingsObserver(Handler handler) {
+            super(handler);
+        }
+
+        void observe() {
+            ContentResolver resolver = mContext.getContentResolver();
+            resolver.registerContentObserver(CMSettings.System.getUriFor(
+                    CMSettings.System.SHOW_BLUETOOTH_ICON),
+                    false, this, UserHandle.USER_ALL);
+        }
+
+        void unobserve() {
+            ContentResolver resolver = mContext.getContentResolver();
+            resolver.unregisterContentObserver(this);
+        }
+
+        @Override
+        public void onChange(boolean selfChange, Uri uri) {
+            mBluetoothIconVisible = CMSettings.System.getInt(mContext.getContentResolver(),
+                    CMSettings.System.SHOW_BLUETOOTH_ICON, 1) == 1;
+            updateBluetooth();
+        }
+
+        @Override
+        public void onChange(boolean selfChange) {
+            onChange(selfChange, null);
+        }
+    }
 
     public PhoneStatusBarPolicy(Context context, StatusBarIconController iconController,
             CastController cast, HotspotController hotspot, UserInfoController userInfoController,
@@ -168,6 +204,8 @@ public class PhoneStatusBarPolicy implements Callback, RotationLockController.Ro
         mIconController.setIconVisibility(mSlotTty, false);
 
         // bluetooth status
+        mSettingsObserver = new SettingsObserver(mHandler);
+        mSettingsObserver.observe();
         updateBluetooth();
 
         // Alarm clock
@@ -362,7 +400,8 @@ public class PhoneStatusBarPolicy implements Callback, RotationLockController.Ro
         boolean bluetoothEnabled = false;
         if (mBluetooth != null) {
             bluetoothEnabled = mBluetooth.isBluetoothEnabled();
-            if (mBluetooth.isBluetoothConnected()) {
+            mBluetoothConnected = mBluetooth.isBluetoothConnected();
+            if (mBluetoothConnected) {
                 if (mBluetoothBatteryLevel == null) {
                     iconId = R.drawable.stat_sys_data_bluetooth_connected;
                 } else {
@@ -385,7 +424,11 @@ public class PhoneStatusBarPolicy implements Callback, RotationLockController.Ro
         }
 
         mIconController.setIcon(mSlotBluetooth, iconId, contentDescription);
-        mIconController.setIconVisibility(mSlotBluetooth, bluetoothEnabled);
+        if (mBluetoothConnected) {
+            mIconController.setIconVisibility(mSlotBluetooth, true);
+        } else {
+            mIconController.setIconVisibility(mSlotBluetooth, bluetoothEnabled && mBluetoothIconVisible);    
+        }
     }
 
     private final void updateTTY(Intent intent) {
