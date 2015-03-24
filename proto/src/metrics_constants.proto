@@ -2211,6 +2211,10 @@ message MetricsEvent {
     //   SUBTYPE: sub settings classname
     ACTION_SETTING_HELP_AND_FEEDBACK = 496;
 
+    // OPEN: Settings > Sound & notification > Volume steps
+    // CATEGORY: SETTINGS
+    VOLUME_STEPS = 497;
+
     // ---- End N-MR1 Constants, all N-MR1 constants go above this line ----
 
     // ACTION: The lockscreen gets shown because the SIM card was removed
