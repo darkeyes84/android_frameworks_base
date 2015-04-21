@@ -2221,6 +2221,7 @@ message MetricsEvent {
 	QS_MUSIC = 501;
 	QS_USB_TETHER = 502;
     QS_ADB_NETWORK = 503;
+    QS_HEADS_UP = 504;
 
     // ---- End N-MR1 Constants, all N-MR1 constants go above this line ----
 
