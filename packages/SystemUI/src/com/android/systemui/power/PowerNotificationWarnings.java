@@ -43,6 +43,8 @@ import com.android.systemui.SystemUI;
 import com.android.systemui.statusbar.phone.PhoneStatusBar;
 import com.android.systemui.statusbar.phone.SystemUIDialog;
 
+import cyanogenmod.providers.CMSettings;
+
 import java.io.PrintWriter;
 import java.text.NumberFormat;
 
@@ -131,7 +133,8 @@ public class PowerNotificationWarnings implements PowerUI.WarningsUI {
         if (mInvalidCharger) {
             showInvalidChargerNotification();
             mShowing = SHOWING_INVALID_CHARGER;
-        } else if (mWarning) {
+        } else if (mWarning && (CMSettings.System.getIntForUser(mContext.getContentResolver(),
+            	    CMSettings.System.BATTERY_LOW_NOTIFICATION, 1, UserHandle.USER_CURRENT) == 1)) {
             showWarningNotification();
             mShowing = SHOWING_WARNING;
         } else {
