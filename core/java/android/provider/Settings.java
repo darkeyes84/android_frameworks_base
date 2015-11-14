@@ -3876,6 +3876,12 @@ public final class Settings {
         public static final String ONE_HAND_MODE = "one_hand_mode";
 
         /**
+         * Toast icon
+         * @hide
+         */
+        public static final String TOAST_ICON = "toast_icon";
+
+        /**
          * Navigation bar height when it is on protrait
          * @hide
          */
