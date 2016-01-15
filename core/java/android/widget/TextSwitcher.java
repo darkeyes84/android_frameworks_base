@@ -89,6 +89,16 @@ public class TextSwitcher extends ViewSwitcher {
         ((TextView)getCurrentView()).setText(text);
     }
 
+    /**
+     * Sets the color of the text view that is currently showing.
+     *
+     * @param color the text color to display
+     * @hide
+     */
+    public void setTextColor(int color) {
+        ((TextView)getCurrentView()).setTextColor(color);
+    }
+
     @Override
     public CharSequence getAccessibilityClassName() {
         return TextSwitcher.class.getName();

@@ -317,6 +317,8 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
 
     private static final String SCREEN_BRIGHTNESS_MODE =
             "system:" + Settings.System.SCREEN_BRIGHTNESS_MODE;
+    private static final String STATUS_BAR_SHOW_TICKER =
+            "system:" + Settings.System.STATUS_BAR_SHOW_TICKER;
     private static final String STATUS_BAR_BRIGHTNESS_CONTROL =
             "cmsystem:" + CMSettings.System.STATUS_BAR_BRIGHTNESS_CONTROL;
     private static final String NAVBAR_LEFT_IN_LANDSCAPE =
@@ -427,6 +429,9 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
 
     // the tracker view
     int mTrackingPosition; // the position of the top of the tracking view.
+
+    // ticker
+    private boolean mShowTicker;
 
     // Tracking finger for opening/closing.
     boolean mTracking;
@@ -818,7 +823,8 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                 SCREEN_BRIGHTNESS_MODE,
                 NAVBAR_LEFT_IN_LANDSCAPE,
                 STATUS_BAR_BRIGHTNESS_CONTROL,
-                LOCKSCREEN_MEDIA_METADATA);
+                LOCKSCREEN_MEDIA_METADATA,
+                STATUS_BAR_SHOW_TICKER);
 
         // Lastly, call to the icon policy to install/update all the icons.
         mIconPolicy = new PhoneStatusBarPolicy(mContext, mIconController, mCastController,
@@ -1702,6 +1708,8 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                 } catch (PendingIntent.CanceledException e) {
                 }
             }
+        } else {
+            tick(notification, true);
         }
         addNotificationViews(shadeEntry, ranking);
         // Recalculate the position of the sliding windows and the titles.
@@ -1802,6 +1810,9 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         if (SPEW) Log.d(TAG, "removeNotification key=" + key + " old=" + old);
 
         if (old != null) {
+            if (mShowTicker && mIconController != null) {
+                mIconController.removeTickerEntry(old);
+            }
             if (CLOSE_PANEL_WHEN_EMPTIED && !hasActiveNotifications()
                     && !mNotificationPanel.isTracking() && !mNotificationPanel.isQsExpanded()) {
                 if (mState == StatusBarState.SHADE) {
@@ -2564,6 +2575,14 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                 && mFalsingManager.isReportingEnabled() ? View.VISIBLE : View.INVISIBLE);
     }
 
+    private void updateShowTicker() {
+        mShowTicker = Settings.System.getIntForUser(mContext.getContentResolver(),
+                    Settings.System.STATUS_BAR_SHOW_TICKER, 0, UserHandle.USER_CURRENT) == 1;
+        if (mIconController != null) {
+            mIconController.updateShowTicker(mShowTicker);
+        }
+    }
+
     protected int adjustDisableFlags(int state) {
         if (!mLaunchTransitionFadingAway && !mKeyguardFadingAway
                 && (mExpandedVisible || mBouncerShowing || mWaitingForKeyguardExit)) {
@@ -2665,6 +2684,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
 
         if ((diff1 & StatusBarManager.DISABLE_NOTIFICATION_ICONS) != 0) {
             if ((state1 & StatusBarManager.DISABLE_NOTIFICATION_ICONS) != 0) {
+                haltTicker();
                 mIconController.hideNotificationIconArea(animate);
             } else {
                 mIconController.showNotificationIconArea(animate);
@@ -3364,6 +3384,12 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
 
             // update low profile
             if ((diff & View.SYSTEM_UI_FLAG_LOW_PROFILE) != 0) {
+                final boolean lightsOut = (vis & View.SYSTEM_UI_FLAG_LOW_PROFILE) != 0;
+                if (lightsOut) {
+                    haltTicker();
+                    animateCollapsePanels();
+                }
+
                 setAreThereNotifications();
             }
 
@@ -3600,6 +3626,39 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         }
 
         setNavigationIconHints(flags);
+    }
+
+    @Override
+    protected void tick(StatusBarNotification n, boolean firstTime) {
+        if (!mShowTicker || mIconController == null) return;
+
+        // no ticking in lights-out mode
+        if (!areLightsOn()) return;
+
+        // no ticking in Setup
+        if (!isDeviceProvisioned()) return;
+
+        // not for you
+        if (!isNotificationForCurrentProfiles(n)) return;
+
+        // Show the ticker if one is requested. Also don't do this
+        // until status bar window is attached to the window manager,
+        // because...  well, what's the point otherwise?  And trying to
+        // run a ticker without being attached will crash!
+        if (n.getNotification().tickerText != null && mStatusBarWindow != null
+                && mStatusBarWindow.getWindowToken() != null) {
+            if (0 == (mDisabled1 & (StatusBarManager.DISABLE_NOTIFICATION_ICONS
+                    | StatusBarManager.DISABLE_NOTIFICATION_TICKER))) {
+                mIconController.addTickerEntry(n);
+            }
+        }
+    }
+
+    @Override
+    protected void haltTicker() {
+        if (mShowTicker && mIconController != null) {
+            mIconController.haltTicker();
+        }
     }
 
     public static String viewInfo(View v) {
@@ -5584,6 +5643,8 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                 break;
             case LOCKSCREEN_MEDIA_METADATA:
                 mShowMediaMetadata = newValue == null || Integer.parseInt(newValue) == 1;
+            case STATUS_BAR_SHOW_TICKER:
+                updateShowTicker();
                 break;
             default:
                 break;
