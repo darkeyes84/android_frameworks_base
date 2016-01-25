@@ -2820,6 +2820,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
     @Override
     protected void updateHeadsUp(String key, Entry entry, boolean shouldPeek,
             boolean alertAgain) {
+        if (!mUseHeadsUp) return;
         final boolean wasHeadsUp = isHeadsUp(key);
         if (wasHeadsUp) {
             if (!shouldPeek) {
