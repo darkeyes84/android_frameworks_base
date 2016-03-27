@@ -3739,6 +3739,12 @@ public final class Settings {
         public static final String BATTERY_BAR_ANIMATE = "battery_bar_animate";
 
         /**
+         * Heads up timeout configuration
+         * @hide
+         */
+        public static final String HEADS_UP_TIMEOUT = "heads_up_timeout";
+
+        /**
          * Whether to allow fullscreen screenshots or let the user select which area to screenshot
          * @hide
          */
