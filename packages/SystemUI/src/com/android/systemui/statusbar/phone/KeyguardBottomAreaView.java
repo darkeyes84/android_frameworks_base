@@ -48,6 +48,7 @@ import android.os.Message;
 import android.os.Messenger;
 import android.os.RemoteException;
 import android.os.UserHandle;
+import android.provider.Settings;
 import android.provider.MediaStore;
 import android.service.media.CameraPrewarmService;
 import android.telecom.TelecomManager;
@@ -625,7 +626,9 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
     }
 
     private boolean canLaunchVoiceAssist() {
-        if (mAssistManager == null) {
+	    boolean leftvoicedefault = Settings.System.getInt(getContext().getContentResolver(), 
+                Settings.System.LEFT_DEFAULT_VOICE, 1) == 1;
+        if (mAssistManager == null || leftvoicedefault == false) {
             return false;
         }
         return mAssistManager.canVoiceAssistBeLaunchedFromKeyguard();
