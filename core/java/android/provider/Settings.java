@@ -3739,6 +3739,12 @@ public final class Settings {
         public static final String BATTERY_BAR_ANIMATE = "battery_bar_animate";
 
         /**
+         * Defines the global heads up notification snooze
+         * @hide
+         */
+        public static final String HEADS_UP_NOTIFICATION_SNOOZE = "heads_up_notification_snooze";
+
+        /**
          * Heads up timeout configuration
          * @hide
          */
