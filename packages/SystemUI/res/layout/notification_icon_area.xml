@@ -28,6 +28,15 @@
         android:paddingEnd="6dip"
         android:gravity="center"
         android:visibility="gone"/>
+    <TextView
+        android:id="@+id/status_bar_wifi_label"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:paddingStart="2dp"
+        android:paddingEnd="2dp"
+        android:visibility="gone"
+        android:singleLine="true"/>
     <com.android.systemui.statusbar.StatusBarIconView
         android:id="@+id/moreIcon"
         android:layout_width="@dimen/status_bar_icon_size"

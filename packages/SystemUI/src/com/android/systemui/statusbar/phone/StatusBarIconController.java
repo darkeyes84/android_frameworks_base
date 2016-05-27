@@ -40,6 +40,7 @@ import android.view.ViewGroup;
 import android.view.ViewStub;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.android.internal.statusbar.StatusBarIcon;
 import com.android.systemui.BatteryLevelTextView;
@@ -91,6 +92,7 @@ public class StatusBarIconController extends StatusBarIconList implements Tunabl
     private NetworkTraffic mNetworkTraffic;
     private Ticker mTicker;
     private View mTickerView;
+    private TextView mWifiSsidLabel;
 
     private int mIconSize;
     private int mIconHPadding;
@@ -156,6 +158,7 @@ public class StatusBarIconController extends StatusBarIconList implements Tunabl
         scaleBatteryMeterViews(context);
 
         mNetworkTraffic = (NetworkTraffic) statusBar.findViewById(R.id.networkTraffic);
+        mWifiSsidLabel = (TextView) statusBar.findViewById(R.id.status_bar_wifi_label);
         mDarkModeIconColorSingleTone = context.getColor(R.color.dark_mode_icon_color_single_tone);
         mLightModeIconColorSingleTone = context.getColor(R.color.light_mode_icon_color_single_tone);
         mHandler = new Handler();
@@ -567,6 +570,7 @@ public class StatusBarIconController extends StatusBarIconList implements Tunabl
         mClockController.setTextColor(mTintArea, mIconTint);
         mBatteryLevelView.setTextColor(getTint(mTintArea, mBatteryLevelView, mIconTint));
 	    mNetworkTraffic.setDarkIntensity(mDarkIntensity);
+	    mWifiSsidLabel.setTextColor(getTint(mTintArea, mWifiSsidLabel, mIconTint));
         if (mTicker != null && mTickerView != null) {
             mTicker.setTextColor(mIconTint);
             mTicker.setIconColorTint(mIconTint);
