@@ -2263,6 +2263,7 @@ message MetricsEvent {
 	QS_USB_TETHER = 806;
     QS_ADB_NETWORK = 807;
     QS_HEADS_UP = 808;
+    QS_EXPANDED_DESKTOP = 809;
     // Add new aosp constants above this line.
     // END OF AOSP CONSTANTS
 
