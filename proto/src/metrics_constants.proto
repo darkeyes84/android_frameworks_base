@@ -2264,6 +2264,7 @@ message MetricsEvent {
     QS_ADB_NETWORK = 807;
     QS_HEADS_UP = 808;
     QS_EXPANDED_DESKTOP = 809;
+    QS_PIE = 810;
     // Add new aosp constants above this line.
     // END OF AOSP CONSTANTS
 
