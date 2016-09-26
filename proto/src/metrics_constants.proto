@@ -2219,6 +2219,7 @@ message MetricsEvent {
 	QS_CAFFEINE = 499;
 	QS_REBOOT = 500;
 	QS_MUSIC = 501;
+	QS_USB_TETHER = 502;
 
     // ---- End N-MR1 Constants, all N-MR1 constants go above this line ----
 
