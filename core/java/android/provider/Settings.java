@@ -3831,6 +3831,12 @@ public final class Settings {
         public static final String BATTERY_LIGHT_REALLY_FULL_COLOR = "battery_light_really_full_color";
 
         /**
+         * Disable suggestions on the settings dashboard
+         * @hide
+         */
+        public static final String DISABLE_SETTINGS_SUGGESTIONS = "disable_settings_suggestions";
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
