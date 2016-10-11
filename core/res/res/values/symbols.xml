@@ -2851,4 +2851,8 @@
   <java-symbol type="bool" name="use_lock_pattern_drawable" />
   <java-symbol type="drawable" name="lockscreen_notselected" />
   <java-symbol type="drawable" name="lockscreen_selected" />
+
+  <!-- Notifications Battery Really Full -->
+  <java-symbol type="integer" name="config_notificationsBatteryReallyFullARGB" />
+
 </resources>
