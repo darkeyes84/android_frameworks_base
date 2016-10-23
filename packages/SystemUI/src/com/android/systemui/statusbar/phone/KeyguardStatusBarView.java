@@ -18,8 +18,13 @@ package com.android.systemui.statusbar.phone;
 
 import android.content.Context;
 import android.content.res.Configuration;
+import android.database.ContentObserver;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
+import android.os.Handler;
+import android.os.UserHandle;
+import android.provider.Settings;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
@@ -57,6 +62,7 @@ public class KeyguardStatusBarView extends RelativeLayout
     private boolean mBatteryCharging;
     private boolean mKeyguardUserSwitcherShowing;
     private boolean mBatteryListening;
+    private boolean mShowCarrierLabel;
 
     private TextView mCarrierLabel;
     private View mSystemIconsSuperContainer;
@@ -75,8 +81,21 @@ public class KeyguardStatusBarView extends RelativeLayout
     private boolean mShowBatteryText;
     private Boolean mForceBatteryText;
 
+    private ContentObserver mObserver = new ContentObserver(new Handler()) {
+        public void onChange(boolean selfChange, Uri uri) {
+            showStatusBarCarrier();
+            updateVisibilities();
+        }
+    };
+
     public KeyguardStatusBarView(Context context, AttributeSet attrs) {
         super(context, attrs);
+        showStatusBarCarrier();
+    }
+
+    private void showStatusBarCarrier() {
+        mShowCarrierLabel = Settings.System.getIntForUser(getContext().getContentResolver(),
+                Settings.System.KEYGUARD_SHOW_CARRIER, 0, UserHandle.USER_CURRENT) == 1;
     }
 
     @Override
@@ -184,6 +203,12 @@ public class KeyguardStatusBarView extends RelativeLayout
         } else {
             mBatteryLevel.setVisibility(
                     mBatteryCharging || mShowBatteryText ? View.VISIBLE : View.GONE);
+		}
+
+        if (!mShowCarrierLabel) {
+            mCarrierLabel.setVisibility(View.VISIBLE);
+        } else {
+            mCarrierLabel.setVisibility(View.GONE);
         }
     }
 
@@ -364,5 +389,17 @@ public class KeyguardStatusBarView extends RelativeLayout
                 break;
         }
         updateVisibilities();
+    }
+
+    @Override
+    public void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        getContext().getContentResolver().registerContentObserver(Settings.System.getUriFor(
+		        Settings.System.KEYGUARD_SHOW_CARRIER), false, mObserver);
+    }
+
+    @Override
+    public void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
     }
 }

@@ -425,6 +425,8 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
 
     int mMaxAllowedKeyguardNotifications;
 
+    private boolean mShowCarrierLabel;
+    private TextView mCarrierLabel;
     boolean mExpandedVisible;
 
     private TextView mWifiSsidLabel;
@@ -615,12 +617,33 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
             resolver.registerContentObserver(CMSettings.System.getUriFor(
                     CMSettings.System.WIFI_STATUS_BAR_SSID),
                     false, this, UserHandle.USER_ALL);
-            update();
+            resolver.registerContentObserver(CMSettings.System.getUriFor(
+                    CMSettings.System.STATUS_BAR_SHOW_CARRIER),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
         public void onChange(boolean selfChange, Uri uri) {
-            update();
+            if (uri.equals(Settings.System.getUriFor(
+                    Settings.System.QS_LAYOUT_COLUMNS))
+                    || uri.equals(Settings.System.getUriFor(
+                    Settings.System.QS_LAYOUT_COLUMNS_LANDSCAPE))
+                    || uri.equals(Settings.System.getUriFor(
+                    Settings.System.QS_LAYOUT_ROWS))
+                    || uri.equals(Settings.System.getUriFor(
+                    Settings.System.QS_LAYOUT_ROWS_LANDSCAPE))) {
+                updateQS();
+            } else if (uri.equals(CMSettings.System.getUriFor(
+                    CMSettings.System.WIFI_STATUS_BAR_SSID))) {
+                mShowWifiSsidLabel = CMSettings.System.getIntForUser(mContext.getContentResolver(),
+                    CMSettings.System.WIFI_STATUS_BAR_SSID, 0, UserHandle.USER_CURRENT) == 1;
+                updateWifiSsid(mNetworkController.getConnectedWifiSsid());
+            } else if (uri.equals(CMSettings.System.getUriFor(
+                    CMSettings.System.STATUS_BAR_SHOW_CARRIER))) {
+                mShowCarrierLabel = CMSettings.System.getIntForUser(mContext.getContentResolver(),
+                    CMSettings.System.STATUS_BAR_SHOW_CARRIER, 0, UserHandle.USER_CURRENT) == 1;
+                updateCarrier();
+            }
         }
 
         void unobserve() {
@@ -628,16 +651,13 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
             resolver.unregisterContentObserver(this);
         }
 
-        public void update() {
+        public void updateQS() {
             if (mQSPanel != null) {
                 updateResources();
             }
             if (mHeader != null) {
                 mHeader.updateSettings();
             }
-            mShowWifiSsidLabel = CMSettings.System.getIntForUser(mContext.getContentResolver(),
-                    CMSettings.System.WIFI_STATUS_BAR_SSID, 0, UserHandle.USER_CURRENT) == 1;
-            updateWifiSsid(mNetworkController.getConnectedWifiSsid());
         }
     }
 
@@ -1106,10 +1126,17 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         initSignalCluster(mKeyguardStatusBar);
         initEmergencyCryptkeeperText();
 
+        mShowCarrierLabel = CMSettings.System.getIntForUser(mContext.getContentResolver(),
+                CMSettings.System.STATUS_BAR_SHOW_CARRIER, 0, UserHandle.USER_CURRENT) == 1;
+
+        mCarrierLabel = (TextView) mStatusBarWindow.findViewById(R.id.statusbar_carrier_text);
+
+        updateCarrier();
+
         mFlashlightController = new FlashlightController(mContext);
 
-        mShowWifiSsidLabel = CMSettings.System.getInt(mContext.getContentResolver(),
-                CMSettings.System.WIFI_STATUS_BAR_SSID, 0) == 1;
+        mShowWifiSsidLabel = CMSettings.System.getIntForUser(mContext.getContentResolver(),
+                CMSettings.System.WIFI_STATUS_BAR_SSID, 0, UserHandle.USER_CURRENT) == 1;
 
         mWifiSsidLabel = (TextView) mStatusBarWindow.findViewById(R.id.status_bar_wifi_label);
 
@@ -2297,6 +2324,14 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
 
     protected boolean hasActiveClearableNotifications() {
         return mNotificationData.hasActiveClearableNotifications();
+    }
+
+    private void updateCarrier() {
+        if (mShowCarrierLabel) {
+            mCarrierLabel.setVisibility(View.VISIBLE);
+        } else {
+            mCarrierLabel.setVisibility(View.GONE);
+        }
     }
 
     @Override
@@ -4121,8 +4156,8 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
             || mWifiSsidLabel == null || mNetworkController == null) {
             return;
         }
-        mShowWifiSsidLabel = CMSettings.System.getInt(mContext.getContentResolver(),
-            CMSettings.System.WIFI_STATUS_BAR_SSID, 0) == 1;
+        mShowWifiSsidLabel = CMSettings.System.getIntForUser(mContext.getContentResolver(),
+            CMSettings.System.WIFI_STATUS_BAR_SSID, 0, UserHandle.USER_CURRENT) == 1;
         if (ssid != null) {
             ssid = ssid.replace("\"", "");
         }
@@ -4887,6 +4922,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         updateStackScrollerState(goingToFullShade, fromShadeLocked);
         updateNotifications();
         checkBarModes();
+        updateCarrier();
         updateMediaMetaData(false, mState != StatusBarState.KEYGUARD);
         mKeyguardMonitor.notifyKeyguardState(mStatusBarKeyguardViewManager.isShowing(),
                 mStatusBarKeyguardViewManager.isSecure(),

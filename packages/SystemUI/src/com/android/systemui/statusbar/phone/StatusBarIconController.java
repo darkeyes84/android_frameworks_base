@@ -93,6 +93,7 @@ public class StatusBarIconController extends StatusBarIconList implements Tunabl
     private Ticker mTicker;
     private View mTickerView;
     private TextView mWifiSsidLabel;
+    private TextView mCarrierLabel;
 
     private int mIconSize;
     private int mIconHPadding;
@@ -159,6 +160,7 @@ public class StatusBarIconController extends StatusBarIconList implements Tunabl
 
         mNetworkTraffic = (NetworkTraffic) statusBar.findViewById(R.id.networkTraffic);
         mWifiSsidLabel = (TextView) statusBar.findViewById(R.id.status_bar_wifi_label);
+        mCarrierLabel = (TextView) statusBar.findViewById(R.id.statusbar_carrier_text);
         mDarkModeIconColorSingleTone = context.getColor(R.color.dark_mode_icon_color_single_tone);
         mLightModeIconColorSingleTone = context.getColor(R.color.light_mode_icon_color_single_tone);
         mHandler = new Handler();
@@ -571,6 +573,7 @@ public class StatusBarIconController extends StatusBarIconList implements Tunabl
         mBatteryLevelView.setTextColor(getTint(mTintArea, mBatteryLevelView, mIconTint));
 	    mNetworkTraffic.setDarkIntensity(mDarkIntensity);
 	    mWifiSsidLabel.setTextColor(getTint(mTintArea, mWifiSsidLabel, mIconTint));
+        mCarrierLabel.setTextColor(getTint(mTintArea, mCarrierLabel, mIconTint));
         if (mTicker != null && mTickerView != null) {
             mTicker.setTextColor(mIconTint);
             mTicker.setIconColorTint(mIconTint);
@@ -627,6 +630,7 @@ public class StatusBarIconController extends StatusBarIconList implements Tunabl
         loadDimens();
         mNotificationIconAreaController.onDensityOrFontScaleChanged(mContext);
         updateClock();
+        updateLabels();
         updateBatteryLevelText();
         for (int i = 0; i < mStatusIcons.getChildCount(); i++) {
             View child = mStatusIcons.getChildAt(i);
@@ -653,6 +657,11 @@ public class StatusBarIconController extends StatusBarIconList implements Tunabl
                 mContext.getResources().getDimensionPixelSize(
                         R.dimen.status_bar_clock_end_padding),
                 0);
+    }
+
+    private void updateLabels() {
+        FontSizeUtils.updateFontSize(mWifiSsidLabel, R.dimen.status_bar_wifi_ssid_height);
+        FontSizeUtils.updateFontSize(mCarrierLabel, R.dimen.status_bar_carrier_height);
     }
 
     private void updateBatteryLevelText() {

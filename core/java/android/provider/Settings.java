@@ -3753,6 +3753,21 @@ public final class Settings {
         public static final String QS_LAYOUT_ROWS_LANDSCAPE = "qs_layout_rows_landscape";
 
         /**
+         * Custom carrier label. The value is
+         * String
+         * @hide
+         */
+        public static final String CUSTOM_CARRIER_LABEL = "custom_carrier_label";
+
+        /**
+         * Keyguard carrier label
+         * 0: Show
+         * 1: Hide
+         * @hide
+         */
+        public static final String KEYGUARD_SHOW_CARRIER = "keyguard_show_carrier";
+
+        /**
          * Network traffic indicator, goes from least to greatest significant bitwise
          * 0 = Display up-stream traffic if set
          * 1 = Display down-stream traffic if set
