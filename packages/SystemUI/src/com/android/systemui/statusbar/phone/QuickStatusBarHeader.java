@@ -59,6 +59,8 @@ import com.android.systemui.statusbar.policy.UserInfoController.OnUserInfoChange
 import com.android.systemui.statusbar.policy.WeatherController;
 import com.android.systemui.tuner.TunerService;
 
+import cyanogenmod.providers.CMSettings;
+
 public class QuickStatusBarHeader extends BaseStatusBarHeader implements
         NextAlarmChangeCallback, OnClickListener, OnUserInfoChangedListener, EmergencyListener,
         SignalCallback {
@@ -79,6 +81,7 @@ public class QuickStatusBarHeader extends BaseStatusBarHeader implements
 
     private boolean mExpanded;
     private boolean mAlarmShowing;
+    private boolean mNextAlarmVisible;
 
     private View mClock;
     private View mDate;
@@ -263,8 +266,10 @@ public class QuickStatusBarHeader extends BaseStatusBarHeader implements
     }
 
     private void updateAlarmVisibilities() {
-        mAlarmStatus.setVisibility(mAlarmShowing && mShowFullAlarm ? View.VISIBLE : View.INVISIBLE);
-        mAlarmStatusCollapsed.setVisibility(mAlarmShowing ? View.VISIBLE : View.INVISIBLE);
+		mNextAlarmVisible = CMSettings.System.getInt(
+            mContext.getContentResolver(), CMSettings.System.SHOW_NEXT_ALARM_ICON, 1) == 1;
+        mAlarmStatus.setVisibility(mAlarmShowing && mNextAlarmVisible && mShowFullAlarm ? View.VISIBLE : View.INVISIBLE);
+        mAlarmStatusCollapsed.setVisibility(mAlarmShowing && mNextAlarmVisible ? View.VISIBLE : View.INVISIBLE);
     }
 
     public void setListening(boolean listening) {

@@ -3710,6 +3710,12 @@ public final class Settings {
          public static final String VOLUME_KEY_CURSOR_CONTROL = "volume_key_cursor_control";
 
         /**
+         * Option to hide the next alarm on the lockscreen.
+	     * @hide
+         */
+        public static final String SHOW_NEXT_ALARM_LOCKSCREEN = "show_next_alarm_lockscreen";
+
+        /**
          * Default left lockscreen shortcut
          * @hide
          */

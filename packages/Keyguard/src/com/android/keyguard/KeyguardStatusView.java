@@ -45,6 +45,8 @@ public class KeyguardStatusView extends GridLayout {
     private final LockPatternUtils mLockPatternUtils;
     private final AlarmManager mAlarmManager;
 
+    private boolean mNextAlarmVisible;
+
     private TextView mAlarmStatusView;
     private TextClock mDateView;
     private TextClock mClockView;
@@ -150,14 +152,18 @@ public class KeyguardStatusView extends GridLayout {
     private void refresh() {
         AlarmManager.AlarmClockInfo nextAlarm =
                 mAlarmManager.getNextAlarmClock(UserHandle.USER_CURRENT);
-        Patterns.update(mContext, nextAlarm != null);
+        mNextAlarmVisible = Settings.System.getInt(mContext.getContentResolver(), 
+                Settings.System.SHOW_NEXT_ALARM_LOCKSCREEN, 1) == 1;
+        Patterns.update(mContext, nextAlarm != null && mNextAlarmVisible);
 
         refreshTime();
         refreshAlarmStatus(nextAlarm);
     }
 
     void refreshAlarmStatus(AlarmManager.AlarmClockInfo nextAlarm) {
-        if (nextAlarm != null) {
+		mNextAlarmVisible = Settings.System.getInt(mContext.getContentResolver(), 
+                Settings.System.SHOW_NEXT_ALARM_LOCKSCREEN, 1) == 1;
+        if (nextAlarm != null && mNextAlarmVisible) {
             String alarm = formatNextAlarm(mContext, nextAlarm);
             mAlarmStatusView.setText(alarm);
             mAlarmStatusView.setContentDescription(
