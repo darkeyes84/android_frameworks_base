@@ -40,6 +40,8 @@ import com.android.internal.logging.MetricsProto.MetricsEvent;
 /** Quick settings tile: Screenshot **/
 public class ScreenshotTile extends QSTile<QSTile.BooleanState> {
 
+    private boolean mRegion = false;
+
     private boolean mListening;
     private final Object mScreenshotLock = new Object();
     private ServiceConnection mScreenshotConnection = null;
@@ -49,10 +51,16 @@ public class ScreenshotTile extends QSTile<QSTile.BooleanState> {
     }
 
     @Override
+    public int getMetricsCategory() {
+        return MetricsEvent.QS_SCREENSHOT;
+    }
+
+    @Override
     public BooleanState newTileState() {
         return new BooleanState();
     }
 
+    @Override
     public void setListening(boolean listening) {
         if (mListening == listening) return;
         mListening = listening;
@@ -60,6 +68,12 @@ public class ScreenshotTile extends QSTile<QSTile.BooleanState> {
 
     @Override
     public void handleClick() {
+        mRegion = !mRegion;
+        refreshState();
+    }
+
+    @Override
+    public void handleLongClick() {
         mHost.collapsePanels();
         /* wait for the panel to close */
         try {
@@ -67,24 +81,12 @@ public class ScreenshotTile extends QSTile<QSTile.BooleanState> {
         } catch (InterruptedException ie) {
              // Do nothing
         }
-        if (Settings.System.getInt(mContext.getContentResolver(),
-                Settings.System.SCREENSHOT_TYPE, 0) == 1) {
-            takeScreenshot(2);
-        } else {
-            takeScreenshot(1);
-        }
+        takeScreenshot(mRegion ? 2 : 1);
     }
 
     @Override
     public Intent getLongClickIntent() {
-        return new Intent().setComponent(new ComponentName(
-            "com.android.gallery3d", "com.android.gallery3d.app.GalleryActivity"));
-    }
-
-    @Override
-    protected void handleUpdateState(BooleanState state, Object arg) {
-        state.label = mContext.getString(R.string.quick_settings_screenshot_label);
-        state.icon = ResourceIcon.get(R.drawable.ic_qs_screenshot);
+        return null;
     }
 
     @Override
@@ -93,8 +95,18 @@ public class ScreenshotTile extends QSTile<QSTile.BooleanState> {
     }
 
     @Override
-    public int getMetricsCategory() {
-        return MetricsEvent.QS_SCREENSHOT;
+    protected void handleUpdateState(BooleanState state, Object arg) {
+        if (mRegion) {
+            state.label = mContext.getString(R.string.quick_settings_region_screenshot_label);
+            state.icon = ResourceIcon.get(R.drawable.ic_qs_region_screenshot);
+            state.contentDescription =  mContext.getString(
+                    R.string.quick_settings_region_screenshot_label);
+        } else {
+            state.label = mContext.getString(R.string.quick_settings_screenshot_label);
+            state.icon = ResourceIcon.get(R.drawable.ic_qs_screenshot);
+            state.contentDescription =  mContext.getString(
+                    R.string.quick_settings_screenshot_label);
+        }
     }
 
     final Runnable mScreenshotTimeout = new Runnable() {
