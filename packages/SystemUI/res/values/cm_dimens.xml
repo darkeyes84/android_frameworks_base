@@ -31,4 +31,9 @@
     <dimen name="navbar_single_hand_mode_vertical_threshhold">48dp</dimen>
 
     <dimen name="recents_task_view_header_lock_button_padding">48dp</dimen>
+
+    <!-- Network traffic monitor text size -->
+    <dimen name="net_traffic_single_text_size">12dp</dimen>
+    <dimen name="net_traffic_multi_text_size">9dp</dimen>
+
 </resources>
