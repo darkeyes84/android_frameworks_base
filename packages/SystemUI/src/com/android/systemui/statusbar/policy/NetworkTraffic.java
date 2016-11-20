@@ -21,14 +21,13 @@ import android.os.Handler;
 import android.os.UserHandle;
 import android.os.Message;
 import android.os.SystemClock;
+import android.provider.Settings;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.TextView;
 
 import com.android.systemui.R;
-
-import cyanogenmod.providers.CMSettings;
 
 /*
 *
@@ -62,6 +61,7 @@ public class NetworkTraffic extends TextView {
     private int MB = KB * KB;
     private int GB = MB * KB;
     private boolean mAutoHide;
+    private boolean mHideArrow;
     private int mAutoHideThreshold;
     private int mDarkModeBackgroundColor;
     private int mDarkModeFillColor;
@@ -180,14 +180,17 @@ public class NetworkTraffic extends TextView {
 
         void observe() {
             ContentResolver resolver = mContext.getContentResolver();
-            Uri uri = CMSettings.System.getUriFor(CMSettings.System.NETWORK_TRAFFIC_STATE);
+            Uri uri = Settings.System.getUriFor(Settings.System.NETWORK_TRAFFIC_STATE);
             resolver.registerContentObserver(uri, false,
                     this, UserHandle.USER_ALL);
-            resolver.registerContentObserver(CMSettings.System
-                    .getUriFor(CMSettings.System.NETWORK_TRAFFIC_AUTOHIDE), false,
+            resolver.registerContentObserver(Settings.System
+                    .getUriFor(Settings.System.NETWORK_TRAFFIC_AUTOHIDE), false,
                     this, UserHandle.USER_ALL);
-            resolver.registerContentObserver(CMSettings.System
-                    .getUriFor(CMSettings.System.NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD), false,
+            resolver.registerContentObserver(Settings.System
+                    .getUriFor(Settings.System.NETWORK_TRAFFIC_HIDEARROW), false,
+                    this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System
+                    .getUriFor(Settings.System.NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD), false,
                     this, UserHandle.USER_ALL);
         }
 
@@ -276,15 +279,19 @@ public class NetworkTraffic extends TextView {
     private void updateSettings() {
         ContentResolver resolver = mContext.getContentResolver();
 
-        mAutoHide = CMSettings.System.getIntForUser(resolver,
-                CMSettings.System.NETWORK_TRAFFIC_AUTOHIDE, 0,
+        mAutoHide = Settings.System.getIntForUser(resolver,
+                Settings.System.NETWORK_TRAFFIC_AUTOHIDE, 0,
                 UserHandle.USER_CURRENT) == 1;
 
-        mAutoHideThreshold = CMSettings.System.getIntForUser(resolver,
-                CMSettings.System.NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD, 10,
+        mAutoHideThreshold = Settings.System.getIntForUser(resolver,
+                Settings.System.NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD, 10,
                 UserHandle.USER_CURRENT);
 
-        mState = CMSettings.System.getInt(resolver, CMSettings.System.NETWORK_TRAFFIC_STATE, 0);
+        mHideArrow = Settings.System.getIntForUser(resolver,
+                Settings.System.NETWORK_TRAFFIC_HIDEARROW, 0,
+                UserHandle.USER_CURRENT) == 1;
+
+        mState = Settings.System.getInt(resolver, Settings.System.NETWORK_TRAFFIC_STATE, 0);
 
         int mNetworkTrafficColor = mIconTint;
 
@@ -333,19 +340,23 @@ public class NetworkTraffic extends TextView {
     private void updateTrafficDrawable(int trafcolor) {
         int intTrafficDrawable;
         Drawable drawTrafficIcon = null;
-        if (isSet(mState, MASK_UP + MASK_DOWN)) {
-            intTrafficDrawable = R.drawable.stat_sys_network_traffic_updown;
-        } else if (isSet(mState, MASK_UP)) {
-            intTrafficDrawable = R.drawable.stat_sys_network_traffic_up;
-        } else if (isSet(mState, MASK_DOWN)) {
-            intTrafficDrawable = R.drawable.stat_sys_network_traffic_down;
+        if (!mHideArrow) {
+            if (isSet(mState, MASK_UP + MASK_DOWN)) {
+                intTrafficDrawable = R.drawable.stat_sys_network_traffic_updown;
+            } else if (isSet(mState, MASK_UP)) {
+                intTrafficDrawable = R.drawable.stat_sys_network_traffic_up;
+            } else if (isSet(mState, MASK_DOWN)) {
+                intTrafficDrawable = R.drawable.stat_sys_network_traffic_down;
+            } else {
+                intTrafficDrawable = 0;
+            }
+            if (intTrafficDrawable != 0) {
+                drawTrafficIcon = getResources().getDrawable(intTrafficDrawable);
+                drawTrafficIcon.setColorFilter(null);
+                drawTrafficIcon.setColorFilter(trafcolor, PorterDuff.Mode.SRC_ATOP);
+            }
         } else {
-            intTrafficDrawable = 0;
-        }
-        if (intTrafficDrawable != 0) {
-            drawTrafficIcon = getResources().getDrawable(intTrafficDrawable);
-            drawTrafficIcon.setColorFilter(null);
-            drawTrafficIcon.setColorFilter(trafcolor, PorterDuff.Mode.SRC_ATOP);
+            drawTrafficIcon = null;
         }
         setCompoundDrawablesWithIntrinsicBounds(null, null, drawTrafficIcon, null);
     }
