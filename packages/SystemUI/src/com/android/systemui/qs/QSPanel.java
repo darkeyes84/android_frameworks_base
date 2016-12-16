@@ -332,9 +332,14 @@ public class QSPanel extends LinearLayout implements Tunable, Callback {
     }
 
     private void setAnimationTile(TileRecord r) {
-        ObjectAnimator animTile = ObjectAnimator.ofFloat(r.tileView, "rotationY", 0f, 360f);
-        animTile.setDuration(2000);
-        animTile.start();
+		ObjectAnimator animTile = null;
+		boolean animQsTiles = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.ANIM_QS_TILES, 0, UserHandle.USER_CURRENT) == 1;
+        if (animQsTiles) {
+            animTile = ObjectAnimator.ofFloat(r.tileView, "rotationY", 0f, 360f);
+            animTile.setDuration(2000);
+            animTile.start();
+        }
     }
 
     protected void addTile(final QSTile<?> tile, boolean collapsedView) {

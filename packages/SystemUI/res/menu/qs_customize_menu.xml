@@ -63,6 +63,9 @@ limitations under the License.
                       android:title="@string/qs_menu_item_three" />
             </menu>
         </item>
+        <item android:id="@+id/menu_qs_anim"
+              android:title="@string/qs_menu_anim"
+              android:checkable="true" />
         <item android:id="@+id/menu_item_reset"
               android:title="@string/qs_menu_item_reset"/>
 </menu>

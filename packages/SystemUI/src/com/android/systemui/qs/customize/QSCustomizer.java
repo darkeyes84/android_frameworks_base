@@ -118,6 +118,11 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
             mRowsLandscapeSubMenu = menuRowsItemLand.getSubMenu();
         }
 
+        boolean animQsTiles = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.ANIM_QS_TILES, 0, UserHandle.USER_CURRENT) == 1;
+        MenuItem menuQsAnim = mToolbar.getMenu().findItem(R.id.menu_qs_anim);
+        menuQsAnim.setChecked(animQsTiles);
+
         mToolbar.setTitle(R.string.qs_edit);
         mDefaultColumns = Math.max(1,
                     mContext.getResources().getInteger(R.integer.quick_settings_num_columns));
@@ -284,6 +289,12 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
                 Settings.System.putIntForUser(mContext.getContentResolver(),
                         Settings.System.QS_LAYOUT_ROWS_LANDSCAPE, 3, UserHandle.USER_CURRENT);
                 break;
+            case R.id.menu_qs_anim:
+                item.setChecked(!item.isChecked());
+                Settings.System.putIntForUser(mContext.getContentResolver(),
+                        Settings.System.ANIM_QS_TILES, item.isChecked() ? 1 : 0,
+                        UserHandle.USER_CURRENT);
+                break;
             }
         return false;
     }
@@ -295,6 +306,7 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
             tiles.add(tile);
         }
         mTileAdapter.setTileSpecs(tiles);
+        MenuItem menuQsAnim = mToolbar.getMenu().findItem(R.id.menu_qs_anim);
         final Resources res = mContext.getResources();
         Settings.System.putIntForUser(mContext.getContentResolver(),
                 Settings.System.QS_LAYOUT_COLUMNS, mDefaultColumns, UserHandle.USER_CURRENT);
@@ -305,6 +317,9 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
         Settings.System.putIntForUser(mContext.getContentResolver(),
                 Settings.System.QS_LAYOUT_ROWS_LANDSCAPE,
                 Math.max(1, res.getInteger(R.integer.quick_settings_num_rows)), UserHandle.USER_CURRENT);
+        menuQsAnim.setChecked(false);
+        Settings.System.putIntForUser(mContext.getContentResolver(),
+                Settings.System.ANIM_QS_TILES, 0, UserHandle.USER_CURRENT);
     }
 
     private void setTileSpecs() {
