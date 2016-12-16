@@ -108,4 +108,7 @@
 
     <!-- Whether notify fingerprint client of successful cancelled authentication -->
     <java-symbol type="bool" name="config_notifyClientOnFingerprintCancelSuccess" />
+
+    <!-- Dynamic Navbar -->
+    <java-symbol type="color" name="input_method_navigation_guard_dynamic" />
 </resources>
