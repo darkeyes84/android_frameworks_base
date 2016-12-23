@@ -87,7 +87,7 @@ public class ScreenshotTile extends QSTile<QSTile.BooleanState> {
 
     @Override
     public int getMetricsCategory() {
-        return MetricsEvent.QUICK_SETTINGS;
+        return MetricsEvent.QS_SCREENSHOT;
     }
 
     final Runnable mScreenshotTimeout = new Runnable() {

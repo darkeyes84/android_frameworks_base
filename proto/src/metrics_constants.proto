@@ -2215,6 +2215,9 @@ message MetricsEvent {
     // CATEGORY: SETTINGS
     VOLUME_STEPS = 497;
 
+	QS_SCREENSHOT = 498;
+	QS_CAFFEINE = 499;
+
     // ---- End N-MR1 Constants, all N-MR1 constants go above this line ----
 
     // ACTION: The lockscreen gets shown because the SIM card was removed
