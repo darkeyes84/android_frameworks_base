@@ -27,6 +27,8 @@ import android.os.IBinder;
 import android.os.Message;
 import android.os.Messenger;
 import android.os.RemoteException;
+import android.os.UserHandle;
+import android.provider.Settings;
 import android.view.View;
 
 import com.android.systemui.R;
@@ -61,11 +63,16 @@ public class ScreenshotTile extends QSTile<QSTile.BooleanState> {
         mHost.collapsePanels();
         /* wait for the panel to close */
         try {
-             Thread.sleep(2000);
+             Thread.sleep(250);
         } catch (InterruptedException ie) {
              // Do nothing
         }
-        takeScreenshot();
+        if (Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.SCREENSHOT_TYPE, 0) == 1) {
+            takeScreenshot(2);
+        } else {
+            takeScreenshot(1);
+        }
     }
 
     @Override
@@ -102,7 +109,7 @@ public class ScreenshotTile extends QSTile<QSTile.BooleanState> {
         }
     };
 
-    private void takeScreenshot() {
+    private void takeScreenshot(final int screenshotType) {
         synchronized (mScreenshotLock) {
             if (mScreenshotConnection != null) {
                 return;
@@ -118,7 +125,7 @@ public class ScreenshotTile extends QSTile<QSTile.BooleanState> {
                         }
 
                         Messenger messenger = new Messenger(service);
-                        Message msg = Message.obtain(null, 1);
+                        Message msg = Message.obtain(null, screenshotType);
                         final ServiceConnection myConn = this;
                         Handler h = new Handler(mHandler.getLooper()) {
                             @Override
@@ -150,7 +157,8 @@ public class ScreenshotTile extends QSTile<QSTile.BooleanState> {
                 }
             };
 
-            if (mContext.bindService(intent, conn, mContext.BIND_AUTO_CREATE)) {
+            if (mContext.bindServiceAsUser(
+                    intent, conn, Context.BIND_AUTO_CREATE, UserHandle.CURRENT)) {
                 mScreenshotConnection = conn;
                 mHandler.postDelayed(mScreenshotTimeout, 10000);
             }
