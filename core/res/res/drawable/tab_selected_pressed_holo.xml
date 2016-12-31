@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <nine-patch android:src="@drawable/tab_selected_pressed_holo_png" android:tint="@color/accent_device_default_light" />
+    </item>
+</selector>
