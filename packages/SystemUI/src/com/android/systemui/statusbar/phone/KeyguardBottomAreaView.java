@@ -367,7 +367,7 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
                 // Display left shortcut
             }
         }
-        mLeftAffordanceView.setVisibility(visible ? View.VISIBLE : View.GONE);
+        mLeftAffordanceView.setVisibility((visible && !hideShortcuts()) ? View.VISIBLE : View.GONE);
     }
 
     private void updateCameraVisibility() {
@@ -385,7 +385,7 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
                         && getResources().getBoolean(R.bool.config_keyguardShowCameraAffordance);
             }
         }
-        mCameraImageView.setVisibility(visible ? View.VISIBLE : View.GONE);
+        mCameraImageView.setVisibility((visible && !hideShortcuts()) ? View.VISIBLE : View.GONE);
     }
 
     private void updateLeftAffordanceIcon() {
@@ -406,7 +406,7 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
             drawable = mContext.getDrawable(R.drawable.ic_phone_24dp);
             contentDescription = mContext.getString(R.string.accessibility_phone_button);
         }
-        mLeftAffordanceView.setVisibility(visible ? View.VISIBLE : View.GONE);
+        mLeftAffordanceView.setVisibility((visible && !hideShortcuts()) ? View.VISIBLE : View.GONE);
         mLeftAffordanceView.setImageDrawable(drawable);
         mLeftAffordanceView.setContentDescription(contentDescription);
         mLeftAffordanceView.setDefaultFilter(shouldGrayScale ? mGrayScaleFilter : null);
@@ -898,5 +898,14 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
     @Override
     public void onChange() {
         updateCustomShortcuts();
+    }
+
+    private boolean hideShortcuts() {
+		KeyguardUpdateMonitor updateMonitor = KeyguardUpdateMonitor.getInstance(mContext);
+        boolean canSkipBouncer = updateMonitor.getUserCanSkipBouncer(
+                KeyguardUpdateMonitor.getCurrentUser());
+        boolean secure = mLockPatternUtils.isSecure(KeyguardUpdateMonitor.getCurrentUser());
+        return secure && !canSkipBouncer && Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.LOCKSCREEN_ENABLE_POWER_MENU, 0, UserHandle.USER_CURRENT) == 1;
     }
 }

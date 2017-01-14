@@ -30,6 +30,8 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.os.PowerManager;
+import android.os.UserHandle;
+import android.provider.Settings;
 import android.util.AttributeSet;
 import android.util.MathUtils;
 import android.view.GestureDetector;
@@ -43,9 +45,11 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.android.internal.logging.MetricsLogger;
+import com.android.internal.widget.LockPatternUtils;
 import com.android.keyguard.KeyguardStatusView;
 import com.android.systemui.AutoReinflateContainer;
 import com.android.systemui.AutoReinflateContainer.InflateListener;
+import com.android.keyguard.KeyguardUpdateMonitor;
 import com.android.systemui.DejankUtils;
 import com.android.systemui.EventLogConstants;
 import com.android.systemui.EventLogTags;
@@ -217,6 +221,9 @@ public class NotificationPanelView extends PanelView implements
     private FalsingManager mFalsingManager;
     private String mLastCameraLaunchSource = KeyguardBottomAreaView.CAMERA_LAUNCH_SOURCE_AFFORDANCE;
 
+    private boolean mQsSecureExpandDisabled;
+    private LockPatternUtils mLockPatternUtils;
+
     private Runnable mHeadsUpExistenceChangedRunnable = new Runnable() {
         @Override
         public void run() {
@@ -240,6 +247,7 @@ public class NotificationPanelView extends PanelView implements
     public NotificationPanelView(Context context, AttributeSet attrs) {
         super(context, attrs);
         setWillNotDraw(!DEBUG);
+        mLockPatternUtils = new LockPatternUtils(context);
         mFalsingManager = FalsingManager.getInstance(context);
 
         mDoubleTapGesture = new GestureDetector(mContext, new GestureDetector.SimpleOnGestureListener() {
@@ -556,7 +564,7 @@ public class NotificationPanelView extends PanelView implements
     }
 
     public void setQsExpansionEnabled(boolean qsExpansionEnabled) {
-        mQsExpansionEnabled = qsExpansionEnabled;
+        mQsExpansionEnabled = qsExpansionEnabled && !isQsSecureExpandDisabled();
         mQsContainer.setHeaderClickable(qsExpansionEnabled);
     }
 
@@ -605,6 +613,15 @@ public class NotificationPanelView extends PanelView implements
             mQsExpandImmediate = true;
         }
         expand(true /* animate */);
+    }
+
+    private boolean isQsSecureExpandDisabled() {
+        final boolean keyguardOrShadeShowing = mStatusBarState == StatusBarState.KEYGUARD
+                || mStatusBarState == StatusBarState.SHADE_LOCKED;
+        mQsSecureExpandDisabled = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.LOCKSCREEN_ENABLE_POWER_MENU, 0, UserHandle.USER_CURRENT) == 1;
+        return mLockPatternUtils.isSecure(KeyguardUpdateMonitor.getCurrentUser()) && mQsSecureExpandDisabled
+                && keyguardOrShadeShowing;
     }
 
     @Override
@@ -921,7 +938,7 @@ public class NotificationPanelView extends PanelView implements
                 showQsOverride = true;
         }
 
-        return twoFingerDrag || showQsOverride || stylusButtonClickDrag || mouseButtonClickDrag;
+        return !isQsSecureExpandDisabled() && (twoFingerDrag || showQsOverride || stylusButtonClickDrag || mouseButtonClickDrag);
     }
 
     private void handleQsDown(MotionEvent event) {
@@ -1097,6 +1114,7 @@ public class NotificationPanelView extends PanelView implements
         mStatusBarState = statusBarState;
         mKeyguardShowing = keyguardShowing;
         mQsContainer.setKeyguardShowing(mKeyguardShowing);
+        mQsContainer.setSecureExpandDisabled(isQsSecureExpandDisabled());
 
         if (oldState == StatusBarState.KEYGUARD
                 && (goingToFullShade || statusBarState == StatusBarState.SHADE_LOCKED)) {
