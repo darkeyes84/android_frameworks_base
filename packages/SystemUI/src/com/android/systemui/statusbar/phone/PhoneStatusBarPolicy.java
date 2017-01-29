@@ -131,8 +131,6 @@ public class PhoneStatusBarPolicy implements Callback, RotationLockController.Ro
 
         @Override
         public void onChange(boolean selfChange, Uri uri) {
-            mBluetoothIconVisible = CMSettings.System.getInt(mContext.getContentResolver(),
-                    CMSettings.System.SHOW_BLUETOOTH_ICON, 1) == 1;
             updateBluetooth();
         }
 
@@ -401,6 +399,8 @@ public class PhoneStatusBarPolicy implements Callback, RotationLockController.Ro
         if (mBluetooth != null) {
             bluetoothEnabled = mBluetooth.isBluetoothEnabled();
             mBluetoothConnected = mBluetooth.isBluetoothConnected();
+            mBluetoothIconVisible = CMSettings.System.getInt(mContext.getContentResolver(),
+                    CMSettings.System.SHOW_BLUETOOTH_ICON, 1) == 1;
             if (mBluetoothConnected) {
                 if (mBluetoothBatteryLevel == null) {
                     iconId = R.drawable.stat_sys_data_bluetooth_connected;
