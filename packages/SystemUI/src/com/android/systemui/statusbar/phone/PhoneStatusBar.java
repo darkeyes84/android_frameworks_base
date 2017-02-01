@@ -329,6 +329,10 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
             Settings.System.QS_LAYOUT_COLUMNS;
     private static final String QS_LAYOUT_COLUMNS_LANDSCAPE =
             Settings.System.QS_LAYOUT_COLUMNS_LANDSCAPE;
+    private static final String QS_LAYOUT_ROWS =
+            Settings.System.QS_LAYOUT_ROWS;
+    private static final String QS_LAYOUT_ROWS_LANDSCAPE =
+            Settings.System.QS_LAYOUT_ROWS_LANDSCAPE;
 
     static {
         boolean onlyCoreApps;
@@ -830,7 +834,9 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                 LOCKSCREEN_MEDIA_METADATA,
                 STATUS_BAR_SHOW_TICKER,
                 QS_LAYOUT_COLUMNS,
-                QS_LAYOUT_COLUMNS_LANDSCAPE);
+                QS_LAYOUT_COLUMNS_LANDSCAPE,
+                QS_LAYOUT_ROWS,
+                QS_LAYOUT_ROWS_LANDSCAPE);
 
         // Lastly, call to the icon policy to install/update all the icons.
         mIconPolicy = new PhoneStatusBarPolicy(mContext, mIconController, mCastController,
@@ -5654,6 +5660,8 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                 break;
             case QS_LAYOUT_COLUMNS:
             case QS_LAYOUT_COLUMNS_LANDSCAPE:
+            case QS_LAYOUT_ROWS:
+            case QS_LAYOUT_ROWS_LANDSCAPE:
                 updateResources();
                 break;
             default:
