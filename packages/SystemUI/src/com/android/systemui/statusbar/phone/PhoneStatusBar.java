@@ -325,14 +325,6 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
             "cmsystem:" + CMSettings.System.NAVBAR_LEFT_IN_LANDSCAPE;
     private static final String LOCKSCREEN_MEDIA_METADATA =
             "cmsecure:" + CMSettings.Secure.LOCKSCREEN_MEDIA_METADATA;
-    private static final String QS_LAYOUT_COLUMNS =
-            Settings.System.QS_LAYOUT_COLUMNS;
-    private static final String QS_LAYOUT_COLUMNS_LANDSCAPE =
-            Settings.System.QS_LAYOUT_COLUMNS_LANDSCAPE;
-    private static final String QS_LAYOUT_ROWS =
-            Settings.System.QS_LAYOUT_ROWS;
-    private static final String QS_LAYOUT_ROWS_LANDSCAPE =
-            Settings.System.QS_LAYOUT_ROWS_LANDSCAPE;
 
     static {
         boolean onlyCoreApps;
@@ -591,6 +583,50 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         }
     };
 
+    class SettingsObserver extends ContentObserver {
+        SettingsObserver(Handler handler) {
+            super(handler);
+        }
+
+        void observe() {
+
+            ContentResolver resolver = mContext.getContentResolver();
+
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.QS_LAYOUT_COLUMNS),
+                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.QS_LAYOUT_COLUMNS_LANDSCAPE),
+                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.QS_LAYOUT_ROWS),
+                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.QS_LAYOUT_ROWS_LANDSCAPE),
+                    false, this, UserHandle.USER_ALL);
+            update();
+        }
+
+        @Override
+        public void onChange(boolean selfChange, Uri uri) {
+            update();
+        }
+
+        void unobserve() {
+            ContentResolver resolver = mContext.getContentResolver();
+            resolver.unregisterContentObserver(this);
+        }
+
+        public void update() {
+            if (mQSPanel != null) {
+                updateResources();
+            }
+            if (mHeader != null) {
+                mHeader.updateSettings();
+            }
+        }
+    }
+
     private int mInteractingWindows;
     private boolean mAutohideSuspended;
     private int mStatusBarMode;
@@ -832,11 +868,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                 NAVBAR_LEFT_IN_LANDSCAPE,
                 STATUS_BAR_BRIGHTNESS_CONTROL,
                 LOCKSCREEN_MEDIA_METADATA,
-                STATUS_BAR_SHOW_TICKER,
-                QS_LAYOUT_COLUMNS,
-                QS_LAYOUT_COLUMNS_LANDSCAPE,
-                QS_LAYOUT_ROWS,
-                QS_LAYOUT_ROWS_LANDSCAPE);
+                STATUS_BAR_SHOW_TICKER);
 
         // Lastly, call to the icon policy to install/update all the icons.
         mIconPolicy = new PhoneStatusBarPolicy(mContext, mIconController, mCastController,
@@ -870,6 +902,9 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
 
         mScreenPinningRequest = new ScreenPinningRequest(mContext);
         mFalsingManager = FalsingManager.getInstance(mContext);
+
+        SettingsObserver observer = new SettingsObserver(mHandler);
+        observer.observe();
     }
 
     protected void createIconController() {
@@ -5657,12 +5692,6 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                 mShowMediaMetadata = newValue == null || Integer.parseInt(newValue) == 1;
             case STATUS_BAR_SHOW_TICKER:
                 updateShowTicker();
-                break;
-            case QS_LAYOUT_COLUMNS:
-            case QS_LAYOUT_COLUMNS_LANDSCAPE:
-            case QS_LAYOUT_ROWS:
-            case QS_LAYOUT_ROWS_LANDSCAPE:
-                updateResources();
                 break;
             default:
                 break;
