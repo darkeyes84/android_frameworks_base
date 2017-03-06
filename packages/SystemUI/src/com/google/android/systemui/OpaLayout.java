@@ -5,6 +5,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.SystemClock;
+import android.os.UserHandle;
 import android.os.UserManager;
 import android.util.ArraySet;
 import android.util.AttributeSet;
@@ -21,6 +22,8 @@ import com.android.systemui.Interpolators;
 import com.android.systemui.R;
 import com.android.systemui.statusbar.phone.ButtonDispatcher;
 import com.android.systemui.statusbar.policy.KeyButtonView;
+
+import cyanogenmod.providers.CMSettings;
 
 public class OpaLayout extends FrameLayout implements ButtonDispatcher.ButtonInterface{
 
@@ -567,8 +570,10 @@ public class OpaLayout extends FrameLayout implements ButtonDispatcher.ButtonInt
     }
 
     public void setOpaEnabled(boolean enabled) {
-        final boolean b2 = enabled || UserManager.isDeviceInDemoMode(getContext());
-        mOpaEnabled = true;
+        final boolean opaToggle = CMSettings.System.getIntForUser(getContext().getContentResolver(),
+            CMSettings.System.PIXEL_NAV_ANIMATION, 1, UserHandle.USER_CURRENT) == 1;
+        final boolean b2 = (enabled || UserManager.isDeviceInDemoMode(getContext())) && opaToggle;
+        mOpaEnabled = b2;
         int visibility;
         if (b2) {
             visibility = View.VISIBLE;
