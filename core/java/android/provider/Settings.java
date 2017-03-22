@@ -3808,6 +3808,12 @@ public final class Settings {
         public static final String LEFT_DEFAULT_VOICE = "left_default_voice";
 
         /**
+         * Option to disable one hand mode
+         * @hide
+         */
+        public static final String ONE_HAND_MODE = "one_hand_mode";
+
+        /**
          * Navigation bar height when it is on protrait
          * @hide
          */
