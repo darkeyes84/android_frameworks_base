@@ -74,6 +74,12 @@ public class BarTransitions {
         return mMode;
     }
 
+    public void setWarningColor(int color) {
+        if (mBarBackground != null) {
+            mBarBackground.setWarningColor(color);
+        }
+    }
+
     /**
      * @param alwaysOpaque if {@code true}, the bar's background will always be opaque, regardless
      *         of what mode it is currently set to.
@@ -95,7 +101,7 @@ public class BarTransitions {
         if (isAlwaysOpaque() && (mode == MODE_LIGHTS_OUT_TRANSPARENT)) {
             mode = MODE_LIGHTS_OUT;
         }
-        if (mMode == mode) return;
+        if (mMode == mode && mode != MODE_WARNING) return;
         int oldMode = mMode;
         mMode = mode;
         if (DEBUG) Log.d(mTag, String.format("%s -> %s animate=%s",
@@ -138,7 +144,7 @@ public class BarTransitions {
         private final int mOpaque;
         private final int mSemiTransparent;
         private final int mTransparent;
-        private final int mWarning;
+        private int mWarning;
         private final Drawable mGradient;
 
         private int mMode = -1;
@@ -208,8 +214,14 @@ public class BarTransitions {
             mGradient.setBounds(bounds);
         }
 
+        public void setWarningColor(int color) {
+            if (!DEBUG_COLORS) {
+                mWarning = color;
+            }
+        }
+
         public void applyModeBackground(int oldMode, int newMode, boolean animate) {
-            if (mMode == newMode) return;
+            if (mMode == newMode && newMode != MODE_WARNING) return;
             mMode = newMode;
             mAnimating = animate;
             if (animate) {

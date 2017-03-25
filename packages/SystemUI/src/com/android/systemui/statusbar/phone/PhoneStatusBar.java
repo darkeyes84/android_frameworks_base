@@ -433,6 +433,8 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
     private boolean mShowWifiSsidLabel;
     private NetworkControllerImpl mWifiController;
 
+    private boolean mBatterySaverWarningColor;
+
     private int mNavigationBarWindowState = WINDOW_STATE_SHOWING;
 
     private int mStatusBarHeaderHeight;
@@ -620,6 +622,9 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
             resolver.registerContentObserver(CMSettings.System.getUriFor(
                     CMSettings.System.STATUS_BAR_SHOW_CARRIER),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(CMSettings.System.getUriFor(
+                    CMSettings.System.BATTERY_SAVER_MODE_COLOR),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -643,6 +648,11 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                 mShowCarrierLabel = CMSettings.System.getIntForUser(mContext.getContentResolver(),
                     CMSettings.System.STATUS_BAR_SHOW_CARRIER, 0, UserHandle.USER_CURRENT) == 1;
                 updateCarrier();
+            } else if (uri.equals(CMSettings.System.getUriFor(
+                    CMSettings.System.BATTERY_SAVER_MODE_COLOR))) {
+                mBatterySaverWarningColor = CMSettings.System.getIntForUser(mContext.getContentResolver(),
+                    CMSettings.System.BATTERY_SAVER_MODE_COLOR, 1, UserHandle.USER_CURRENT) == 1;
+                checkBarModes();
             }
         }
 
@@ -1145,6 +1155,11 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
             mWifiController.addSignalCallback(mWifiCallback);
         }
         updateWifiSsid(mNetworkController.getConnectedWifiSsid());
+
+        mBatterySaverWarningColor = CMSettings.System.getIntForUser(context.getContentResolver(),
+                CMSettings.System.BATTERY_SAVER_MODE_COLOR, 1, UserHandle.USER_CURRENT) == 1;
+
+        checkBarModes();
 
         mKeyguardBottomArea.setFlashlightController(mFlashlightController);
         mKeyguardBottomArea.setPhoneStatusBar(this);
@@ -3622,6 +3637,8 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         if (powerSave && getBarState() == StatusBarState.SHADE) {
             mode = MODE_WARNING;
         }
+        transitions.setWarningColor(mBatterySaverWarningColor ? mContext.getResources()
+                .getColor(com.android.internal.R.color.battery_saver_mode_color) : 0);
         transitions.transitionTo(mode, anim);
     }
 
