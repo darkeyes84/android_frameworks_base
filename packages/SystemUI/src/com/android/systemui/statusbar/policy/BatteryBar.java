@@ -50,6 +50,7 @@ public class BatteryBar extends RelativeLayout implements Animatable {
     private boolean mBatteryCharging = false;
     private boolean shouldAnimateCharging = true;
     private boolean isAnimating = false;
+    private int mColor = 0xFFFFFFFF;
 
     private Handler mHandler = new Handler();
 
@@ -201,7 +202,7 @@ public class BatteryBar extends RelativeLayout implements Animatable {
             stop();
         }
         setProgress(mBatteryLevel);
-        mCharger.setBackgroundColor(0xFFFFFFFF);
+        mCharger.setBackgroundColor((mBatteryLevel > 15) ? mColor : 0xFFFF0000);
     }
 
     private void setProgress(int n) {
@@ -219,8 +220,7 @@ public class BatteryBar extends RelativeLayout implements Animatable {
             params.width = w;
             mBatteryBarLayout.setLayoutParams(params);
         }
-        mBatteryBar.setBackgroundColor(mBatteryCharging ? 0xFFFFFFFF :
-                (n > 15 ? 0xFFFFFFFF : 0xFFFF0000));
+        mBatteryBar.setBackgroundColor((n > 15) ? mColor : 0xFFFF0000);
     }
 
     @Override
@@ -260,4 +260,9 @@ public class BatteryBar extends RelativeLayout implements Animatable {
         return isAnimating;
     }
 
+    public void setDarkIntensity(int darkColor) {
+		mColor = darkColor;
+		mCharger.setBackgroundColor((mBatteryLevel > 15) ? darkColor : 0xFFFF0000);
+        mBatteryBar.setBackgroundColor((mBatteryLevel > 15) ? darkColor : 0xFFFF0000);
+    }
 }

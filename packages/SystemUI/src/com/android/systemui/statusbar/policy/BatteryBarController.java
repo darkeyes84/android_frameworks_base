@@ -16,6 +16,7 @@
 
 package com.android.systemui.statusbar.policy;
 
+import android.animation.ArgbEvaluator;
 import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -34,12 +35,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import com.android.systemui.R;
+
 public class BatteryBarController extends LinearLayout {
 
     private static final String TAG = "BatteryBarController";
 
-    BatteryBar mainBar;
-    BatteryBar alternateStyleBar;
+    BatteryBar mBar;
 
     public static final int STYLE_REGULAR = 0;
     public static final int STYLE_SYMMETRIC = 1;
@@ -52,6 +54,8 @@ public class BatteryBarController extends LinearLayout {
 
     private int mBatteryLevel = 0;
     private boolean mBatteryCharging = false;
+    private int mDarkModeFillColor;
+    private int mLightModeFillColor;
 
     boolean isAttached = false;
     boolean isVertical = false;
@@ -85,6 +89,8 @@ public class BatteryBarController extends LinearLayout {
             String ns = "http://schemas.android.com/apk/res/com.android.systemui";
             mLocationToLookFor = attrs.getAttributeIntValue(ns, "viewLocation", 0);
         }
+        mDarkModeFillColor = context.getColor(R.color.dark_mode_icon_color_dual_tone_fill);
+        mLightModeFillColor = context.getColor(R.color.light_mode_icon_color_dual_tone_fill);
     }
 
     @Override
@@ -155,16 +161,11 @@ public class BatteryBarController extends LinearLayout {
             params.height = pixels;
         setLayoutParams(params);
 
-        if (isVertical)
-            params.width = pixels;
-        else
-            params.height = pixels;
-        setLayoutParams(params);
         mBatteryLevel = Prefs.getLastBatteryLevel(getContext());
         if (mStyle == STYLE_REGULAR) {
-            addView(new BatteryBar(mContext, mBatteryCharging, mBatteryLevel, isVertical),
-                    new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT,
-                            LayoutParams.MATCH_PARENT, 1));
+			mBar = new BatteryBar(mContext, mBatteryCharging, mBatteryLevel, isVertical);
+            addView(mBar, new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT,
+                    LayoutParams.MATCH_PARENT, 1));
         } else if (mStyle == STYLE_SYMMETRIC) {
             BatteryBar bar1 = new BatteryBar(mContext, mBatteryCharging, mBatteryLevel, isVertical);
             BatteryBar bar2 = new BatteryBar(mContext, mBatteryCharging, mBatteryLevel, isVertical);
@@ -182,7 +183,6 @@ public class BatteryBarController extends LinearLayout {
                 addView(bar2, (new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT,
                         LayoutParams.MATCH_PARENT, 1)));
             }
-
         }
     }
 
@@ -208,5 +208,15 @@ public class BatteryBarController extends LinearLayout {
 
     protected boolean isLocationValid(int location) {
         return mLocationToLookFor == location;
+    }
+
+    private int getColorForDarkIntensity(float darkIntensity, int lightColor, int darkColor) {
+        return (int) ArgbEvaluator.getInstance().evaluate(darkIntensity, lightColor, darkColor);
+    }
+
+    public void setDarkIntensity(float darkIntensity) {
+        int darkColor = getColorForDarkIntensity(
+                darkIntensity, mLightModeFillColor, mDarkModeFillColor);
+        if (mBar != null) mBar.setDarkIntensity(darkColor);
     }
 }

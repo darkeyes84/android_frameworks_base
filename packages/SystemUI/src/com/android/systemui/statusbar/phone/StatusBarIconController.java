@@ -52,6 +52,7 @@ import com.android.systemui.SystemUIFactory;
 import com.android.systemui.statusbar.NotificationData;
 import com.android.systemui.statusbar.phone.ClockController;
 import com.android.systemui.statusbar.policy.NetworkTraffic;
+import com.android.systemui.statusbar.policy.BatteryBarController;
 import com.android.systemui.statusbar.SignalClusterView;
 import com.android.systemui.statusbar.StatusBarIconView;
 import com.android.systemui.tuner.TunerService;
@@ -90,6 +91,7 @@ public class StatusBarIconController extends StatusBarIconList implements Tunabl
     private ClockController mClockController;
     private View mCenterClockLayout;
     private NetworkTraffic mNetworkTraffic;
+    private BatteryBarController mBatteryBarController;
     private Ticker mTicker;
     private View mTickerView;
     private TextView mWifiSsidLabel;
@@ -159,6 +161,7 @@ public class StatusBarIconController extends StatusBarIconList implements Tunabl
         scaleBatteryMeterViews(context);
 
         mNetworkTraffic = (NetworkTraffic) statusBar.findViewById(R.id.networkTraffic);
+        mBatteryBarController = (BatteryBarController) statusBar.findViewById(R.id.batteryBarController);
         mWifiSsidLabel = (TextView) statusBar.findViewById(R.id.status_bar_wifi_label);
         mCarrierLabel = (TextView) statusBar.findViewById(R.id.statusbar_carrier_text);
         mDarkModeIconColorSingleTone = context.getColor(R.color.dark_mode_icon_color_single_tone);
@@ -572,6 +575,7 @@ public class StatusBarIconController extends StatusBarIconList implements Tunabl
         mClockController.setTextColor(mTintArea, mIconTint);
         mBatteryLevelView.setTextColor(getTint(mTintArea, mBatteryLevelView, mIconTint));
 	    mNetworkTraffic.setDarkIntensity(mDarkIntensity);
+	    mBatteryBarController.setDarkIntensity(mDarkIntensity);
 	    mWifiSsidLabel.setTextColor(getTint(mTintArea, mWifiSsidLabel, mIconTint));
         mCarrierLabel.setTextColor(getTint(mTintArea, mCarrierLabel, mIconTint));
         if (mTicker != null && mTickerView != null) {
