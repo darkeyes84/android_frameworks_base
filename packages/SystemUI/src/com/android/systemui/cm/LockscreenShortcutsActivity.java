@@ -6,6 +6,7 @@ import com.android.systemui.cm.LockscreenShortcutsHelper.Shortcuts;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.ColorStateList;
@@ -14,6 +15,7 @@ import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -135,6 +137,8 @@ public class LockscreenShortcutsActivity extends Activity implements View.OnClic
     }
 
     private void updateDrawables() {
+		boolean leftvoicedefault = Settings.System.getInt(getContentResolver(), 
+                Settings.System.LEFT_DEFAULT_VOICE, 1) == 1;
         for (int i = 0; i < sIconIds.length; i++) {
             int id = sIconIds[i];
             ImageView v = (ImageView) findViewById(id);
@@ -149,7 +153,7 @@ public class LockscreenShortcutsActivity extends Activity implements View.OnClic
                 drawable = mShortcutHelper.getDrawableForTarget(shortcut);
                 if (drawable == null) {
                     drawable = getResources().getDrawable(shortcut == Shortcuts.LEFT_SHORTCUT
-                            ? R.drawable.ic_mic_26dp : R.drawable.ic_camera_alt_24dp);
+                            ? (leftvoicedefault ? R.drawable.ic_mic_26dp : R.drawable.ic_phone_24dp) : R.drawable.ic_camera_alt_24dp);
                     v.setImageTintList(mDefaultTintList);
                 } else {
                     v.setColorFilter(mFilter);
