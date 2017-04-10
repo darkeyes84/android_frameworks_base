@@ -429,6 +429,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
     private boolean mShowCarrierLabel;
     private TextView mCarrierLabel;
     boolean mExpandedVisible;
+    boolean mIsWiFiLabelShowing;
 
     private TextView mWifiSsidLabel;
     private boolean mShowWifiSsidLabel;
@@ -628,6 +629,9 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
             resolver.registerContentObserver(CMSettings.System.getUriFor(
                     CMSettings.System.BATTERY_SAVER_MODE_COLOR),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(CMSettings.System.getUriFor(
+                    CMSettings.System.HIDE_CARRIER_LABEL_WITH_WIFI),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -656,6 +660,9 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                 mBatterySaverWarningColor = CMSettings.System.getIntForUser(mContext.getContentResolver(),
                     CMSettings.System.BATTERY_SAVER_MODE_COLOR, 1, UserHandle.USER_CURRENT) == 1;
                 checkBarModes();
+            } else if (uri.equals(CMSettings.System.getUriFor(
+                    CMSettings.System.HIDE_CARRIER_LABEL_WITH_WIFI))) {
+				updateCarrier();
             }
         }
 
@@ -2350,8 +2357,15 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
     }
 
     private void updateCarrier() {
+		boolean hideCarrierLabelWithWifi = CMSettings.System.getIntForUser(
+		        mContext.getContentResolver(), CMSettings.System.HIDE_CARRIER_LABEL_WITH_WIFI,
+		        0, UserHandle.USER_CURRENT) == 1;
         if (mShowCarrierLabel) {
-            mCarrierLabel.setVisibility(View.VISIBLE);
+			if (mIsWiFiLabelShowing && hideCarrierLabelWithWifi) {
+				mCarrierLabel.setVisibility(View.GONE);
+			} else {
+                mCarrierLabel.setVisibility(View.VISIBLE);
+            }
         } else {
             mCarrierLabel.setVisibility(View.GONE);
         }
@@ -4189,9 +4203,13 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         if (mShowWifiSsidLabel && !TextUtils.isEmpty(ssid)) {
             mWifiSsidLabel.setText(ssid);
             mWifiSsidLabel.setVisibility(View.VISIBLE);
+            mIsWiFiLabelShowing = true;
+            updateCarrier();
         } else {
             mWifiSsidLabel.setText("");
             mWifiSsidLabel.setVisibility(View.GONE);
+            mIsWiFiLabelShowing = false;
+            updateCarrier();
         }
     }
 
