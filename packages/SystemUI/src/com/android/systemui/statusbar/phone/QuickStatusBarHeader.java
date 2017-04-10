@@ -18,16 +18,19 @@ package com.android.systemui.statusbar.phone;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
+import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.database.ContentObserver;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.RippleDrawable;
 import android.graphics.drawable.TransitionDrawable;
 import android.net.Uri;
+import android.os.Handler;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.provider.AlarmClock;
@@ -127,6 +130,9 @@ public class QuickStatusBarHeader extends BaseStatusBarHeader implements
 
     public QuickStatusBarHeader(Context context, AttributeSet attrs) {
         super(context, attrs);
+        Handler mHandler = new Handler();
+        SettingsObserver settingsObserver = new SettingsObserver(mHandler);
+        settingsObserver.observe();
     }
 
     @Override
@@ -176,6 +182,25 @@ public class QuickStatusBarHeader extends BaseStatusBarHeader implements
         mBackgroundImage = (ImageView) findViewById(R.id.background_image);
 
         updateResources();
+    }
+
+    class SettingsObserver extends ContentObserver {
+        SettingsObserver(Handler handler) {
+            super(handler);
+        }
+
+        void observe() {
+			ContentResolver resolver = mContext.getContentResolver();
+			
+            resolver.registerContentObserver(Settings.System
+                    .getUriFor(Settings.System.STATUS_BAR_CUSTOM_HEADER_SHADOW), false,
+                    this, UserHandle.USER_ALL);
+        }
+
+        @Override
+        public void onChange(boolean selfChange) {
+            applyHeaderBackgroundShadow();
+        }
     }
 
     @Override
