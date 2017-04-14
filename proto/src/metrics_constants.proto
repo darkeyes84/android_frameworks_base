@@ -2211,18 +2211,6 @@ message MetricsEvent {
     //   SUBTYPE: sub settings classname
     ACTION_SETTING_HELP_AND_FEEDBACK = 496;
 
-    // OPEN: Settings > Sound & notification > Volume steps
-    // CATEGORY: SETTINGS
-    VOLUME_STEPS = 497;
-
-	QS_SCREENSHOT = 498;
-	QS_CAFFEINE = 499;
-	QS_REBOOT = 500;
-	QS_MUSIC = 501;
-	QS_USB_TETHER = 502;
-    QS_ADB_NETWORK = 503;
-    QS_HEADS_UP = 504;
-
     // ---- End N-MR1 Constants, all N-MR1 constants go above this line ----
 
     // ACTION: The lockscreen gets shown because the SIM card was removed
@@ -2264,6 +2252,17 @@ message MetricsEvent {
     // CATEGORY: QUICK_SETTINGS
     QS_NFC = 800;
 
+    // OPEN: Settings > Sound & notification > Volume steps
+    // CATEGORY: SETTINGS
+    VOLUME_STEPS = 801;
+
+	QS_SCREENSHOT = 802;
+	QS_CAFFEINE = 803;
+	QS_REBOOT = 804;
+	QS_MUSIC = 805;
+	QS_USB_TETHER = 806;
+    QS_ADB_NETWORK = 807;
+    QS_HEADS_UP = 808;
     // Add new aosp constants above this line.
     // END OF AOSP CONSTANTS
 
