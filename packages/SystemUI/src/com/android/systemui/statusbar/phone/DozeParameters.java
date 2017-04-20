@@ -18,6 +18,7 @@ package com.android.systemui.statusbar.phone;
 
 import android.content.Context;
 import android.os.SystemProperties;
+import android.provider.Settings;
 import android.os.UserHandle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -145,6 +146,13 @@ public class DozeParameters {
         return sPickupSubtypePerformsProxMatcher.isIn(subType);
     }
 
+    public int getDozeBrightness() {
+        final int dozeBrightnessDefault = mContext.getResources().getInteger(
+                    com.android.internal.R.integer.config_screenBrightnessDoze);
+        return Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.DOZE_SCREEN_BRIGHTNESS, dozeBrightnessDefault,
+                    UserHandle.USER_CURRENT);
+    }
 
     /**
      * Parses a spec of the form `1,2,3,!5,*`. The resulting object will match numbers that are
