@@ -16,6 +16,10 @@
 
 package com.android.systemui.qs;
 
+import android.animation.Animator;
+import android.animation.Animator.AnimatorListener;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.ObjectAnimator;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.res.Configuration;
@@ -327,6 +331,12 @@ public class QSPanel extends LinearLayout implements Tunable, Callback {
         return mExpanded;
     }
 
+    private void setAnimationTile(TileRecord r) {
+        ObjectAnimator animTile = ObjectAnimator.ofFloat(r.tileView, "rotationY", 0f, 360f);
+        animTile.setDuration(2000);
+        animTile.start();
+    }
+
     protected void addTile(final QSTile<?> tile, boolean collapsedView) {
         final TileRecord r = new TileRecord();
         r.tile = tile;
@@ -375,12 +385,14 @@ public class QSPanel extends LinearLayout implements Tunable, Callback {
             @Override
             public void onClick(View v) {
                 onTileClick(r.tile);
+                setAnimationTile(r);
             }
         };
         final View.OnLongClickListener longClick = new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
                 r.tile.longClick();
+                setAnimationTile(r);
                 return true;
             }
         };
