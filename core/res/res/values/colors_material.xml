@@ -24,21 +24,21 @@
     <color name="background_floating_material_dark">@color/material_grey_800</color>
     <color name="background_floating_material_light">@color/white</color>
 
-    <color name="primary_material_dark">@color/material_grey_900</color>
+    <color name="primary_material_dark">#ff2d2d2d</color>
     <color name="primary_material_light">@color/material_grey_100</color>
-    <color name="primary_material_settings">@color/material_grey_900</color>
-    <color name="primary_dark_material_dark">@color/black</color>
+    <color name="primary_material_settings">@color/primary_material_dark</color>
+    <color name="primary_dark_material_dark">#ff242424</color>
     <color name="primary_dark_material_light">@color/material_grey_600</color>
     <color name="primary_dark_material_light_light_status_bar">@color/material_grey_300</color>
-    <color name="primary_dark_material_settings">@color/black</color>
+    <color name="primary_dark_material_settings">@color/primary_dark_material_dark</color>
 
-    <color name="secondary_material_settings">@color/material_blue_grey_800</color>
-    <color name="tertiary_material_settings">@color/material_blue_grey_700</color>
-    <color name="quaternary_material_settings">@color/material_blue_grey_200</color>
+    <color name="secondary_material_settings">#ff3a3a3a</color>
+    <color name="tertiary_material_settings">#ff616161</color>
+    <color name="quaternary_material_settings">#ff9e9e9e</color>
 
     <color name="accent_material_700">@color/material_deep_teal_700</color>
-    <color name="accent_material_light">@color/material_deep_teal_500</color>
-    <color name="accent_material_dark">@color/material_deep_teal_200</color>
+    <color name="accent_material_light">#ff4285f4</color>
+    <color name="accent_material_dark">#ff5e97f6</color>
     <color name="accent_material_50">@color/material_deep_teal_50</color>
 
     <color name="button_material_dark">#ff5a595b</color>
