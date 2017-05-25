@@ -991,6 +991,7 @@ public final class PowerManagerService extends SystemService
 
     private void acquireWakeLockInternal(IBinder lock, int flags, String tag, String packageName,
             WorkSource ws, String historyTag, int uid, int pid) {
+        com.android.server.wakeblock.WakeBlockService.getInstance().bindService(mContext);
         synchronized (mLock) {
             if (DEBUG_SPEW) {
                 Slog.d(TAG, "acquireWakeLockInternal: lock=" + Objects.hashCode(lock)
@@ -1008,9 +1009,13 @@ public final class PowerManagerService extends SystemService
                     notifyWakeLockChangingLocked(wakeLock, flags, tag, packageName,
                             uid, pid, ws, historyTag);
                     wakeLock.updateProperties(flags, tag, packageName, ws, historyTag, uid, pid);
+                    com.android.server.wakeblock.WakeBlockService.getInstance().wakeLockUpdateProperties(lock, wakeLock.mTag, tag);
                 }
                 notifyAcquire = false;
             } else {
+                if (!com.android.server.wakeblock.WakeBlockService.getInstance().wakeLockAcquireNew(lock, tag, packageName)) {
+                    return;
+                }
                 wakeLock = new WakeLock(lock, flags, tag, packageName, ws, historyTag, uid, pid);
                 try {
                     lock.linkToDeath(wakeLock, 0);
@@ -1078,6 +1083,7 @@ public final class PowerManagerService extends SystemService
             }
 
             WakeLock wakeLock = mWakeLocks.get(index);
+            com.android.server.wakeblock.WakeBlockService.getInstance().wakeLockRelease(lock, wakeLock.mTag);
             if (DEBUG_SPEW) {
                 Slog.d(TAG, "releaseWakeLockInternal: lock=" + Objects.hashCode(lock)
                         + " [" + wakeLock.mTag + "], flags=0x" + Integer.toHexString(flags));
@@ -1104,6 +1110,7 @@ public final class PowerManagerService extends SystemService
                 return;
             }
 
+            com.android.server.wakeblock.WakeBlockService.getInstance().wakeLockHandleDeath(wakeLock.mLock, wakeLock.mTag);
             removeWakeLockLocked(wakeLock, index);
         }
     }

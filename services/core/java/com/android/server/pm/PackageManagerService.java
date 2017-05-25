@@ -20065,6 +20065,8 @@ Slog.v(TAG, ":: stepped forward, applying functor at tag " + parser.getName());
         }
 
         Slog.v(TAG, "reconcileAppsData finished " + preparedCount + " packages");
+
+        com.android.server.wakeblock.WakeBlockService.injectWakeBlock();
     }
 
     /**
