@@ -24,6 +24,7 @@ import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.drawable.Icon;
+import android.media.MediaMetadata;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
@@ -692,8 +693,8 @@ public class StatusBarIconController extends StatusBarIconList implements Tunabl
         }
     }
 
-    public void addTickerEntry(StatusBarNotification n) {
-        mTicker.addEntry(n);
+    public void addTickerEntry(StatusBarNotification n, boolean isMusic, MediaMetadata mediaMetaData) {
+        mTicker.addEntry(n, isMusic, mediaMetaData);
     }
 
     public void removeTickerEntry(StatusBarNotification n) {

@@ -3931,6 +3931,12 @@ public final class Settings {
         public static final String STATUS_BAR_SHOW_TICKER = "status_bar_show_ticker";
 
         /**
+         * Wether to show the music track info in the ticker
+         * @hide
+         */
+        public static final String STATUS_BAR_SHOW_TICKER_TRACK = "status_bar_show_ticker_track";
+
+        /**
          * This preference enables showing the power menu on LockScreen.
          * @hide
          */
