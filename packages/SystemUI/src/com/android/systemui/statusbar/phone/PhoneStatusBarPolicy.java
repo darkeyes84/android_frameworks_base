@@ -110,7 +110,6 @@ public class PhoneStatusBarPolicy implements Callback, RotationLockController.Ro
 
     private BluetoothController mBluetooth;
     private boolean mBluetoothIconVisible;
-    private boolean mBluetoothConnected = false;
 
     class SettingsObserver extends ContentObserver {
         SettingsObserver(Handler handler) {
@@ -396,12 +395,13 @@ public class PhoneStatusBarPolicy implements Callback, RotationLockController.Ro
         String contentDescription =
                 mContext.getString(R.string.accessibility_quick_settings_bluetooth_on);
         boolean bluetoothEnabled = false;
+        boolean bluetoothConnected = false;
         if (mBluetooth != null) {
             bluetoothEnabled = mBluetooth.isBluetoothEnabled();
-            mBluetoothConnected = mBluetooth.isBluetoothConnected();
+            bluetoothConnected = mBluetooth.isBluetoothConnected();
             mBluetoothIconVisible = CMSettings.System.getInt(mContext.getContentResolver(),
                     CMSettings.System.SHOW_BLUETOOTH_ICON, 1) == 1;
-            if (mBluetoothConnected) {
+            if (bluetoothConnected) {
                 if (mBluetoothBatteryLevel == null) {
                     iconId = R.drawable.stat_sys_data_bluetooth_connected;
                 } else {
@@ -424,7 +424,7 @@ public class PhoneStatusBarPolicy implements Callback, RotationLockController.Ro
         }
 
         mIconController.setIcon(mSlotBluetooth, iconId, contentDescription);
-        if (mBluetoothConnected) {
+        if (bluetoothConnected) {
             mIconController.setIconVisibility(mSlotBluetooth, true);
         } else {
             mIconController.setIconVisibility(mSlotBluetooth, bluetoothEnabled && mBluetoothIconVisible);    
