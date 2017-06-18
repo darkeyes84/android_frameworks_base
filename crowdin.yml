@@ -1,0 +1,4 @@
+files:
+  - source: /packages/SystemUI/res/values/dark_strings.xml
+    translation: /packages/SystemUI/res/values-%two_letters_code%/dark_strings.xml
+    content_segmentation: '0'
