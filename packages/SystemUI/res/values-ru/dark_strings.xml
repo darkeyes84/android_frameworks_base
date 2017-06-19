@@ -71,4 +71,7 @@
   <!-- Heads up snooze toast -->
   <string name="heads_up_snooze_message_one_minute">Всплывающие уведомления отключены на 1 минуту</string>
   <string name="heads_up_snooze_message">Всплывающие уведомления отключены на <xliff:g id="number">%d</xliff:g> минут</string>
+  <string name="qs_menu_qqs_count_title">Quick bar icons</string>
+  <string name="qs_menu_qqs_count_seven">7</string>
+  <string name="qs_menu_qqs_count_eight">8</string>
 </resources>
