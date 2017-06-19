@@ -71,7 +71,7 @@
   <!-- Heads up snooze toast -->
   <string name="heads_up_snooze_message_one_minute">Notificaciones emergentes desactivadas durante 1 minuto</string>
   <string name="heads_up_snooze_message">Notificaciones emergentes desactivadas durante <xliff:g id="number">%d</xliff:g> minutos</string>
-  <string name="qs_menu_qqs_count_title">Quick bar icons</string>
+  <string name="qs_menu_qqs_count_title">Iconos de atajos rápidos</string>
   <string name="qs_menu_qqs_count_seven">7</string>
   <string name="qs_menu_qqs_count_eight">8</string>
 </resources>
