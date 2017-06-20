@@ -38,7 +38,7 @@
   <string name="accessibility_quick_settings_ambient_display_on">Ambient Display вкл</string>
   <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient Display выключен</string>
   <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient Display включен</string>
-  <string name="quick_settings_ambient_display_label">Активный дисплей</string>
+  <string name="quick_settings_ambient_display_label">Ambient Display</string>
   <string name="accessibility_quick_settings_usb_tether_off">USB-модем выкл</string>
   <string name="accessibility_quick_settings_usb_tether_on">USB-модем вкл</string>
   <string name="accessibility_quick_settings_usb_tether_changed_off">USB-модем выключен</string>
@@ -64,7 +64,7 @@
   <string name="accessibility_quick_settings_heads_up_on">Всплывающие уведомления вкл</string>
   <string name="accessibility_quick_settings_heads_up_changed_off">Всплывающие уведомления отключены</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">Всплывающие уведомления включены</string>
-  <string name="qs_menu_anim">Анимация у плиток</string>
+  <string name="qs_menu_anim">Анимация плиток</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
   <string name="keyguard_indication_dash_charging_time">Быстрая зарядка (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> до полной)</string>
   <string name="keyguard_plugged_in_dash_charging">Быстрая зарядка</string>
