@@ -33,6 +33,7 @@ import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.database.ContentObserver;
@@ -151,6 +152,9 @@ public final class BatteryService extends SystemService {
     private int mLowBatteryWarningLevel;
     private int mLowBatteryCloseWarningLevel;
     private int mShutdownBatteryTemperature;
+
+    private boolean mScreenOn = true;
+    private boolean mScreenOnEnabled;
 
     private int mPlugType;
     private int mLastPlugType = -1; // Extra state so we can detect first run
@@ -286,8 +290,31 @@ public final class BatteryService extends SystemService {
         } else if (phase == PHASE_BOOT_COMPLETED) {
             SettingsObserver observer = new SettingsObserver(new Handler());
             observer.observe();
+
+            // register the screen on/off Intents
+            IntentFilter filter = new IntentFilter();
+            filter.addAction(Intent.ACTION_SCREEN_ON);
+            filter.addAction(Intent.ACTION_SCREEN_OFF);
+            getContext().registerReceiver(mIntentReceiver, filter);
         }
     }
+
+    private final BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+
+            if (action.equals(Intent.ACTION_SCREEN_ON)) {
+                // Keep track of screen on/off state, but do not turn off the notification light
+                // until user passes through the lock screen or views the notification.
+                mScreenOn = true;
+                updateLedPulse();
+            } else if (action.equals(Intent.ACTION_SCREEN_OFF)) {
+                mScreenOn = false;
+                updateLedPulse();
+            }
+        }
+    };
 
     private void updateBatteryWarningLevelLocked() {
         final ContentResolver resolver = mContext.getContentResolver();
@@ -1008,7 +1035,7 @@ public final class BatteryService extends SystemService {
             mNotificationLedBrightnessLevel = mUseSegmentedBatteryLed ? level :
                     LIGHT_BRIGHTNESS_MAXIMUM;
 
-            if (!mLightEnabled) {
+            if (!mLightEnabled || (mScreenOn && !mScreenOnEnabled)) {
                 // No lights if explicitly disabled
                 mBatteryLight.turnOff();
             } else if (level < mLowBatteryWarningLevel) {
@@ -1128,6 +1155,10 @@ public final class BatteryService extends SystemService {
             resolver.registerContentObserver(CMSettings.System.getUriFor(
                     CMSettings.System.BATTERY_LIGHT_ENABLED), false, this, UserHandle.USER_ALL);
 
+            // Battery light when screen on
+            resolver.registerContentObserver(CMSettings.System.getUriFor(
+                    CMSettings.System.BATTERY_LIGHT_SCREEN_ON), false, this, UserHandle.USER_ALL);
+
             // Low battery pulse
             resolver.registerContentObserver(CMSettings.System.getUriFor(
                     CMSettings.System.BATTERY_LIGHT_PULSE), false, this, UserHandle.USER_ALL);
@@ -1177,6 +1208,10 @@ public final class BatteryService extends SystemService {
             // Battery light enabled
             mLightEnabled = CMSettings.System.getInt(resolver,
                     CMSettings.System.BATTERY_LIGHT_ENABLED, 1) != 0;
+
+            // Battery light when screen on
+            mScreenOnEnabled = CMSettings.System.getInt(resolver,
+                    CMSettings.System.BATTERY_LIGHT_SCREEN_ON, 1) != 0;
 
             // Low battery pulse
             mLedPulseEnabled = CMSettings.System.getInt(resolver,
