@@ -64,14 +64,14 @@
   <string name="accessibility_quick_settings_heads_up_on">Atenționări activate</string>
   <string name="accessibility_quick_settings_heads_up_changed_off">Atenționările au fost oprite</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">Atenționările au fost pornite</string>
-  <string name="qs_menu_anim">Animate tiles</string>
+  <string name="qs_menu_anim">Animație ustensile</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-  <string name="keyguard_indication_dash_charging_time">Dash Charging (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> until full)</string>
-  <string name="keyguard_plugged_in_dash_charging">Dash Charging</string>
+  <string name="keyguard_indication_dash_charging_time">Se încarcă (<xliff:g id="Charging_TIME_LEFT">%s</xliff:g> până la finalizare)</string>
+  <string name="keyguard_plugged_in_dash_charging">Încărcare</string>
   <!-- Heads up snooze toast -->
-  <string name="heads_up_snooze_message_one_minute">Heads up is snoozing for 1 minute</string>
-  <string name="heads_up_snooze_message">Heads up is snoozing for <xliff:g id="number">%d</xliff:g> minutes</string>
-  <string name="qs_menu_qqs_count_title">Quick bar icons</string>
+  <string name="heads_up_snooze_message_one_minute">Atenționările vor fi dezactivate pentru un minut</string>
+  <string name="heads_up_snooze_message">Atenționarea este dezactivată pentru <xliff:g id="number">%d </xliff:g> minute</string>
+  <string name="qs_menu_qqs_count_title">Iconițe bară rapidă</string>
   <string name="qs_menu_qqs_count_seven">7</string>
   <string name="qs_menu_qqs_count_eight">8</string>
 </resources>
