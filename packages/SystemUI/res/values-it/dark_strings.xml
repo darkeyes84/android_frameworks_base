@@ -21,9 +21,9 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Quick Settings tiles -->
   <string name="quick_settings_screenshot_label">Cattura schermata</string>
-  <string name="quick_settings_caffeine_label">Caffeine</string>
-  <string name="accessibility_quick_settings_caffeine_off">Caffeine off</string>
-  <string name="accessibility_quick_settings_caffeine_on">Caffeine on</string>
+  <string name="quick_settings_caffeine_label">Caffeina</string>
+  <string name="accessibility_quick_settings_caffeine_off">Caffeina off</string>
+  <string name="accessibility_quick_settings_caffeine_on">Caffeina on</string>
   <string name="quick_settings_sync_label">Sincronizzazione</string>
   <string name="accessibility_quick_settings_sync_off">Sincronizzazione spenta</string>
   <string name="accessibility_quick_settings_sync_on">Sincronizzazione attiva</string>
@@ -64,14 +64,14 @@
   <string name="accessibility_quick_settings_heads_up_on">Notifiche a comparsa attive</string>
   <string name="accessibility_quick_settings_heads_up_changed_off">Notifiche a comparsa disattivate</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">Notifiche a comparsa attivate</string>
-  <string name="qs_menu_anim">Animate tiles</string>
+  <string name="qs_menu_anim">Animazione delle tiles</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-  <string name="keyguard_indication_dash_charging_time">Dash Charging (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> until full)</string>
+  <string name="keyguard_indication_dash_charging_time">Ricarica rapida (<xliff:g id="charging_time_left" example="4 hours and 2 minutes"> %s</xliff:g> al termine)</string>
   <string name="keyguard_plugged_in_dash_charging">Ricarica Rapida</string>
   <!-- Heads up snooze toast -->
-  <string name="heads_up_snooze_message_one_minute">Heads up is snoozing for 1 minute</string>
-  <string name="heads_up_snooze_message">Heads up is snoozing for <xliff:g id="number">%d</xliff:g> minutes</string>
-  <string name="qs_menu_qqs_count_title">Quick bar icons</string>
+  <string name="heads_up_snooze_message_one_minute">Le notifiche Heads-up saranno silenziate per 1 minuto</string>
+  <string name="heads_up_snooze_message">Le notifiche heads up sono disattivate per <xliff:g id="number">%d</xliff:g> minuti</string>
+  <string name="qs_menu_qqs_count_title">Icone della Quick Bar</string>
   <string name="qs_menu_qqs_count_seven">7</string>
   <string name="qs_menu_qqs_count_eight">8</string>
 </resources>
