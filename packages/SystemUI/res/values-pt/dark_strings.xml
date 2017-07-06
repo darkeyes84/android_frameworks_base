@@ -69,9 +69,9 @@
   <string name="keyguard_indication_dash_charging_time">Carregamento Dash (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> até à carga máxima)</string>
   <string name="keyguard_plugged_in_dash_charging">Carregamento Dash</string>
   <!-- Heads up snooze toast -->
-  <string name="heads_up_snooze_message_one_minute">Heads up is snoozing for 1 minute</string>
-  <string name="heads_up_snooze_message">Heads up is snoozing for <xliff:g id="number">%d</xliff:g> minutes</string>
-  <string name="qs_menu_qqs_count_title">Quick bar icons</string>
+  <string name="heads_up_snooze_message_one_minute">Notificações pop-up estão desactivadas por 1 minuto</string>
+  <string name="heads_up_snooze_message">Notificações pop-up estão desactivadas por <xliff:g id="number">%d</xliff:g> minutos</string>
+  <string name="qs_menu_qqs_count_title">Ícones da barra rápida</string>
   <string name="qs_menu_qqs_count_seven">7</string>
   <string name="qs_menu_qqs_count_eight">8</string>
 </resources>
