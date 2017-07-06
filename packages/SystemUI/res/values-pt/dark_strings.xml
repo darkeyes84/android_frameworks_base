@@ -20,21 +20,21 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Quick Settings tiles -->
-  <string name="quick_settings_screenshot_label">Screenshot</string>
-  <string name="quick_settings_caffeine_label">Caffeine</string>
-  <string name="accessibility_quick_settings_caffeine_off">Caffeine off</string>
-  <string name="accessibility_quick_settings_caffeine_on">Caffeine on</string>
-  <string name="quick_settings_sync_label">Sync</string>
-  <string name="accessibility_quick_settings_sync_off">Sync off</string>
-  <string name="accessibility_quick_settings_sync_on">Sync on</string>
-  <string name="accessibility_quick_settings_sync_changed_off">Sync turned off</string>
-  <string name="accessibility_quick_settings_sync_changed_on">Sync turned on</string>
-  <string name="quick_settings_reboot_label">Reboot</string>
-  <string name="quick_settings_reboot_recovery_label">Recovery</string>
-  <string name="quick_settings_music_label">Music</string>
-  <string name="quick_settings_music_play">Play</string>
-  <string name="quick_settings_music_pause">Pause</string>
-  <string name="accessibility_quick_settings_ambient_display_off">Ambient Display off</string>
+  <string name="quick_settings_screenshot_label">Captura de ecrã</string>
+  <string name="quick_settings_caffeine_label">Cafeína</string>
+  <string name="accessibility_quick_settings_caffeine_off">Cafeína desligada</string>
+  <string name="accessibility_quick_settings_caffeine_on">Cafeína ligada</string>
+  <string name="quick_settings_sync_label">Sincronizar</string>
+  <string name="accessibility_quick_settings_sync_off">Sincronização desligada</string>
+  <string name="accessibility_quick_settings_sync_on">Sincronização ativada</string>
+  <string name="accessibility_quick_settings_sync_changed_off">Sincronização desligada</string>
+  <string name="accessibility_quick_settings_sync_changed_on">A sincronização foi ativada</string>
+  <string name="quick_settings_reboot_label">Reiniciar</string>
+  <string name="quick_settings_reboot_recovery_label">Recuperação</string>
+  <string name="quick_settings_music_label">Música</string>
+  <string name="quick_settings_music_play">Reproduzir</string>
+  <string name="quick_settings_music_pause">Pausa</string>
+  <string name="accessibility_quick_settings_ambient_display_off">Visualização de ambiente desativada</string>
   <string name="accessibility_quick_settings_ambient_display_on">Ambient Display on</string>
   <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient Display turned off</string>
   <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient Display turned on</string>
