@@ -53,6 +53,8 @@ import android.os.SystemClock;
 import android.os.UEventObserver;
 import android.os.UserHandle;
 import android.provider.Settings;
+import android.provider.Settings.Global;
+
 import android.util.EventLog;
 import android.util.Slog;
 
@@ -155,6 +157,7 @@ public final class BatteryService extends SystemService {
 
     private boolean mScreenOn = true;
     private boolean mScreenOnEnabled;
+    private boolean mAllowBatteryLights;
 
     private int mPlugType;
     private int mLastPlugType = -1; // Extra state so we can detect first run
@@ -994,9 +997,11 @@ public final class BatteryService extends SystemService {
         private final int mBatteryLedOn;
         private final int mBatteryLedOff;
 
+        final NotificationManager nm;
+
         public Led(Context context, LightsManager lights) {
             mBatteryLight = lights.getLight(LightsManager.LIGHT_ID_BATTERY);
-            final NotificationManager nm = context.getSystemService(NotificationManager.class);
+            nm = context.getSystemService(NotificationManager.class);
 
             // Does the Device support changing battery LED colors?
             mMultiColorLed = nm.doLightsSupport(NotificationManager.LIGHTS_RGB_BATTERY_LED);
@@ -1035,7 +1040,7 @@ public final class BatteryService extends SystemService {
             mNotificationLedBrightnessLevel = mUseSegmentedBatteryLed ? level :
                     LIGHT_BRIGHTNESS_MAXIMUM;
 
-            if (!mLightEnabled || (mScreenOn && !mScreenOnEnabled)) {
+            if (!mLightEnabled || (mScreenOn && !mScreenOnEnabled) || !mAllowBatteryLights) {
                 // No lights if explicitly disabled
                 mBatteryLight.turnOff();
             } else if (level < mLowBatteryWarningLevel) {
@@ -1073,6 +1078,23 @@ public final class BatteryService extends SystemService {
                 mBatteryLight.turnOff();
             }
         }
+        
+        public void updateAllowBatteryLights() {
+            switch (nm.getZenMode()) {
+				case Global.ZEN_MODE_OFF:
+                    mAllowBatteryLights = true;
+                    break;
+                case Global.ZEN_MODE_NO_INTERRUPTIONS:
+                case Global.ZEN_MODE_ALARMS:
+                    mAllowBatteryLights = CMSettings.System.getInt(mContext.getContentResolver(),
+                        CMSettings.System.ZEN_ALLOW_BATTERY_LIGHTS, 1) == 1;
+                    break;
+                case Global.ZEN_MODE_IMPORTANT_INTERRUPTIONS:
+                    mAllowBatteryLights = CMSettings.System.getInt(mContext.getContentResolver(),
+                        CMSettings.System.ZEN_PRIORITY_ALLOW_BATTERY_LIGHTS, 1) == 1;
+                    break;
+            }
+        }
     }
 
     private final class BatteryListener extends IBatteryPropertiesListener.Stub {
@@ -1083,7 +1105,7 @@ public final class BatteryService extends SystemService {
             } finally {
                 Binder.restoreCallingIdentity(identity);
             }
-       }
+        }
     }
 
     private final class BinderService extends Binder {
@@ -1151,6 +1173,9 @@ public final class BatteryService extends SystemService {
         void observe() {
             ContentResolver resolver = mContext.getContentResolver();
 
+            resolver.registerContentObserver(Global.getUriFor(Global.ZEN_MODE),
+                    false, this, UserHandle.USER_ALL);
+
             // Battery light enabled
             resolver.registerContentObserver(CMSettings.System.getUriFor(
                     CMSettings.System.BATTERY_LIGHT_ENABLED), false, this, UserHandle.USER_ALL);
@@ -1158,6 +1183,12 @@ public final class BatteryService extends SystemService {
             // Battery light when screen on
             resolver.registerContentObserver(CMSettings.System.getUriFor(
                     CMSettings.System.BATTERY_LIGHT_SCREEN_ON), false, this, UserHandle.USER_ALL);
+
+            // Battery light when in zen mode
+            resolver.registerContentObserver(CMSettings.System.getUriFor(
+                     CMSettings.System.ZEN_ALLOW_BATTERY_LIGHTS), false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(CMSettings.System.getUriFor(
+                     CMSettings.System.ZEN_PRIORITY_ALLOW_BATTERY_LIGHTS), false, this, UserHandle.USER_ALL);
 
             // Low battery pulse
             resolver.registerContentObserver(CMSettings.System.getUriFor(
@@ -1197,7 +1228,8 @@ public final class BatteryService extends SystemService {
             update();
         }
 
-        @Override public void onChange(boolean selfChange) {
+        @Override
+        public void onChange(boolean selfChange) {
             update();
         }
 
@@ -1245,6 +1277,7 @@ public final class BatteryService extends SystemService {
                         mMultipleNotificationLeds ? 1 : 0) != 0;
             }
 
+            mLed.updateAllowBatteryLights();
             updateLedPulse();
         }
     }

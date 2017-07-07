@@ -151,7 +151,6 @@ import com.android.server.notification.ManagedServices.UserProfiles;
 import cyanogenmod.providers.CMSettings;
 import cyanogenmod.util.ColorUtils;
 
-import cyanogenmod.providers.CMSettings;
 import libcore.io.IoUtils;
 
 import org.json.JSONException;
