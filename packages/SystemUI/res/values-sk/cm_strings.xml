@@ -4,6 +4,7 @@
 /**
  * Copyright (c) 2009, The Android Open Source Project
  * Copyright (c) 2015, The CyanogenMod Project
+ * Copyright (c) 2017, The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); 
  * you may not use this file except in compliance with the License. 
@@ -63,9 +64,8 @@
   <string name="notification_importance_very_low">Žiadne prerušenia na obrazovke, upozorňovanie, zvuk či vibrácie. Skryť z obrazovky uzamknutia.</string>
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">Zobrazenie aktuálnej obrazovky je zaistené, dokým ju neuvoľníte. Dotknite a podržte tlačidlo Späť pre uvoľnenie.</string>
-  <!-- Strings for lockscreen shortcut hints -->
-  <string name="left_shortcut_hint">Potiahnite doprava pre %1$s</string>
-  <string name="right_shortcut_hint">Potiahnite doľava pre %1$s</string>
+  <!-- String for lockscreen shortcut hints -->
+  <string name="shortcut_hint">Potiahnite prstom cez ikonu %1$s</string>
   <string name="lockscreen_message">Kliknutím na ikonu vľavo alebo vpravo a zmeňte ikony na obrazovke uzamknutia.</string>
   <string name="lockscreen_default_target">Predvolené</string>
   <string name="select_application">Vyberte aplikáciu</string>
@@ -146,9 +146,36 @@
   <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
   <string name="quick_settings_location_detail_mode_sensors_only_title">Iba zariadenie</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
-  <string name="quick_settings_location_detail_mode_high_accuracy_description">Pre zisťovanie polohy používať GPS, Wi-Fi, Bluetooth alebo mobilné siete </string>
+  <string name="quick_settings_location_detail_mode_high_accuracy_description">Pre zisťovanie polohy používať GPS, Wi-Fi, Bluetooth alebo mobilné siete</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
   <string name="quick_settings_location_detail_mode_battery_saving_description">Pre zisťovanie polohy používať Wi-Fi, Bluetooth alebo mobilné siete</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
   <string name="quick_settings_location_detail_mode_sensors_only_description">Pre určovanie polohy používať GPS</string>
+  <!-- Adb over network QS tile -->
+  <string name="quick_settings_network_adb_label">ADB cez sieť</string>
+  <!-- Ambient display QS tile -->
+  <string name="quick_settings_ambient_display_label">Ambientné zobrazenie</string>
+  <string name="accessibility_quick_settings_ambient_display_off">Ambientné zobrazenie povolené.</string>
+  <string name="accessibility_quick_settings_ambient_display_on">Ambientné zobrazenie zakázané.</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_off">Ambientné zobrazenie povolené.</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_on">Ambientné zobrazenie zakázané.</string>
+  <!-- Caffeine -->
+  <string name="quick_settings_caffeine_label">Kofeín</string>
+  <!-- Heads up QS tile -->
+  <string name="quick_settings_heads_up_label">Plávajúce oznámenia</string>
+  <string name="accessibility_quick_settings_heads_up_off">Plávajúce oznámenia zakázané.</string>
+  <string name="accessibility_quick_settings_heads_up_on">Plávajúce oznámenia povolené.</string>
+  <string name="accessibility_quick_settings_heads_up_changed_off">Plávajúce oznámenia zakázané.</string>
+  <string name="accessibility_quick_settings_heads_up_changed_on">Plávajúce oznámenia povolené.</string>
+  <!-- Sync QS tile -->
+  <string name="quick_settings_sync_label">Synchronizácia</string>
+  <string name="accessibility_quick_settings_sync_off">Synch. vyp.</string>
+  <string name="accessibility_quick_settings_sync_on">Synch. zap.</string>
+  <string name="accessibility_quick_settings_sync_changed_off">Synchronizácia vypnutá.</string>
+  <string name="accessibility_quick_settings_sync_changed_on">Synchronizácia zapnutá.</string>
+  <!-- USB tethering QS tile -->
+  <string name="quick_settings_usb_tether_label">Zdieľanie cez USB</string>
+  <!-- Volume panel QS tile -->
+  <string name="quick_settings_sync_label">Synchronizácia</string>
+  <string name="quick_settings_volume_panel_label">Panel hlasitosti</string>
 </resources>

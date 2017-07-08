@@ -15,6 +15,19 @@ limitations under the License.
 -->
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+        <item android:id="@+id/menu_qqs_count"
+              android:title="@string/qs_menu_qqs_count_title">
+            <menu>
+                <item android:id="@+id/menu_qqs_count_five"
+                      android:title="@string/qs_menu_item_five" />
+                <item android:id="@+id/menu_qqs_count_six"
+                      android:title="@string/qs_menu_item_six" />
+                <item android:id="@+id/menu_qqs_count_seven"
+                      android:title="@string/qs_menu_qqs_count_seven" />
+                <item android:id="@+id/menu_qqs_count_eight"
+                      android:title="@string/qs_menu_qqs_count_eight" />
+            </menu>
+        </item>
         <item android:id="@+id/menu_item_columns"
               android:title="@string/qs_menu_item_columns">
             <menu>

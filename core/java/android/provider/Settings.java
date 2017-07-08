@@ -4010,6 +4010,12 @@ public final class Settings {
         public static final String DISABLE_FULLSCREEN_KEYBOARD = "disable_fullscreen_keyboard";
 
         /**
+         * Remove tile summaries in settings
+         * @hide
+         */
+        public static final String SHOW_TILE_SUMMARY = "show_tile_summary";
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -6907,22 +6913,14 @@ public final class Settings {
         public static final String DEVICE_PAIRED = "device_paired";
 
         /**
-         * Low brightness level for the advanced night mode tile
+         * Whether to set a lower brightness level when enabling night mode
+         * 0: Disabled
+         * 1: Set the brightness to a very low value
+         * 2: Set the brightness to a low value
+         * 3: Set the brightness to a medium value
          * @hide
          */
-        public static final String QS_NIGHT_BRIGHTNESS_VALUE = "qs_night_brightness_value";
-
-        /**
-         * Allows to store the custom user auto brightness value
-         * @hide
-         */
-        public static final String NIGHT_AUTOBRIGHTNESS_USERVALUE = "night_autobrightness_uservalue";
-
-        /**
-         * Allows to store the custom user manual brightness value
-         * @hide
-         */
-        public static final String NIGHT_MANBRIGHTNESS_USERVALUE = "night_manbrightness_uservalue";
+        public static final String NIGHT_BRIGHTNESS_VALUE = "night_brightness_value";
 
         /**
          * Whether to include options in power menu for rebooting into recovery or bootloader
@@ -6941,6 +6939,12 @@ public final class Settings {
          * @hide
          */
         public static final String FORCE_AUTHORIZE_SUBSTRATUM_PACKAGES = "force_authorize_substratum_packages";
+
+        /**
+         * Count of small QS tiles.
+         * @hide
+         */
+        public static final String QQS_COUNT = "sysui_qqs_count";
 
         /**
          * This are the settings to be backed up.

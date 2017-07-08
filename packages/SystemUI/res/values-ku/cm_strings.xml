@@ -4,6 +4,7 @@
 /**
  * Copyright (c) 2009, The Android Open Source Project
  * Copyright (c) 2015, The CyanogenMod Project
+ * Copyright (c) 2017, The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); 
  * you may not use this file except in compliance with the License. 
@@ -27,9 +28,7 @@
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">ئەمە لەسەر پیشاندان ئەمێنێتەوە تاوەکو لەیەکدادەبڕێن. دەستلێدە و دووگمەی دواوە هەڵبگرە بۆ لێدابڕان.</string>
-  <!-- Strings for lockscreen shortcut hints -->
-  <string name="left_shortcut_hint">رایکێشە بۆلای ڕاست بۆ %1$s</string>
-  <string name="right_shortcut_hint">ڕایکێشە بۆلای چەپ بۆ %1$s</string>
+  <!-- String for lockscreen shortcut hints -->
   <string name="select_application">دیاریکردنی بەرنامە</string>
   <string name="lockscreen_choose_action_title">چالاکیه‌ک هه‌ڵبژێره‌</string>
   <string name="lockscreen_none_target">هیچیان</string>
@@ -72,4 +71,15 @@
   <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
   <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
+  <!-- Adb over network QS tile -->
+  <string name="quick_settings_network_adb_label">ADB لەڕێی تۆڕەوە</string>
+  <!-- Ambient display QS tile -->
+  <string name="quick_settings_ambient_display_label">پیشاندەری دەوروبەر</string>
+  <!-- Caffeine -->
+  <!-- Heads up QS tile -->
+  <string name="quick_settings_heads_up_label">فه‌رمووه‌کان</string>
+  <!-- Sync QS tile -->
+  <!-- USB tethering QS tile -->
+  <string name="quick_settings_usb_tether_label">گرتنەدەستی USB</string>
+  <!-- Volume panel QS tile -->
 </resources>

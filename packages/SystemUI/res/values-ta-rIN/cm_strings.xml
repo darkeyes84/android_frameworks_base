@@ -4,6 +4,7 @@
 /**
  * Copyright (c) 2009, The Android Open Source Project
  * Copyright (c) 2015, The CyanogenMod Project
+ * Copyright (c) 2017, The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); 
  * you may not use this file except in compliance with the License. 
@@ -32,9 +33,7 @@
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">நீங்கள் பின்நீக்கு செய்யும்வரை இது காட்சியில் வைக்கும். பின்நீக்கு செய்ய பின்செல் பொத்தானை தொட்டு பிடித்துக்கொள்.</string>
-  <!-- Strings for lockscreen shortcut hints -->
-  <string name="left_shortcut_hint">%1$sக்காக வலதுபுறம் தேய்.</string>
-  <string name="right_shortcut_hint">%1$sக்காக இடதுபுறம் தேய்.</string>
+  <!-- String for lockscreen shortcut hints -->
   <string name="lockscreen_message">ஒரு லாக் திரை குறுக்குவழியை மறுசீரமைக்க இடது அல்லது வலதுபுறம் உள்ள ஐகானை தட்டு</string>
   <string name="lockscreen_default_target">இயல்புநிலை</string>
   <string name="select_application">பயன்பாட்டைத் தேர்ந்தெடுக்கவும்</string>
@@ -81,4 +80,31 @@
   <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
   <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
+  <!-- Adb over network QS tile -->
+  <string name="quick_settings_network_adb_label">பிணையத்தின் மீது ADB</string>
+  <!-- Ambient display QS tile -->
+  <string name="quick_settings_ambient_display_label">சூழல்சார் திரை</string>
+  <string name="accessibility_quick_settings_ambient_display_off">சூழல் காட்சி ஆஃப்.</string>
+  <string name="accessibility_quick_settings_ambient_display_on">சூழல் காட்சி ஆன்.</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_off">சூழல் காட்சி ஆஃப் செய்யப்பட்டது.</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_on">சூழல் காட்சி ஆன் செய்யப்பட்டது.</string>
+  <!-- Caffeine -->
+  <string name="quick_settings_caffeine_label">கேஃபைன்</string>
+  <!-- Heads up QS tile -->
+  <string name="quick_settings_heads_up_label">ஹெட்ஸ் அப்</string>
+  <string name="accessibility_quick_settings_heads_up_off">ஹெட்ஸ் அப் ஆஃப்.</string>
+  <string name="accessibility_quick_settings_heads_up_on">ஹெட்ஸ் அப் ஆன்.</string>
+  <string name="accessibility_quick_settings_heads_up_changed_off">ஹெட்ஸ் அப் ஆஃப் செய்யப்பட்டது.</string>
+  <string name="accessibility_quick_settings_heads_up_changed_on">ஹெட்ஸ் அப் ஆன் செய்யப்பட்டது.</string>
+  <!-- Sync QS tile -->
+  <string name="quick_settings_sync_label">ஒத்திசை</string>
+  <string name="accessibility_quick_settings_sync_off">ஒத்திசைவு ஆஃப்</string>
+  <string name="accessibility_quick_settings_sync_on">ஒத்திசைவு ஆன்</string>
+  <string name="accessibility_quick_settings_sync_changed_off">ஒத்திசைவு அணைக்கப்பட்டது</string>
+  <string name="accessibility_quick_settings_sync_changed_on">ஒத்திசைவு துவக்கப்பட்டது</string>
+  <!-- USB tethering QS tile -->
+  <string name="quick_settings_usb_tether_label">USB டெதெரிங்</string>
+  <!-- Volume panel QS tile -->
+  <string name="quick_settings_sync_label">ஒத்திசை</string>
+  <string name="quick_settings_volume_panel_label">வால்யூம் பேனல்</string>
 </resources>

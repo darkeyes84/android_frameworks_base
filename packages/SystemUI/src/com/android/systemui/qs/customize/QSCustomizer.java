@@ -78,6 +78,7 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
     private Menu mColumnsLandscapeSubMenu;
     private Menu mRowsSubMenu;
     private Menu mRowsLandscapeSubMenu;
+    private Menu mQuickQSCountSubMenu;
 
     public QSCustomizer(Context context, AttributeSet attrs) {
         super(new ContextThemeWrapper(context, R.style.edit_theme), attrs);
@@ -99,16 +100,19 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
         mToolbar.setOnMenuItemClickListener(this);
         MenuInflater menuInflater = new MenuInflater(mContext);
         menuInflater.inflate(R.menu.qs_customize_menu, mToolbar.getMenu());
+
+		MenuItem menuQuickQSCountItem = mToolbar.getMenu().findItem(R.id.menu_qqs_count);
+		if (menuQuickQSCountItem != null) {
+            mQuickQSCountSubMenu = menuQuickQSCountItem.getSubMenu();
+        }
         MenuItem menuColumnsItem = mToolbar.getMenu().findItem(R.id.menu_item_columns);
         if (menuColumnsItem != null) {
             mColumnsSubMenu = menuColumnsItem.getSubMenu();
         }
-
         MenuItem menuColumnsItemLand = mToolbar.getMenu().findItem(R.id.menu_item_columns_landscape);
         if (menuColumnsItemLand != null) {
             mColumnsLandscapeSubMenu = menuColumnsItemLand.getSubMenu();
         }
-
         MenuItem menuRowsItem = mToolbar.getMenu().findItem(R.id.menu_item_rows);
         if (menuRowsItem != null) {
             mRowsSubMenu = menuRowsItem.getSubMenu();
@@ -185,6 +189,9 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
         if (isShown) {
             MetricsLogger.hidden(getContext(), MetricsProto.MetricsEvent.QS_EDIT);
             isShown = false;
+            if (mQuickQSCountSubMenu != null) {
+                mQuickQSCountSubMenu.close();
+            }
             if (mColumnsSubMenu != null) {
                 mColumnsSubMenu.close();
             }
@@ -229,6 +236,23 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
             case R.id.menu_item_reset:
                 MetricsLogger.action(getContext(), MetricsProto.MetricsEvent.ACTION_QS_EDIT_RESET);
                 reset();
+                break;
+            //QuickQS Count
+            case R.id.menu_qqs_count_five:
+                Settings.Secure.putIntForUser(mContext.getContentResolver(),
+                        Settings.Secure.QQS_COUNT, 5, UserHandle.USER_CURRENT);
+                break;
+            case R.id.menu_qqs_count_six:
+                Settings.Secure.putIntForUser(mContext.getContentResolver(),
+                        Settings.Secure.QQS_COUNT, 6, UserHandle.USER_CURRENT);
+                break;
+            case R.id.menu_qqs_count_seven:
+                Settings.Secure.putIntForUser(mContext.getContentResolver(),
+                        Settings.Secure.QQS_COUNT, 7, UserHandle.USER_CURRENT);
+                break;
+            case R.id.menu_qqs_count_eight:
+                Settings.Secure.putIntForUser(mContext.getContentResolver(),
+                        Settings.Secure.QQS_COUNT, 8, UserHandle.USER_CURRENT);
                 break;
             //columns portrait
             case R.id.menu_item_columns_three:
@@ -308,6 +332,8 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
         mTileAdapter.setTileSpecs(tiles);
         MenuItem menuQsAnim = mToolbar.getMenu().findItem(R.id.menu_qs_anim);
         final Resources res = mContext.getResources();
+        Settings.Secure.putIntForUser(mContext.getContentResolver(),
+                Settings.Secure.QQS_COUNT, 6, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(mContext.getContentResolver(),
                 Settings.System.QS_LAYOUT_COLUMNS, mDefaultColumns, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(mContext.getContentResolver(),

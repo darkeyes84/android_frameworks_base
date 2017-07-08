@@ -4,6 +4,7 @@
 /**
  * Copyright (c) 2009, The Android Open Source Project
  * Copyright (c) 2015, The CyanogenMod Project
+ * Copyright (c) 2017, The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); 
  * you may not use this file except in compliance with the License. 
@@ -64,9 +65,7 @@
   <string name="notification_importance_very_low">Ingen fuldskærmsafbrydelse, smugkig, lyd eller vibration. Skjul fra skærmlås.</string>
   <!-- Screen pinning dialog description (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">Dette fastholder det i visningen indtil du frigører det. Tryk og hold tilbage-knappen nede for at frigøre.</string>
-  <!-- Strings for lockscreen shortcut hints -->
-  <string name="left_shortcut_hint">Stryg til højre for %1$s</string>
-  <string name="right_shortcut_hint">Stryg til venstre for %1$s</string>
+  <!-- String for lockscreen shortcut hints -->
   <string name="lockscreen_message">Tryk på et ikon til venstre eller højre for at tildele en genvej til skærmlåsen.</string>
   <string name="lockscreen_default_target">Standard</string>
   <string name="select_application">Vælg applikation</string>
@@ -146,9 +145,35 @@
   <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
   <string name="quick_settings_location_detail_mode_sensors_only_title">Kun enhed</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
-  <string name="quick_settings_location_detail_mode_high_accuracy_description">Brug GPS, Wi\u2011Fi, Bluetooth eller mobildata til at afgøre placeringen </string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
   <string name="quick_settings_location_detail_mode_battery_saving_description">Brug Wi\u2011Fi, Bluetooth eller mobildata til at afgøre placeringen</string>
   <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
   <string name="quick_settings_location_detail_mode_sensors_only_description">Brug GPS for at afgøre din placering</string>
+  <!-- Adb over network QS tile -->
+  <string name="quick_settings_network_adb_label">ADB via netværk</string>
+  <!-- Ambient display QS tile -->
+  <string name="quick_settings_ambient_display_label">Inaktivitetsvisning</string>
+  <string name="accessibility_quick_settings_ambient_display_off">Inaktivitetsvisning fra.</string>
+  <string name="accessibility_quick_settings_ambient_display_on">Inaktivitetsvisning til.</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_off">Inaktivitetsvisning er slået fra.</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_on">Inaktivitetsvisning er slået til.</string>
+  <!-- Caffeine -->
+  <string name="quick_settings_caffeine_label">Koffein</string>
+  <!-- Heads up QS tile -->
+  <string name="quick_settings_heads_up_label">Svævende meddelelser</string>
+  <string name="accessibility_quick_settings_heads_up_off">Svævende meddelelser fra.</string>
+  <string name="accessibility_quick_settings_heads_up_on">Svævende meddelelser til.</string>
+  <string name="accessibility_quick_settings_heads_up_changed_off">Svævende meddelelser er slået fra.</string>
+  <string name="accessibility_quick_settings_heads_up_changed_on">Svævende meddelelser er slået til.</string>
+  <!-- Sync QS tile -->
+  <string name="quick_settings_sync_label">Synkr.</string>
+  <string name="accessibility_quick_settings_sync_off">Synkr. fra.</string>
+  <string name="accessibility_quick_settings_sync_on">Synkr. til.</string>
+  <string name="accessibility_quick_settings_sync_changed_off">Synkr. er slået fra.</string>
+  <string name="accessibility_quick_settings_sync_changed_on">Synkr. er slået til.</string>
+  <!-- USB tethering QS tile -->
+  <string name="quick_settings_usb_tether_label">USB-tethering</string>
+  <!-- Volume panel QS tile -->
+  <string name="quick_settings_sync_label">Synkr.</string>
+  <string name="quick_settings_volume_panel_label">Lydstyrkepanel</string>
 </resources>
