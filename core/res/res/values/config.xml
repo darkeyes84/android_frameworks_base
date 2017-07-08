@@ -2950,7 +2950,11 @@
     <!-- Whether notify fingerprint client of successful cancelled authentication -->
     <bool name="config_notifyClientOnFingerprintCancelSuccess">false</bool>
 
+
     <!-- Default value for led color when battery is really fully charged -->
     <integer name="config_notificationsBatteryReallyFullARGB">0xFF00FF00</integer>
 
+    <!-- If enabled, capacitive keys will only light up when pressed.
+         Otherwise, the buttons will light up whenever the user interacts with the device -->
+    <bool name="config_buttonLightOnKeypressOnly">false</bool>
 </resources>
