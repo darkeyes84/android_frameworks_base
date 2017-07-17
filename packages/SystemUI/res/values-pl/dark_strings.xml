@@ -54,7 +54,7 @@
   <string name="qs_menu_item_four">4</string>
   <string name="qs_menu_item_five">5</string>
   <string name="qs_menu_item_six">6</string>
-  <string name="qs_menu_item_reset">Resetuj</string>
+  <string name="qs_menu_item_reset">Przywróć domyślne</string>
   <!-- Advance quick setting tile -->
   <string name="quick_settings_adb_network">ADB za pośrednictwem sieci</string>
   <string name="quick_settings_network_adb_enabled_label">Włączone</string>
