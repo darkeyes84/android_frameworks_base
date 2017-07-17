@@ -20,20 +20,20 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Quick Settings tiles -->
-  <string name="quick_settings_screenshot_label">Screenshot</string>
-  <string name="quick_settings_caffeine_label">Caffeine</string>
-  <string name="accessibility_quick_settings_caffeine_off">Caffeine off</string>
-  <string name="accessibility_quick_settings_caffeine_on">Caffeine on</string>
-  <string name="quick_settings_sync_label">Sync</string>
-  <string name="accessibility_quick_settings_sync_off">Sync off</string>
-  <string name="accessibility_quick_settings_sync_on">Sync on</string>
-  <string name="accessibility_quick_settings_sync_changed_off">Sync turned off</string>
-  <string name="accessibility_quick_settings_sync_changed_on">Sync turned on</string>
-  <string name="quick_settings_reboot_label">Reboot</string>
-  <string name="quick_settings_reboot_recovery_label">Recovery</string>
-  <string name="quick_settings_music_label">Music</string>
-  <string name="quick_settings_music_play">Play</string>
-  <string name="quick_settings_music_pause">Pause</string>
+  <string name="quick_settings_screenshot_label">Zrzut ekranu</string>
+  <string name="quick_settings_caffeine_label">Kofeina</string>
+  <string name="accessibility_quick_settings_caffeine_off">Kofeina wył.</string>
+  <string name="accessibility_quick_settings_caffeine_on">Kofeina wł.</string>
+  <string name="quick_settings_sync_label">Synchronizacja</string>
+  <string name="accessibility_quick_settings_sync_off">Synchronizacja wył.</string>
+  <string name="accessibility_quick_settings_sync_on">Synchronizacja wł.</string>
+  <string name="accessibility_quick_settings_sync_changed_off">Synchronizacja została wyłączona</string>
+  <string name="accessibility_quick_settings_sync_changed_on">Synchronizacja została włączona</string>
+  <string name="quick_settings_reboot_label">Uruchom ponownie</string>
+  <string name="quick_settings_reboot_recovery_label">Tryb recovery</string>
+  <string name="quick_settings_music_label">Muzyka</string>
+  <string name="quick_settings_music_play">Odtwarzaj</string>
+  <string name="quick_settings_music_pause">Wstrzymaj</string>
   <string name="accessibility_quick_settings_ambient_display_off">Ambient Display off</string>
   <string name="accessibility_quick_settings_ambient_display_on">Ambient Display on</string>
   <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient Display turned off</string>
