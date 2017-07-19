@@ -74,4 +74,8 @@
   <string name="qs_menu_qqs_count_title">Iconos de atajos rápidos</string>
   <string name="qs_menu_qqs_count_seven">7</string>
   <string name="qs_menu_qqs_count_eight">8</string>
+  <!-- vpn icon switch -->
+  <string name="status_bar_vpn">VPN</string>
+  <!-- data saver icon switch -->
+  <string name="status_bar_datasaver">Data saver</string>
 </resources>
