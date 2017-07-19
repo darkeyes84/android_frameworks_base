@@ -16,6 +16,7 @@
 
 package com.android.systemui.statusbar.phone;
 
+import android.app.ActivityManager;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.graphics.drawable.AnimatedVectorDrawable;
@@ -270,7 +271,8 @@ public class LockIcon extends KeyguardAffordanceView {
 
     private int getState() {
         KeyguardUpdateMonitor updateMonitor = KeyguardUpdateMonitor.getInstance(mContext);
-        boolean fingerprintRunning = updateMonitor.isFingerprintDetectionRunning();
+        int currentUser = ActivityManager.getCurrentUser();
+        boolean fingerprint = updateMonitor.isUnlockWithFingerprintPossible(currentUser);
         boolean unlockingAllowed = updateMonitor.isUnlockingWithFingerprintAllowed();
         if (mTransientFpError) {
             return STATE_FINGERPRINT_ERROR;
@@ -278,7 +280,7 @@ public class LockIcon extends KeyguardAffordanceView {
             return STATE_LOCK_OPEN;
         } else if (mUnlockMethodCache.isFaceUnlockRunning()) {
             return STATE_FACE_UNLOCK;
-        } else if (fingerprintRunning && unlockingAllowed) {
+        } else if (fingerprint && unlockingAllowed) {
             return STATE_FINGERPRINT;
         } else {
             return STATE_LOCKED;

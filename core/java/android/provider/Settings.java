@@ -3739,6 +3739,12 @@ public final class Settings {
         public static final String BATTERY_BAR_ANIMATE = "battery_bar_animate";
 
         /**
+         * Unlock keystore with fingerprint after reboot
+         * @hide
+         */
+        public static final String FP_UNLOCK_KEYSTORE = "fp_unlock_keystore";
+
+        /**
          * Defines the global heads up notification snooze
          * @hide
          */
@@ -4014,6 +4020,12 @@ public final class Settings {
          * @hide
          */
         public static final String SHOW_TILE_SUMMARY = "show_tile_summary";
+
+        /**
+         * Force expanded notifications on all apps that support it.
+         * @hide
+         */
+        public static final String FORCE_EXPANDED_NOTIFICATIONS = "force_expanded_notifications";
 
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
