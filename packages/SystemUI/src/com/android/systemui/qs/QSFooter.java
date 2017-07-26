@@ -129,7 +129,9 @@ public class QSFooter implements OnClickListener, DialogInterface.OnClickListene
     private void handleRefreshState() {
         // If the device has device owner, show "Device may be monitored", but --
         // TODO See b/25779452 -- device owner doesn't actually have monitoring power.
-        boolean isVpnEnabled = mSecurityController.isVpnEnabled();
+        boolean hideQsVpn = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.HIDE_QS_VPN, 0, UserHandle.USER_CURRENT) == 1;
+        boolean isVpnEnabled = mSecurityController.isVpnEnabled() && !hideQsVpn;
         boolean isNetworkLoggingEnabled = mSecurityController.isNetworkLoggingEnabled();
         mIsIconVisible = isVpnEnabled || isNetworkLoggingEnabled;
         mIsIcon2Visible = isVpnEnabled && isNetworkLoggingEnabled;
@@ -175,6 +177,8 @@ public class QSFooter implements OnClickListener, DialogInterface.OnClickListene
         final String profileVpn = mSecurityController.getProfileVpnName();
         boolean hasProfileOwner = mSecurityController.hasProfileOwner();
         boolean isBranded = deviceOwnerPackage == null && mSecurityController.isVpnBranded();
+        boolean hideQsVpn = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.HIDE_QS_VPN, 0, UserHandle.USER_CURRENT) == 1;
 
         mDialog = new SystemUIDialog(mContext);
         if (!isBranded) {
@@ -184,7 +188,7 @@ public class QSFooter implements OnClickListener, DialogInterface.OnClickListene
                 profileVpn, hasProfileOwner, isBranded);
         if (deviceOwnerPackage == null) {
             mDialog.setMessage(msg);
-            if (mSecurityController.isVpnEnabled() && !mSecurityController.isVpnRestricted()) {
+            if (mSecurityController.isVpnEnabled() && !hideQsVpn && !mSecurityController.isVpnRestricted()) {
                 mDialog.setButton(DialogInterface.BUTTON_NEGATIVE, getSettingsButton(), this);
             }
         } else {

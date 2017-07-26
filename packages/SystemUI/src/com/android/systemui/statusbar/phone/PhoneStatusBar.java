@@ -633,6 +633,9 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
             resolver.registerContentObserver(CMSettings.System.getUriFor(
                     CMSettings.System.HIDE_CARRIER_LABEL_WITH_WIFI),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.HIDE_QS_VPN),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -664,6 +667,9 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
             } else if (uri.equals(CMSettings.System.getUriFor(
                     CMSettings.System.HIDE_CARRIER_LABEL_WITH_WIFI))) {
 				updateCarrier();
+            } else if (uri.equals(Settings.System.getUriFor(
+                    Settings.System.HIDE_QS_VPN))) {
+				updateQS();
             }
         }
 
@@ -673,9 +679,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         }
 
         public void updateQS() {
-            if (mQSPanel != null) {
-                updateResources();
-            }
+            updateResources();
             if (mHeader != null) {
                 mHeader.updateSettings();
             }

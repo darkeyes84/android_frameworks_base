@@ -3702,6 +3702,13 @@ public final class Settings {
         public static final String ANIM_QS_TILES = "anim_qs_tiles";
 
         /**
+         * Hide the VPN Warning (Network may be monitored) in the QS Footer
+         *
+         * @hide
+         */
+        public static final String HIDE_QS_VPN = "hide_qs_vpn";
+
+        /**
          * IMPORTANT: If you add a new public settings you also have to add it to
          * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
          * it to PRIVATE_SETTINGS below. Also add a validator that can validate

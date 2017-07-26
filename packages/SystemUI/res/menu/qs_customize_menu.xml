@@ -79,6 +79,9 @@ limitations under the License.
         <item android:id="@+id/menu_qs_anim"
               android:title="@string/qs_menu_anim"
               android:checkable="true" />
+        <item android:id="@+id/menu_qs_vpn"
+              android:title="@string/qs_menu_vpn"
+              android:checkable="true" />
         <item android:id="@+id/menu_item_reset"
               android:title="@string/qs_menu_item_reset"/>
 </menu>

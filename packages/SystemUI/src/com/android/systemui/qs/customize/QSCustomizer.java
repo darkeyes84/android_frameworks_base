@@ -127,6 +127,11 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
         MenuItem menuQsAnim = mToolbar.getMenu().findItem(R.id.menu_qs_anim);
         menuQsAnim.setChecked(animQsTiles);
 
+        boolean hideQsVpn = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.HIDE_QS_VPN, 0, UserHandle.USER_CURRENT) == 1;
+        MenuItem menuQsVpn = mToolbar.getMenu().findItem(R.id.menu_qs_vpn);
+        menuQsVpn.setChecked(hideQsVpn);
+
         mToolbar.setTitle(R.string.qs_edit);
         mDefaultColumns = Math.max(1,
                     mContext.getResources().getInteger(R.integer.quick_settings_num_columns));
@@ -319,6 +324,12 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
                         Settings.System.ANIM_QS_TILES, item.isChecked() ? 1 : 0,
                         UserHandle.USER_CURRENT);
                 break;
+            case R.id.menu_qs_vpn:
+                item.setChecked(!item.isChecked());
+                Settings.System.putIntForUser(mContext.getContentResolver(),
+                        Settings.System.HIDE_QS_VPN, item.isChecked() ? 1 : 0,
+                        UserHandle.USER_CURRENT);
+                break;
             }
         return false;
     }
@@ -331,6 +342,7 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
         }
         mTileAdapter.setTileSpecs(tiles);
         MenuItem menuQsAnim = mToolbar.getMenu().findItem(R.id.menu_qs_anim);
+        MenuItem menuQsVpn = mToolbar.getMenu().findItem(R.id.menu_qs_vpn);
         final Resources res = mContext.getResources();
         Settings.Secure.putIntForUser(mContext.getContentResolver(),
                 Settings.Secure.QQS_COUNT, 6, UserHandle.USER_CURRENT);
@@ -346,6 +358,9 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
         menuQsAnim.setChecked(false);
         Settings.System.putIntForUser(mContext.getContentResolver(),
                 Settings.System.ANIM_QS_TILES, 0, UserHandle.USER_CURRENT);
+        menuQsVpn.setChecked(false);
+        Settings.System.putIntForUser(mContext.getContentResolver(),
+                Settings.System.HIDE_QS_VPN, 0, UserHandle.USER_CURRENT);
     }
 
     private void setTileSpecs() {
