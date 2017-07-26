@@ -78,4 +78,5 @@
   <string name="status_bar_vpn">Połączenia VPN</string>
   <!-- data saver icon switch -->
   <string name="status_bar_datasaver">Oszczędzanie danych</string>
+  <string name="qs_menu_vpn">Hide VPN warning</string>
 </resources>
