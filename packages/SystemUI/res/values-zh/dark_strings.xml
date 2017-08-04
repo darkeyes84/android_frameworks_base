@@ -34,11 +34,11 @@
   <string name="quick_settings_music_label">音乐</string>
   <string name="quick_settings_music_play">播放</string>
   <string name="quick_settings_music_pause">暂停</string>
-  <string name="accessibility_quick_settings_ambient_display_off">Ambient Display off</string>
-  <string name="accessibility_quick_settings_ambient_display_on">Ambient Display on</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient Display turned off</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient Display turned on</string>
-  <string name="quick_settings_ambient_display_label">Ambient Display</string>
+  <string name="accessibility_quick_settings_ambient_display_off">主动显示关闭</string>
+  <string name="accessibility_quick_settings_ambient_display_on">主动显示开启</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_off">主动显示已关闭</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_on">主动显示已开启</string>
+  <string name="quick_settings_ambient_display_label">主动显示</string>
   <string name="accessibility_quick_settings_usb_tether_off">USB tethering off</string>
   <string name="accessibility_quick_settings_usb_tether_on">USB tethering on</string>
   <string name="accessibility_quick_settings_usb_tether_changed_off">USB tethering turned off</string>
