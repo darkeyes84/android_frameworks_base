@@ -30,10 +30,10 @@
   <string name="accessibility_quick_settings_sync_changed_off">同步已关闭</string>
   <string name="accessibility_quick_settings_sync_changed_on">同步已打开</string>
   <string name="quick_settings_reboot_label">重启</string>
-  <string name="quick_settings_reboot_recovery_label">Recovery</string>
-  <string name="quick_settings_music_label">Music</string>
-  <string name="quick_settings_music_play">Play</string>
-  <string name="quick_settings_music_pause">Pause</string>
+  <string name="quick_settings_reboot_recovery_label">恢复模式</string>
+  <string name="quick_settings_music_label">音乐</string>
+  <string name="quick_settings_music_play">播放</string>
+  <string name="quick_settings_music_pause">暂停</string>
   <string name="accessibility_quick_settings_ambient_display_off">Ambient Display off</string>
   <string name="accessibility_quick_settings_ambient_display_on">Ambient Display on</string>
   <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient Display turned off</string>
