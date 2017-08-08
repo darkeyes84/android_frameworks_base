@@ -75,7 +75,8 @@
   <string name="qs_menu_qqs_count_seven">7</string>
   <string name="qs_menu_qqs_count_eight">8</string>
   <!-- vpn icon switch -->
-  <string name="status_bar_vpn">VPN</string>
+  <string name="status_bar_vpn">Połączenia VPN</string>
   <!-- data saver icon switch -->
-  <string name="status_bar_datasaver">Data saver</string>
+  <string name="status_bar_datasaver">Oszczędzanie danych</string>
+  <string name="qs_menu_vpn">Ukryj ostrzeżenia VPN</string>
 </resources>
