@@ -134,28 +134,28 @@ public class ThemeService extends IThemeService.Stub implements IBinder.DeathRec
         switch (color) {
             case 3: // dark theme
                 return R.style.Theme_DeviceDefault_Dark;
+            default:
             case 1: // grey theme
                 return R.style.Theme_DeviceDefault_Grey;
             case 0: // default theme
             case 2: // pixel theme
-            default:
                 return R.style.Theme_DeviceDefault_White;
         }
     }
 
     private int getThemeMode() {
         return Settings.Secure.getInt(mContext.getContentResolver(),
-                Settings.Secure.THEME_PRIMARY_COLOR, 2);
+                Settings.Secure.THEME_PRIMARY_COLOR, 1);
     }
 
     private int getAccentColor() {
         return Settings.Secure.getInt(mContext.getContentResolver(),
-                Settings.Secure.THEME_ACCENT_COLOR, 1);
+                Settings.Secure.THEME_ACCENT_COLOR, 0);
     }
 
     public static void returnToDefaultTheme(Context context) {
         Settings.Secure.putInt(context.getContentResolver(),
-                Settings.Secure.THEME_PRIMARY_COLOR, 0);
+                Settings.Secure.THEME_PRIMARY_COLOR, 1);
         Settings.Secure.putInt(context.getContentResolver(),
                 Settings.Secure.THEME_ACCENT_COLOR, 0);
     }
