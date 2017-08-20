@@ -85,7 +85,7 @@ public class ThemeService extends IThemeService.Stub implements IBinder.DeathRec
     }
 
     private int getTheme(int color) {
-        final boolean isDarkMode = getThemeMode() == 3;
+        final boolean isDarkMode = getThemeMode() == 2;
         final boolean isGreymode = getThemeMode() == 1;
         switch (color) {
             case 1:
@@ -132,13 +132,12 @@ public class ThemeService extends IThemeService.Stub implements IBinder.DeathRec
 
     private int getPrimaryTheme(int color) {
         switch (color) {
-            case 3: // dark theme
+            case 2: // dark theme
                 return R.style.Theme_DeviceDefault_Dark;
             default:
             case 1: // grey theme
                 return R.style.Theme_DeviceDefault_Grey;
             case 0: // default theme
-            case 2: // pixel theme
                 return R.style.Theme_DeviceDefault_White;
         }
     }

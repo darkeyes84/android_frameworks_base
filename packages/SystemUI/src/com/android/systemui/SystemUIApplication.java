@@ -234,9 +234,6 @@ public class SystemUIApplication extends Application {
                 getTheme().applyStyle(color, true);
                 getTheme().applyStyle(R.style.systemui_light_theme, true);
             }
-            if (themeMode == 2) {
-                getTheme().applyStyle(R.style.systemui_pixel_theme, true);
-            }
         }
     };
 }
