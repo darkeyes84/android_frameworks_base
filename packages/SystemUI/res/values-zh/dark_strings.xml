@@ -54,16 +54,16 @@
   <string name="qs_menu_item_four">4</string>
   <string name="qs_menu_item_five">5</string>
   <string name="qs_menu_item_six">6</string>
-  <string name="qs_menu_item_reset">Reset</string>
+  <string name="qs_menu_item_reset">重置</string>
   <!-- Advance quick setting tile -->
-  <string name="quick_settings_adb_network">ADB over network</string>
-  <string name="quick_settings_network_adb_enabled_label">Enabled</string>
-  <string name="quick_settings_network_adb_disabled_label">Disabled</string>
-  <string name="quick_settings_heads_up_label">Heads up</string>
-  <string name="accessibility_quick_settings_heads_up_off">Heads up off</string>
-  <string name="accessibility_quick_settings_heads_up_on">Heads up on</string>
-  <string name="accessibility_quick_settings_heads_up_changed_off">Heads up turned off</string>
-  <string name="accessibility_quick_settings_heads_up_changed_on">Heads up turned on</string>
+  <string name="quick_settings_adb_network">网络 ADB 调试</string>
+  <string name="quick_settings_network_adb_enabled_label">已启用</string>
+  <string name="quick_settings_network_adb_disabled_label">已禁用</string>
+  <string name="quick_settings_heads_up_label">浮动通知</string>
+  <string name="accessibility_quick_settings_heads_up_off">关闭浮动通知</string>
+  <string name="accessibility_quick_settings_heads_up_on">开启浮动通知</string>
+  <string name="accessibility_quick_settings_heads_up_changed_off">浮动通知已关闭</string>
+  <string name="accessibility_quick_settings_heads_up_changed_on">浮动通知已开启</string>
   <string name="qs_menu_anim">Animate tiles</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
   <string name="keyguard_indication_dash_charging_time">Dash Charging (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> until full)</string>
