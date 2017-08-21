@@ -22,8 +22,7 @@
     android:paddingStart="16dp"
     android:paddingEnd="16dp"
     android:clickable="true"
-    android:gravity="center"
-    android:theme="@*android:style/ThemeOverlay.DeviceDefault.Accent">
+    android:gravity="center">
 
     <TextView android:id="@+id/switch_text"
         android:layout_height="wrap_content"
@@ -35,7 +34,8 @@
         android:ellipsize="end"
         android:textAppearance="@style/TextAppearance.SwitchBar"
         android:textAlignment="viewStart"
-        android:text="@string/switch_bar_on" />
+        android:text="@string/switch_bar_on"
+        android:textColor="@android:color/white" />
 
     <Switch
         android:id="@android:id/switch_widget"

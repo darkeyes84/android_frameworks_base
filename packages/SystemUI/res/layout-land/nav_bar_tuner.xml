@@ -28,7 +28,6 @@
         android:paddingBottom="12dp"
         android:paddingStart="8dp"
         android:paddingEnd="8dp"
-        android:background="@android:color/white"
         android:gravity="center"
         android:orientation="vertical">
 
