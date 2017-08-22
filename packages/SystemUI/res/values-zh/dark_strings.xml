@@ -39,11 +39,11 @@
   <string name="accessibility_quick_settings_ambient_display_changed_off">主动显示已关闭</string>
   <string name="accessibility_quick_settings_ambient_display_changed_on">主动显示已开启</string>
   <string name="quick_settings_ambient_display_label">主动显示</string>
-  <string name="accessibility_quick_settings_usb_tether_off">USB tethering off</string>
-  <string name="accessibility_quick_settings_usb_tether_on">USB tethering on</string>
+  <string name="accessibility_quick_settings_usb_tether_off">USB 网络共享已关闭</string>
+  <string name="accessibility_quick_settings_usb_tether_on">USB 网络共享已开启</string>
   <string name="accessibility_quick_settings_usb_tether_changed_off">USB tethering turned off</string>
   <string name="accessibility_quick_settings_usb_tether_changed_on">USB tethering turned on</string>
-  <string name="quick_settings_usb_tether_label">USB tethering</string>
+  <string name="quick_settings_usb_tether_label">USB 共享网络</string>
   <string name="qs_menu_item_columns">Columns portrait</string>
   <string name="qs_menu_item_columns_landscape">Columns landscape</string>
   <string name="qs_menu_item_rows">Rows portrait</string>
@@ -64,19 +64,19 @@
   <string name="accessibility_quick_settings_heads_up_on">开启浮动通知</string>
   <string name="accessibility_quick_settings_heads_up_changed_off">浮动通知已关闭</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">浮动通知已开启</string>
-  <string name="qs_menu_anim">Animate tiles</string>
+  <string name="qs_menu_anim">翻转动画</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-  <string name="keyguard_indication_dash_charging_time">Dash Charging (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> until full)</string>
-  <string name="keyguard_plugged_in_dash_charging">Dash Charging</string>
+  <string name="keyguard_indication_dash_charging_time">正在快速充电 (还需 <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> 充满)</string>
+  <string name="keyguard_plugged_in_dash_charging">正在快速充电</string>
   <!-- Heads up snooze toast -->
-  <string name="heads_up_snooze_message_one_minute">Heads up is snoozing for 1 minute</string>
-  <string name="heads_up_snooze_message">Heads up is snoozing for <xliff:g id="number">%d</xliff:g> minutes</string>
-  <string name="qs_menu_qqs_count_title">Quick bar icons</string>
+  <string name="heads_up_snooze_message_one_minute">浮动通知已延时 1 分钟</string>
+  <string name="heads_up_snooze_message">浮动通知已延时 <xliff:g id="number">%d</xliff:g> 分钟</string>
+  <string name="qs_menu_qqs_count_title">快捷栏图标</string>
   <string name="qs_menu_qqs_count_seven">7</string>
   <string name="qs_menu_qqs_count_eight">8</string>
   <!-- vpn icon switch -->
   <string name="status_bar_vpn">VPN</string>
   <!-- data saver icon switch -->
-  <string name="status_bar_datasaver">Data saver</string>
-  <string name="qs_menu_vpn">Hide VPN warning</string>
+  <string name="status_bar_datasaver">流量节省程序</string>
+  <string name="qs_menu_vpn">隐藏 VPN 警告</string>
 </resources>
