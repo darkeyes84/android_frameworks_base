@@ -20,63 +20,63 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Quick Settings tiles -->
-  <string name="quick_settings_screenshot_label">Captura de ecrã</string>
-  <string name="quick_settings_caffeine_label">Cafeína</string>
-  <string name="accessibility_quick_settings_caffeine_off">Cafeína desligada</string>
-  <string name="accessibility_quick_settings_caffeine_on">Cafeína ligada</string>
-  <string name="quick_settings_sync_label">Sincronizar</string>
-  <string name="accessibility_quick_settings_sync_off">Sincronização desligada</string>
-  <string name="accessibility_quick_settings_sync_on">Sincronização ativada</string>
-  <string name="accessibility_quick_settings_sync_changed_off">Sincronização desligada</string>
-  <string name="accessibility_quick_settings_sync_changed_on">A sincronização foi ativada</string>
-  <string name="quick_settings_reboot_label">Reiniciar</string>
-  <string name="quick_settings_reboot_recovery_label">Recuperação</string>
-  <string name="quick_settings_music_label">Música</string>
-  <string name="quick_settings_music_play">Reproduzir</string>
-  <string name="quick_settings_music_pause">Pausa</string>
-  <string name="accessibility_quick_settings_ambient_display_off">Visualização de ambiente desativada</string>
-  <string name="accessibility_quick_settings_ambient_display_on">Visualização de ambiente ativada</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_off">A visualização de ambiente foi desativada</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_on">A visualização de ambiente foi ativada</string>
-  <string name="quick_settings_ambient_display_label">Visualização de ambiente</string>
-  <string name="accessibility_quick_settings_usb_tether_off">Partilha de internet por USB desligado</string>
-  <string name="accessibility_quick_settings_usb_tether_on">Partilha de internet por USB ligado</string>
-  <string name="accessibility_quick_settings_usb_tether_changed_off">Partilha de internet por USB foi desligada</string>
-  <string name="accessibility_quick_settings_usb_tether_changed_on">Partilha de internet por USB foi ligada</string>
-  <string name="quick_settings_usb_tether_label">Partilha de internet por USB</string>
-  <string name="qs_menu_item_columns">Colunas (em retrato)</string>
-  <string name="qs_menu_item_columns_landscape">Colunas (em paisagem)</string>
-  <string name="qs_menu_item_rows">Linhas (retrato)</string>
-  <string name="qs_menu_item_rows_landscape">Linhas (paisagem)</string>
+  <string name="quick_settings_screenshot_label">Screenshot</string>
+  <string name="quick_settings_caffeine_label">Caffeine</string>
+  <string name="accessibility_quick_settings_caffeine_off">Caffeine off</string>
+  <string name="accessibility_quick_settings_caffeine_on">Caffeine on</string>
+  <string name="quick_settings_sync_label">Sync</string>
+  <string name="accessibility_quick_settings_sync_off">Sync off</string>
+  <string name="accessibility_quick_settings_sync_on">Sync on</string>
+  <string name="accessibility_quick_settings_sync_changed_off">Sync turned off</string>
+  <string name="accessibility_quick_settings_sync_changed_on">Sync turned on</string>
+  <string name="quick_settings_reboot_label">Reboot</string>
+  <string name="quick_settings_reboot_recovery_label">Recovery</string>
+  <string name="quick_settings_music_label">Music</string>
+  <string name="quick_settings_music_play">Play</string>
+  <string name="quick_settings_music_pause">Pause</string>
+  <string name="accessibility_quick_settings_ambient_display_off">Ambient Display off</string>
+  <string name="accessibility_quick_settings_ambient_display_on">Ambient Display on</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient Display turned off</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient Display turned on</string>
+  <string name="quick_settings_ambient_display_label">Ambient Display</string>
+  <string name="accessibility_quick_settings_usb_tether_off">USB tethering off</string>
+  <string name="accessibility_quick_settings_usb_tether_on">USB tethering on</string>
+  <string name="accessibility_quick_settings_usb_tether_changed_off">USB tethering turned off</string>
+  <string name="accessibility_quick_settings_usb_tether_changed_on">USB tethering turned on</string>
+  <string name="quick_settings_usb_tether_label">USB tethering</string>
+  <string name="qs_menu_item_columns">Columns portrait</string>
+  <string name="qs_menu_item_columns_landscape">Columns landscape</string>
+  <string name="qs_menu_item_rows">Rows portrait</string>
+  <string name="qs_menu_item_rows_landscape">Rows landscape</string>
   <string name="qs_menu_item_one">1</string>
   <string name="qs_menu_item_two">2</string>
   <string name="qs_menu_item_three">3</string>
   <string name="qs_menu_item_four">4</string>
   <string name="qs_menu_item_five">5</string>
   <string name="qs_menu_item_six">6</string>
-  <string name="qs_menu_item_reset">Reiniciar</string>
+  <string name="qs_menu_item_reset">Reset</string>
   <!-- Advance quick setting tile -->
-  <string name="quick_settings_adb_network">ADB através da rede</string>
-  <string name="quick_settings_network_adb_enabled_label">Activado</string>
-  <string name="quick_settings_network_adb_disabled_label">Desactivado</string>
-  <string name="quick_settings_heads_up_label">Notificações pop-up</string>
-  <string name="accessibility_quick_settings_heads_up_off">Notificações pop-up desativadas</string>
-  <string name="accessibility_quick_settings_heads_up_on">Notificações pop-up ativadas</string>
-  <string name="accessibility_quick_settings_heads_up_changed_off">As notificações pop-up foram desativadas</string>
-  <string name="accessibility_quick_settings_heads_up_changed_on">As notificações pop-up foram ativadas</string>
-  <string name="qs_menu_anim">Animar telhas</string>
+  <string name="quick_settings_adb_network">ADB over network</string>
+  <string name="quick_settings_network_adb_enabled_label">Enabled</string>
+  <string name="quick_settings_network_adb_disabled_label">Disabled</string>
+  <string name="quick_settings_heads_up_label">Heads up</string>
+  <string name="accessibility_quick_settings_heads_up_off">Heads up off</string>
+  <string name="accessibility_quick_settings_heads_up_on">Heads up on</string>
+  <string name="accessibility_quick_settings_heads_up_changed_off">Heads up turned off</string>
+  <string name="accessibility_quick_settings_heads_up_changed_on">Heads up turned on</string>
+  <string name="qs_menu_anim">Animate tiles</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-  <string name="keyguard_indication_dash_charging_time">Carregamento Dash (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> até à carga máxima)</string>
-  <string name="keyguard_plugged_in_dash_charging">Carregamento Dash</string>
+  <string name="keyguard_indication_dash_charging_time">Dash Charging (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> until full)</string>
+  <string name="keyguard_plugged_in_dash_charging">Dash Charging</string>
   <!-- Heads up snooze toast -->
-  <string name="heads_up_snooze_message_one_minute">Notificações pop-up estão desactivadas por 1 minuto</string>
-  <string name="heads_up_snooze_message">Notificações pop-up estão desactivadas por <xliff:g id="number">%d</xliff:g> minutos</string>
-  <string name="qs_menu_qqs_count_title">Ícones da barra rápida</string>
+  <string name="heads_up_snooze_message_one_minute">Heads up is snoozing for 1 minute</string>
+  <string name="heads_up_snooze_message">Heads up is snoozing for <xliff:g id="number">%d</xliff:g> minutes</string>
+  <string name="qs_menu_qqs_count_title">Quick bar icons</string>
   <string name="qs_menu_qqs_count_seven">7</string>
   <string name="qs_menu_qqs_count_eight">8</string>
   <!-- vpn icon switch -->
   <string name="status_bar_vpn">VPN</string>
   <!-- data saver icon switch -->
-  <string name="status_bar_datasaver">Poupança de dados</string>
-  <string name="qs_menu_vpn">Ocultar o aviso de VPN</string>
+  <string name="status_bar_datasaver">Data saver</string>
+  <string name="qs_menu_vpn">Hide VPN warning</string>
 </resources>
