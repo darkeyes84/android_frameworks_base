@@ -39,8 +39,8 @@
   <string name="accessibility_quick_settings_ambient_display_changed_off">主动显示已关闭</string>
   <string name="accessibility_quick_settings_ambient_display_changed_on">主动显示已开启</string>
   <string name="quick_settings_ambient_display_label">主动显示</string>
-  <string name="accessibility_quick_settings_usb_tether_off">USB 网络共享已关闭</string>
-  <string name="accessibility_quick_settings_usb_tether_on">USB 网络共享已开启</string>
+  <string name="accessibility_quick_settings_usb_tether_off">关闭 USB 网络共享</string>
+  <string name="accessibility_quick_settings_usb_tether_on">开启 USB 网络共享</string>
   <string name="accessibility_quick_settings_usb_tether_changed_off">USB 网络共享已关闭</string>
   <string name="accessibility_quick_settings_usb_tether_changed_on">USB 网络共享已开启</string>
   <string name="quick_settings_usb_tether_label">USB 共享网络</string>
