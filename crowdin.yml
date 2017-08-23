@@ -1,4 +1,7 @@
 files:
   - source: /packages/SystemUI/res/values/dark_strings.xml
-    translation: /packages/SystemUI/res/values-%android_code%/dark_strings.xml
+    translation: /packages/SystemUI/res/values-%two_letters_code%/dark_strings.xml
+    languages_mapping:
+      two_letters_code:
+        pt-BR: pt-rBR
     content_segmentation: '0'
