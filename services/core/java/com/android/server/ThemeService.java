@@ -154,7 +154,7 @@ public class ThemeService extends IThemeService.Stub implements IBinder.DeathRec
 
     public static void returnToDefaultTheme(Context context) {
         Settings.Secure.putInt(context.getContentResolver(),
-                Settings.Secure.THEME_PRIMARY_COLOR, 1);
+                Settings.Secure.THEME_PRIMARY_COLOR, 0);
         Settings.Secure.putInt(context.getContentResolver(),
                 Settings.Secure.THEME_ACCENT_COLOR, 0);
     }
