@@ -891,7 +891,7 @@ public class GlobalActions implements DialogInterface.OnDismissListener, DialogI
 
                         // Needs delay or else we'll be taking a screenshot of the dialog each time
                         try {
-                            Thread.sleep(1000);
+                            Thread.sleep(250);
                         } catch (InterruptedException ie) {
                             // Do nothing
                         }
