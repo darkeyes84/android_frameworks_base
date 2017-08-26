@@ -1978,11 +1978,17 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         mAlarmManager = (AlarmManager) mContext.getSystemService(Context.ALARM_SERVICE);
 
         mOPGestures = new OPGesturesListener(context, new OPGesturesListener.Callbacks() {
-                   @Override
-                    public void onSwipeThreeFinger() {
-                        mHandler.post(mScreenshotRunnable);
-                    }
-                });
+            @Override
+            public void onSwipeThreeFinger() {
+                if (Settings.System.getInt(mContext.getContentResolver(),
+                        Settings.System.SCREENSHOT_TYPE, 0) == 1) {
+                    mScreenshotRunnable.setScreenshotType(TAKE_SCREENSHOT_SELECTED_REGION);
+                } else {
+                    mScreenshotRunnable.setScreenshotType(TAKE_SCREENSHOT_FULLSCREEN);
+                }
+                mHandler.post(mScreenshotRunnable);
+            }
+        });
         mWindowManagerFuncs.registerPointerEventListener(mOPGestures);
 
         // Init display burn-in protection
