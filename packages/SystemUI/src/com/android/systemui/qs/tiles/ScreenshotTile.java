@@ -40,7 +40,8 @@ import com.android.internal.logging.MetricsProto.MetricsEvent;
 /** Quick settings tile: Screenshot **/
 public class ScreenshotTile extends QSTile<QSTile.BooleanState> {
 
-    private boolean mRegion = false;
+    private boolean mRegion = Settings.System.getInt(mContext.getContentResolver(),
+            Settings.System.SCREENSHOT_TYPE, 0) == 1;
 
     private boolean mListening;
     private final Object mScreenshotLock = new Object();
@@ -69,6 +70,8 @@ public class ScreenshotTile extends QSTile<QSTile.BooleanState> {
     @Override
     public void handleClick() {
         mRegion = !mRegion;
+        Settings.System.putInt(mContext.getContentResolver(), Settings.System.SCREENSHOT_TYPE, 
+                    mRegion ? 1 : 0);
         refreshState();
     }
 
@@ -77,7 +80,7 @@ public class ScreenshotTile extends QSTile<QSTile.BooleanState> {
         mHost.collapsePanels();
         /* wait for the panel to close */
         try {
-             Thread.sleep(250);
+             Thread.sleep(500);
         } catch (InterruptedException ie) {
              // Do nothing
         }
