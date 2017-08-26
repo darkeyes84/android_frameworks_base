@@ -84,6 +84,6 @@
   <string name="quick_settings_expanded_desktop_label">Erweiterter Desktop</string>
   <string name="quick_settings_expanded_desktop">Erweitert</string>
   <string name="quick_settings_expanded_desktop_off">Standard</string>
-  <string name="quick_settings_expanded_navigation_off">Hide navigation bar</string>
-  <string name="quick_settings_expanded_statusbar_off">Hide status bar</string>
+  <string name="quick_settings_expanded_navigation_off">Navigationsleiste ausblenden</string>
+  <string name="quick_settings_expanded_statusbar_off">Statusleiste ausblenden</string>
 </resources>
