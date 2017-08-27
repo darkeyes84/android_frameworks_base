@@ -21,6 +21,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Quick Settings tiles -->
   <string name="quick_settings_screenshot_label">لقطة للشاشة</string>
+  <string name="quick_settings_region_screenshot_label">صورة جزئية للشاشة</string>
   <string name="quick_settings_caffeine_label">وضع الكافيين</string>
   <string name="accessibility_quick_settings_caffeine_off">كافيين معطل</string>
   <string name="accessibility_quick_settings_caffeine_on">كافيين مفعل</string>
@@ -77,6 +78,12 @@
   <!-- vpn icon switch -->
   <string name="status_bar_vpn">VPN</string>
   <!-- data saver icon switch -->
-  <string name="status_bar_datasaver">Data saver</string>
-  <string name="qs_menu_vpn">Hide VPN warning</string>
+  <string name="status_bar_datasaver">موفر البيانات</string>
+  <string name="qs_menu_vpn">إخفاء تحذير VPN</string>
+  <!-- Expanded desktop tile -->
+  <string name="quick_settings_expanded_desktop_label">سطح المكتب الموسع</string>
+  <string name="quick_settings_expanded_desktop">توسيع</string>
+  <string name="quick_settings_expanded_desktop_off">طبيعي</string>
+  <string name="quick_settings_expanded_navigation_off">إخفاء شريط التنقل</string>
+  <string name="quick_settings_expanded_statusbar_off">إخفاء شريط الحالة</string>
 </resources>

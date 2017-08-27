@@ -21,6 +21,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Quick Settings tiles -->
   <string name="quick_settings_screenshot_label">截屏</string>
+  <string name="quick_settings_region_screenshot_label">区域截图</string>
   <string name="quick_settings_caffeine_label">常亮</string>
   <string name="accessibility_quick_settings_caffeine_off">关闭常亮</string>
   <string name="accessibility_quick_settings_caffeine_on">开启常亮</string>
@@ -71,7 +72,7 @@
   <!-- Heads up snooze toast -->
   <string name="heads_up_snooze_message_one_minute">浮动通知已延时 1 分钟</string>
   <string name="heads_up_snooze_message">浮动通知已延时 <xliff:g id="number">%d</xliff:g> 分钟</string>
-  <string name="qs_menu_qqs_count_title">快捷栏图标</string>
+  <string name="qs_menu_qqs_count_title">快捷栏图标数</string>
   <string name="qs_menu_qqs_count_seven">7</string>
   <string name="qs_menu_qqs_count_eight">8</string>
   <!-- vpn icon switch -->
@@ -79,4 +80,10 @@
   <!-- data saver icon switch -->
   <string name="status_bar_datasaver">流量节省程序</string>
   <string name="qs_menu_vpn">隐藏 VPN 警告</string>
+  <!-- Expanded desktop tile -->
+  <string name="quick_settings_expanded_desktop_label">扩展桌面</string>
+  <string name="quick_settings_expanded_desktop">展开</string>
+  <string name="quick_settings_expanded_desktop_off">普通</string>
+  <string name="quick_settings_expanded_navigation_off">隐藏导航栏</string>
+  <string name="quick_settings_expanded_statusbar_off">隐藏状态栏</string>
 </resources>

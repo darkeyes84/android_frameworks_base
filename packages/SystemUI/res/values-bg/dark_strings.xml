@@ -21,6 +21,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Quick Settings tiles -->
   <string name="quick_settings_screenshot_label">Екранна снимка</string>
+  <string name="quick_settings_region_screenshot_label">Частична екранна снимка</string>
   <string name="quick_settings_caffeine_label">Кофеин</string>
   <string name="accessibility_quick_settings_caffeine_off">Кофеин изключен</string>
   <string name="accessibility_quick_settings_caffeine_on">Кофеин включен</string>
@@ -79,4 +80,10 @@
   <!-- data saver icon switch -->
   <string name="status_bar_datasaver">Икономия на данни</string>
   <string name="qs_menu_vpn">Скриване на VPN предупреждения</string>
+  <!-- Expanded desktop tile -->
+  <string name="quick_settings_expanded_desktop_label">Разширен екран</string>
+  <string name="quick_settings_expanded_desktop">Разширен</string>
+  <string name="quick_settings_expanded_desktop_off">Нормален</string>
+  <string name="quick_settings_expanded_navigation_off">Скриване на лентата за навигация</string>
+  <string name="quick_settings_expanded_statusbar_off">Скриване на лентата на състоянието</string>
 </resources>
