@@ -21,7 +21,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Quick Settings tiles -->
   <string name="quick_settings_screenshot_label">Знімок екрану</string>
-  <string name="quick_settings_region_screenshot_label">Partial screenshot</string>
+  <string name="quick_settings_region_screenshot_label">Знімок частини екрана</string>
   <string name="quick_settings_caffeine_label">Заборона сну</string>
   <string name="accessibility_quick_settings_caffeine_off">Заборона сну вимк.</string>
   <string name="accessibility_quick_settings_caffeine_on">Заборона сну увімк.</string>
