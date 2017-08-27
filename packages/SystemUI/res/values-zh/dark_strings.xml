@@ -72,7 +72,7 @@
   <!-- Heads up snooze toast -->
   <string name="heads_up_snooze_message_one_minute">浮动通知已延时 1 分钟</string>
   <string name="heads_up_snooze_message">浮动通知已延时 <xliff:g id="number">%d</xliff:g> 分钟</string>
-  <string name="qs_menu_qqs_count_title">快捷栏图标</string>
+  <string name="qs_menu_qqs_count_title">快捷栏图标数</string>
   <string name="qs_menu_qqs_count_seven">7</string>
   <string name="qs_menu_qqs_count_eight">8</string>
   <!-- vpn icon switch -->
