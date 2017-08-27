@@ -81,8 +81,8 @@
   <string name="status_bar_datasaver">Oszczędzanie danych</string>
   <string name="qs_menu_vpn">Ukryj ostrzeżenia VPN</string>
   <!-- Expanded desktop tile -->
-  <string name="quick_settings_expanded_desktop_label">Expanded desktop</string>
-  <string name="quick_settings_expanded_desktop">Expanded</string>
+  <string name="quick_settings_expanded_desktop_label">Tryb rozszerzonego pulpitu</string>
+  <string name="quick_settings_expanded_desktop">Rozszerzony</string>
   <string name="quick_settings_expanded_desktop_off">Normalny</string>
   <string name="quick_settings_expanded_navigation_off">Ukryj pasek nawigacji</string>
   <string name="quick_settings_expanded_statusbar_off">Ukryj pasek stanu</string>
