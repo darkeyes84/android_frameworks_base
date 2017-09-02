@@ -238,10 +238,7 @@ public class PowerUI extends SystemUI {
             } else if (Intent.ACTION_POWER_CONNECTED.equals(action)
                     || Intent.ACTION_POWER_DISCONNECTED.equals(action)) {
                 if (mIgnoredFirstPowerBroadcast) {
-                    if (Settings.Global.getInt(mContext.getContentResolver(),
-                            Settings.Global.CHARGING_SOUNDS_ENABLED, 0) == 1) {
-                        playPowerNotificationSound();
-                    }
+                    playPowerNotificationSound();
                 } else {
                     mIgnoredFirstPowerBroadcast = true;
                 }
@@ -255,10 +252,13 @@ public class PowerUI extends SystemUI {
         String soundPath = CMSettings.Global.getString(mContext.getContentResolver(),
                 CMSettings.Global.POWER_NOTIFICATIONS_RINGTONE);
 
-        if (soundPath != null && !soundPath.equals("silent")) {
-            Ringtone powerRingtone = RingtoneManager.getRingtone(mContext, Uri.parse(soundPath));
-            if (powerRingtone != null) {
-                powerRingtone.play();
+        if (Settings.Global.getInt(mContext.getContentResolver(),
+                Settings.Global.CHARGING_SOUNDS_ENABLED, 1) == 1) {
+            if (soundPath != null && !soundPath.equals("silent")) {
+                Ringtone powerRingtone = RingtoneManager.getRingtone(mContext, Uri.parse(soundPath));
+                if (powerRingtone != null) {
+                    powerRingtone.play();
+                }
             }
         }
 
