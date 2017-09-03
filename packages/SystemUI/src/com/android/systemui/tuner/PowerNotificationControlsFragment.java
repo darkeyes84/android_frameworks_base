@@ -27,12 +27,16 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
 
-public class PowerNotificationControlsFragment extends Fragment {
+public class PowerNotificationControlsFragment extends Fragment implements
+        CompoundButton.OnCheckedChangeListener {
 
     private static final String KEY_SHOW_PNC = "show_importance_slider";
+
+    private TextView mSwitchText;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -50,28 +54,32 @@ public class PowerNotificationControlsFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         final View switchBar = view.findViewById(R.id.switch_bar);
         final Switch switchWidget = (Switch) switchBar.findViewById(android.R.id.switch_widget);
-        final TextView switchText = (TextView) switchBar.findViewById(R.id.switch_text);
+        mSwitchText = (TextView) switchBar.findViewById(R.id.switch_text);
         switchWidget.setChecked(isEnabled());
-        switchText.setText(isEnabled()
+        switchWidget.setOnCheckedChangeListener(this);
+        mSwitchText.setText(isEnabled()
                 ? getString(R.string.switch_bar_on)
                 : getString(R.string.switch_bar_off));
 
-        switchWidget.setOnClickListener(new View.OnClickListener() {
+        switchBar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean newState = !isEnabled();
-                MetricsLogger.action(getContext(),
-                        MetricsEvent.ACTION_TUNER_POWER_NOTIFICATION_CONTROLS, newState);
-                Settings.Secure.putInt(getContext().getContentResolver(),
-                        KEY_SHOW_PNC, newState ? 1 : 0);
-                switchWidget.setChecked(newState);
-                switchText.setText(newState
-                        ? getString(R.string.switch_bar_on)
-                        : getString(R.string.switch_bar_off));
+                switchWidget.setChecked(!isEnabled());
             }
         });
 
         getActivity().getActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    @Override
+    public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+        MetricsLogger.action(getContext(),
+                MetricsEvent.ACTION_TUNER_POWER_NOTIFICATION_CONTROLS, b);
+        Settings.Secure.putInt(getContext().getContentResolver(),
+                KEY_SHOW_PNC, b ? 1 : 0);
+        mSwitchText.setText(b
+                ? getString(R.string.switch_bar_on)
+                : getString(R.string.switch_bar_off));
     }
 
     @Override
