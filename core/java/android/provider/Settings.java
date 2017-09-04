@@ -4029,6 +4029,12 @@ public final class Settings {
         public static final String SHOW_TILE_SUMMARY = "show_tile_summary";
 
         /**
+         * Enable two columns in settings
+         * @hide
+         */
+        public static final String TWO_COLUMNS = "two_columns";
+
+        /**
          * Force expanded notifications on all apps that support it.
          * @hide
          */
