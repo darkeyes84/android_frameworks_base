@@ -79,11 +79,11 @@
   <string name="status_bar_vpn">VPN</string>
   <!-- data saver icon switch -->
   <string name="status_bar_datasaver">Veri tasarrufu</string>
-  <string name="qs_menu_vpn">Hide VPN warning</string>
+  <string name="qs_menu_vpn">VPN uyarısını gizle</string>
   <!-- Expanded desktop tile -->
-  <string name="quick_settings_expanded_desktop_label">Expanded desktop</string>
-  <string name="quick_settings_expanded_desktop">Expanded</string>
+  <string name="quick_settings_expanded_desktop_label">Genişletilmiş Masaüstü</string>
+  <string name="quick_settings_expanded_desktop">Genişletilmiş</string>
   <string name="quick_settings_expanded_desktop_off">Normal</string>
-  <string name="quick_settings_expanded_navigation_off">Hide navigation bar</string>
-  <string name="quick_settings_expanded_statusbar_off">Hide status bar</string>
+  <string name="quick_settings_expanded_navigation_off">Gezinme çubuğunu gizle</string>
+  <string name="quick_settings_expanded_statusbar_off">Durum çubuğunu gizle</string>
 </resources>
