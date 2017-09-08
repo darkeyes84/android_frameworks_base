@@ -47,38 +47,38 @@
   <string name="quick_settings_usb_tether_label">USB internet paylaşımı</string>
   <string name="qs_menu_item_columns">Sütunlar (dikey)</string>
   <string name="qs_menu_item_columns_landscape">Sütunlar (yatay)</string>
-  <string name="qs_menu_item_rows">Rows portrait</string>
-  <string name="qs_menu_item_rows_landscape">Rows landscape</string>
+  <string name="qs_menu_item_rows">Satırlar (dikey)</string>
+  <string name="qs_menu_item_rows_landscape">Satırlar (yatay)</string>
   <string name="qs_menu_item_one">1</string>
   <string name="qs_menu_item_two">2</string>
   <string name="qs_menu_item_three">3</string>
   <string name="qs_menu_item_four">4</string>
   <string name="qs_menu_item_five">5</string>
   <string name="qs_menu_item_six">6</string>
-  <string name="qs_menu_item_reset">Reset</string>
+  <string name="qs_menu_item_reset">Sıfırla</string>
   <!-- Advance quick setting tile -->
-  <string name="quick_settings_adb_network">ADB over network</string>
-  <string name="quick_settings_network_adb_enabled_label">Enabled</string>
-  <string name="quick_settings_network_adb_disabled_label">Disabled</string>
-  <string name="quick_settings_heads_up_label">Heads up</string>
-  <string name="accessibility_quick_settings_heads_up_off">Heads up off</string>
-  <string name="accessibility_quick_settings_heads_up_on">Heads up on</string>
-  <string name="accessibility_quick_settings_heads_up_changed_off">Heads up turned off</string>
-  <string name="accessibility_quick_settings_heads_up_changed_on">Heads up turned on</string>
-  <string name="qs_menu_anim">Animate tiles</string>
+  <string name="quick_settings_adb_network">Ağ üzerinden ADB</string>
+  <string name="quick_settings_network_adb_enabled_label">Etkin</string>
+  <string name="quick_settings_network_adb_disabled_label">Devre Dışı</string>
+  <string name="quick_settings_heads_up_label">Bildirim pencereleri</string>
+  <string name="accessibility_quick_settings_heads_up_off">Bildirim pencereleri kapalı</string>
+  <string name="accessibility_quick_settings_heads_up_on">Bildirim pencereleri açık</string>
+  <string name="accessibility_quick_settings_heads_up_changed_off">Bildirim pencereleri kapatıldı</string>
+  <string name="accessibility_quick_settings_heads_up_changed_on">Bildirim pencereleri açıldı</string>
+  <string name="qs_menu_anim">Karolara animasyon ekle</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-  <string name="keyguard_indication_dash_charging_time">Dash Charging (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> until full)</string>
-  <string name="keyguard_plugged_in_dash_charging">Dash Charging</string>
+  <string name="keyguard_indication_dash_charging_time">Dash Şarj Oluyor (tam dolmasına <xliff:g id="kalan_şarj_süresi" örnek="4 saat and 2 dakika">%s</xliff:g> kaldı)</string>
+  <string name="keyguard_plugged_in_dash_charging">Hızlı Şarj Oluyor</string>
   <!-- Heads up snooze toast -->
-  <string name="heads_up_snooze_message_one_minute">Heads up is snoozing for 1 minute</string>
-  <string name="heads_up_snooze_message">Heads up is snoozing for <xliff:g id="number">%d</xliff:g> minutes</string>
-  <string name="qs_menu_qqs_count_title">Quick bar icons</string>
+  <string name="heads_up_snooze_message_one_minute">Ortam bildirimleri 1 dakika erteleniyor</string>
+  <string name="heads_up_snooze_message">Ortam bildirimleri <xliff:g id="number">%d</xliff:g> dakikalığına devre dışı</string>
+  <string name="qs_menu_qqs_count_title">Hızlı erişim simgeleri</string>
   <string name="qs_menu_qqs_count_seven">7</string>
   <string name="qs_menu_qqs_count_eight">8</string>
   <!-- vpn icon switch -->
   <string name="status_bar_vpn">VPN</string>
   <!-- data saver icon switch -->
-  <string name="status_bar_datasaver">Data saver</string>
+  <string name="status_bar_datasaver">Veri tasarrufu</string>
   <string name="qs_menu_vpn">Hide VPN warning</string>
   <!-- Expanded desktop tile -->
   <string name="quick_settings_expanded_desktop_label">Expanded desktop</string>
