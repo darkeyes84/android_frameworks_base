@@ -20,7 +20,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Quick Settings tiles -->
-  <string name="quick_settings_screenshot_label">Captura de Tela</string>
+  <string name="quick_settings_screenshot_label">Captura de tela</string>
   <string name="quick_settings_region_screenshot_label">Captura de tela parcial</string>
   <string name="quick_settings_caffeine_label">Cafeina</string>
   <string name="accessibility_quick_settings_caffeine_off">Cafeína desligada</string>
