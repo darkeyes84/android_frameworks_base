@@ -40,11 +40,11 @@
   <string name="accessibility_quick_settings_ambient_display_changed_off">एम्बिएंट डिस्प्ले बंद कर दिया</string>
   <string name="accessibility_quick_settings_ambient_display_changed_on">एम्बिएंट डिस्प्ले चालु कर दिया</string>
   <string name="quick_settings_ambient_display_label">एम्बिएंट डिस्प्ले</string>
-  <string name="accessibility_quick_settings_usb_tether_off">USB tethering off</string>
-  <string name="accessibility_quick_settings_usb_tether_on">USB tethering on</string>
-  <string name="accessibility_quick_settings_usb_tether_changed_off">USB tethering turned off</string>
-  <string name="accessibility_quick_settings_usb_tether_changed_on">USB tethering turned on</string>
-  <string name="quick_settings_usb_tether_label">USB tethering</string>
+  <string name="accessibility_quick_settings_usb_tether_off">USB टेदरिंग बंद</string>
+  <string name="accessibility_quick_settings_usb_tether_on">USB टेदरिंग चालू</string>
+  <string name="accessibility_quick_settings_usb_tether_changed_off">USB टेदरिंग बंद है</string>
+  <string name="accessibility_quick_settings_usb_tether_changed_on">USB टेदरिंग चालू है</string>
+  <string name="quick_settings_usb_tether_label">USB टेदरिंग</string>
   <string name="qs_menu_item_columns">Columns portrait</string>
   <string name="qs_menu_item_columns_landscape">Columns landscape</string>
   <string name="qs_menu_item_rows">Rows portrait</string>
