@@ -44,6 +44,7 @@
         android:layout_gravity="top|left"
         android:textSize="14sp"
         android:textColor="#FFFFFF"
+        android:textAllCaps="true"
         android:shadowColor="#99000000"
         android:shadowDx="0"
         android:shadowDy="2"

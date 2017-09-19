@@ -30,6 +30,7 @@ import android.database.ContentObserver;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Outline;
+import android.graphics.PorterDuff.Mode;
 import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
@@ -92,11 +93,6 @@ import android.provider.Settings;
 
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -140,11 +136,9 @@ public class RecentsView extends FrameLayout {
     private RecentsViewTouchHandler mTouchHandler;
     private final FlingAnimationUtils mFlingAnimationUtils;
 
-    TextView mMemText;
-    ProgressBar mMemBar;
-
+    private TextView mMemText;
+    private ProgressBar mMemBar;
     private ActivityManager mAm;
-    private int mTotalMem;
 
     public RecentsView(Context context) {
         this(context, null);
@@ -390,7 +384,7 @@ public class RecentsView extends FrameLayout {
 
         if (mTaskStackView.getVisibility() != GONE) {
             mTaskStackView.measure(widthMeasureSpec, heightMeasureSpec);
-        showMemDisplay();
+            showMemDisplay();
         }
 
         // Measure the empty view to the full size of the screen
@@ -432,20 +426,16 @@ public class RecentsView extends FrameLayout {
 
         MemoryInfo memInfo = new MemoryInfo();
         mAm.getMemoryInfo(memInfo);
-            int available = (int)(memInfo.availMem / 1048576L);
-            int max = (int)(getTotalMemory() / 1048576L);
-            mMemText.setText("Free RAM: " + String.valueOf(available) + "MB");
-            mMemBar.setMax(max);
-            mMemBar.setProgress(available);
+        int available = (int)(memInfo.availMem / 1048576L);
+        int max = (int)(memInfo.totalMem / 1048576L);
+        int used = (int)(max - available);
+        mMemText.setText(mContext.getString(R.string.free_ram, available));
+        mMemBar.setMax(max);
+        mMemBar.setProgress(used);
+        if (used > 9*max/10) {
+			mMemBar.getProgressDrawable().setColorFilter(0xFFFF0000, Mode.MULTIPLY);
+		}
     }
-
-    public long getTotalMemory() {
-        MemoryInfo memInfo = new MemoryInfo();
-        mAm.getMemoryInfo(memInfo);
-        long totalMem = memInfo.totalMem;
-        return totalMem;
-    }
-
 
     /**
      * This is called with the full size of the window since we are handling our own insets.
@@ -946,10 +936,17 @@ public class RecentsView extends FrameLayout {
                 if (mFloatingButton != null) mFloatingButton.setVisibility(View.GONE);
                 if (mStackActionButton != null) mStackActionButton.setVisibility(View.VISIBLE);
 			} else {
+				boolean enableMemDisplay = Settings.System.getInt(mContext.getContentResolver(),
+                        Settings.System.SYSTEMUI_RECENTS_MEM_DISPLAY, 0) == 1;
                 FrameLayout.LayoutParams params = (FrameLayout.LayoutParams)
                     mFloatingButton.getLayoutParams();
-                params.topMargin = 2 * (mContext.getResources().
-                    getDimensionPixelSize(com.android.internal.R.dimen.status_bar_height));
+                if (enableMemDisplay) {
+                    params.topMargin = 3 * (mContext.getResources().
+                            getDimensionPixelSize(com.android.internal.R.dimen.status_bar_height));
+                } else {
+                    params.topMargin = 2 * (mContext.getResources().
+                            getDimensionPixelSize(com.android.internal.R.dimen.status_bar_height));
+				}
 
                 switch (mClearRecentsLocation) {
                     case 1:
