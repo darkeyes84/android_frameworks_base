@@ -35,11 +35,11 @@
   <string name="quick_settings_music_label">Hudba</string>
   <string name="quick_settings_music_play">Přehrát</string>
   <string name="quick_settings_music_pause">Pozastavit</string>
-  <string name="accessibility_quick_settings_ambient_display_off">Vypnout ambientní display</string>
-  <string name="accessibility_quick_settings_ambient_display_on">Zapnout ambientní display</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_off">Ambientní displej je vypnutý</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_on">Ambientní displej je zapnutý</string>
-  <string name="quick_settings_ambient_display_label">Ambientní displej</string>
+  <string name="accessibility_quick_settings_ambient_display_off">Ambient display off</string>
+  <string name="accessibility_quick_settings_ambient_display_on">Ambient display on</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient display turned off</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient display turned on</string>
+  <string name="quick_settings_ambient_display_label">Ambient display</string>
   <string name="accessibility_quick_settings_usb_tether_off">Vypnutí USB Tethering</string>
   <string name="accessibility_quick_settings_usb_tether_on">Zapnutí USB Tetehering</string>
   <string name="accessibility_quick_settings_usb_tether_changed_off">USB Tethering je vypnutý</string>
@@ -67,8 +67,8 @@
   <string name="accessibility_quick_settings_heads_up_changed_on">Plovoucí upozornění zapnuto</string>
   <string name="qs_menu_anim">Animace dlaždice</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-  <string name="keyguard_indication_dash_charging_time">Rychlé nabíjení (plně nabito za <xliff:g id="CHARGING_TIME_LEFT">%s</xliff:g>)</string>
-  <string name="keyguard_plugged_in_dash_charging">Rychlé nabíjení</string>
+  <string name="keyguard_indication_dash_charging_time">Dash charging (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> until full)</string>
+  <string name="keyguard_plugged_in_dash_charging">Dash charging</string>
   <!-- Heads up snooze toast -->
   <string name="heads_up_snooze_message_one_minute">Plovoucí oznámení je odloženo o 1 minutu</string>
   <string name="heads_up_snooze_message">Plovoucí oznámení jsou odložena na <xliff:g id="number">%d </xliff:g> minut</string>
@@ -86,4 +86,6 @@
   <string name="quick_settings_expanded_desktop_off">Normální</string>
   <string name="quick_settings_expanded_navigation_off">Skrýt navigační panel</string>
   <string name="quick_settings_expanded_statusbar_off">Skrýt stavovou lištu</string>
+  <!-- Memory bar -->
+  <string name="free_ram">Free RAM: <xliff:g id="number">%d</xliff:g>MB</string>
 </resources>
