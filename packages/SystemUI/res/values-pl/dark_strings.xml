@@ -67,8 +67,8 @@
   <string name="accessibility_quick_settings_heads_up_changed_on">Wyskakujące powiadomienia zostały wł.</string>
   <string name="qs_menu_anim">Animowane kafelki</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-  <string name="keyguard_indication_dash_charging_time">Dash charging (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> until full)</string>
-  <string name="keyguard_plugged_in_dash_charging">Dash charging</string>
+  <string name="keyguard_indication_dash_charging_time">Ładowanie Dash (<xliff:g id="charging_time_left" example="4 godziny i 2 minuty">%s</xliff:g> do pełnego naładowania)</string>
+  <string name="keyguard_plugged_in_dash_charging">Dash Charging</string>
   <!-- Heads up snooze toast -->
   <string name="heads_up_snooze_message_one_minute">Wyskakujące powiadomienia są uśpione na czas: 1 minuta</string>
   <string name="heads_up_snooze_message">Czas drzemki wyskakujących powiadomień: <xliff:g id="number">%d</xliff:g> minuty</string>
