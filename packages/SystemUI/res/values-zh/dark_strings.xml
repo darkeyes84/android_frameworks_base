@@ -35,11 +35,11 @@
   <string name="quick_settings_music_label">音乐</string>
   <string name="quick_settings_music_play">播放</string>
   <string name="quick_settings_music_pause">暂停</string>
-  <string name="accessibility_quick_settings_ambient_display_off">主动显示关闭</string>
-  <string name="accessibility_quick_settings_ambient_display_on">主动显示开启</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_off">主动显示已关闭</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_on">主动显示已开启</string>
-  <string name="quick_settings_ambient_display_label">主动显示</string>
+  <string name="accessibility_quick_settings_ambient_display_off">Ambient display off</string>
+  <string name="accessibility_quick_settings_ambient_display_on">Ambient display on</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient display turned off</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient display turned on</string>
+  <string name="quick_settings_ambient_display_label">Ambient display</string>
   <string name="accessibility_quick_settings_usb_tether_off">关闭 USB 网络共享</string>
   <string name="accessibility_quick_settings_usb_tether_on">开启 USB 网络共享</string>
   <string name="accessibility_quick_settings_usb_tether_changed_off">USB 网络共享已关闭</string>
@@ -67,8 +67,8 @@
   <string name="accessibility_quick_settings_heads_up_changed_on">浮动通知已开启</string>
   <string name="qs_menu_anim">翻转动画</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-  <string name="keyguard_indication_dash_charging_time">正在快速充电 (还需 <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> 充满)</string>
-  <string name="keyguard_plugged_in_dash_charging">正在快速充电</string>
+  <string name="keyguard_indication_dash_charging_time">Dash charging (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> until full)</string>
+  <string name="keyguard_plugged_in_dash_charging">Dash charging</string>
   <!-- Heads up snooze toast -->
   <string name="heads_up_snooze_message_one_minute">浮动通知已延时 1 分钟</string>
   <string name="heads_up_snooze_message">浮动通知已延时 <xliff:g id="number">%d</xliff:g> 分钟</string>
@@ -86,4 +86,6 @@
   <string name="quick_settings_expanded_desktop_off">普通</string>
   <string name="quick_settings_expanded_navigation_off">隐藏导航栏</string>
   <string name="quick_settings_expanded_statusbar_off">隐藏状态栏</string>
+  <!-- Memory bar -->
+  <string name="free_ram">Free RAM: <xliff:g id="number">%d</xliff:g>MB</string>
 </resources>
