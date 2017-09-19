@@ -35,11 +35,11 @@
   <string name="quick_settings_music_label">Música</string>
   <string name="quick_settings_music_play">Reproduzir</string>
   <string name="quick_settings_music_pause">Pausa</string>
-  <string name="accessibility_quick_settings_ambient_display_off">Ambient display off</string>
-  <string name="accessibility_quick_settings_ambient_display_on">Ambient display on</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient display turned off</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient display turned on</string>
-  <string name="quick_settings_ambient_display_label">Ambient display</string>
+  <string name="accessibility_quick_settings_ambient_display_off">Visualização de ambiente desativada</string>
+  <string name="accessibility_quick_settings_ambient_display_on">Visualização de ambiente ativada</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_off">A visualização de ambiente foi desativada</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_on">A visualização de ambiente foi ativada</string>
+  <string name="quick_settings_ambient_display_label">Visualização de ambiente</string>
   <string name="accessibility_quick_settings_usb_tether_off">Partilha de internet por USB desligado</string>
   <string name="accessibility_quick_settings_usb_tether_on">Partilha de internet por USB ligado</string>
   <string name="accessibility_quick_settings_usb_tether_changed_off">Partilha de internet por USB foi desligada</string>
@@ -67,8 +67,8 @@
   <string name="accessibility_quick_settings_heads_up_changed_on">As notificações pop-up foram ativadas</string>
   <string name="qs_menu_anim">Animar telhas</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-  <string name="keyguard_indication_dash_charging_time">Dash charging (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> until full)</string>
-  <string name="keyguard_plugged_in_dash_charging">Dash charging</string>
+  <string name="keyguard_indication_dash_charging_time">Carregamento Dash (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> até à carga máxima)</string>
+  <string name="keyguard_plugged_in_dash_charging">Carregamento Dash</string>
   <!-- Heads up snooze toast -->
   <string name="heads_up_snooze_message_one_minute">Notificações pop-up estão desactivadas por 1 minuto</string>
   <string name="heads_up_snooze_message">Notificações pop-up estão desactivadas por <xliff:g id="number">%d</xliff:g> minutos</string>
@@ -87,5 +87,5 @@
   <string name="quick_settings_expanded_navigation_off">Ocultar a barra de navegação</string>
   <string name="quick_settings_expanded_statusbar_off">Ocultar a barra de estado</string>
   <!-- Memory bar -->
-  <string name="free_ram">Free RAM: <xliff:g id="number">%d</xliff:g>MB</string>
+  <string name="free_ram">RAM livre: <xliff:g id="number">%d</xliff:g>MB</string>
 </resources>
