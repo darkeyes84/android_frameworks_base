@@ -35,11 +35,11 @@
   <string name="quick_settings_music_label">Muzyka</string>
   <string name="quick_settings_music_play">Odtwarzaj</string>
   <string name="quick_settings_music_pause">Wstrzymaj</string>
-  <string name="accessibility_quick_settings_ambient_display_off">Ambient display off</string>
-  <string name="accessibility_quick_settings_ambient_display_on">Ambient display on</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient display turned off</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient display turned on</string>
-  <string name="quick_settings_ambient_display_label">Ambient display</string>
+  <string name="accessibility_quick_settings_ambient_display_off">Ekran dostosowany do otoczenia wyłączony</string>
+  <string name="accessibility_quick_settings_ambient_display_on">Ekran dostosowany do otoczenia włączony</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_off">Ekran dostosowany do otoczenia wyłączony</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_on">Ekran dostosowany do otoczenia włączony</string>
+  <string name="quick_settings_ambient_display_label">Ekran dostosowany do otoczenia</string>
   <string name="accessibility_quick_settings_usb_tether_off">Tethering przez USB wył.</string>
   <string name="accessibility_quick_settings_usb_tether_on">Tethering przez USB wł.</string>
   <string name="accessibility_quick_settings_usb_tether_changed_off">Tethering przez USB został wył.</string>
@@ -87,5 +87,5 @@
   <string name="quick_settings_expanded_navigation_off">Ukryj pasek nawigacji</string>
   <string name="quick_settings_expanded_statusbar_off">Ukryj pasek stanu</string>
   <!-- Memory bar -->
-  <string name="free_ram">Free RAM: <xliff:g id="number">%d</xliff:g>MB</string>
+  <string name="free_ram">Wolna pamięć RAM: <xliff:g id="number">%d</xliff:g>MB</string>
 </resources>
