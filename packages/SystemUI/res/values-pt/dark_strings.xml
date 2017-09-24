@@ -86,4 +86,6 @@
   <string name="quick_settings_expanded_desktop_off">Normal</string>
   <string name="quick_settings_expanded_navigation_off">Ocultar a barra de navegação</string>
   <string name="quick_settings_expanded_statusbar_off">Ocultar a barra de estado</string>
+  <!-- Memory bar -->
+  <string name="free_ram">RAM livre: <xliff:g id="number">%d</xliff:g>MB</string>
 </resources>

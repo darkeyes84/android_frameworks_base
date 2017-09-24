@@ -35,11 +35,11 @@
   <string name="quick_settings_music_label">Musik</string>
   <string name="quick_settings_music_play">Wiedergabe</string>
   <string name="quick_settings_music_pause">Pause</string>
-  <string name="accessibility_quick_settings_ambient_display_off">Ambient Display aus</string>
-  <string name="accessibility_quick_settings_ambient_display_on">Ambient Display an</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient Display ausgeschaltet</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient Display eingeschaltet</string>
-  <string name="quick_settings_ambient_display_label">Ambient Display</string>
+  <string name="accessibility_quick_settings_ambient_display_off">Inaktivitätsbildschirm aus</string>
+  <string name="accessibility_quick_settings_ambient_display_on">Inaktivitätsbildschirm an</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_off">Inaktivitätsbildschirm wurde ausgeschaltet</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_on">Inaktivitätsbildschirm wurde aktiviert</string>
+  <string name="quick_settings_ambient_display_label">Inaktivitätsbildschirm</string>
   <string name="accessibility_quick_settings_usb_tether_off">USB Tethering aus</string>
   <string name="accessibility_quick_settings_usb_tether_on">USB Tethering an</string>
   <string name="accessibility_quick_settings_usb_tether_changed_off">USB Tethering ausgeschaltet</string>
@@ -86,4 +86,6 @@
   <string name="quick_settings_expanded_desktop_off">Standard</string>
   <string name="quick_settings_expanded_navigation_off">Navigationsleiste ausblenden</string>
   <string name="quick_settings_expanded_statusbar_off">Statusleiste ausblenden</string>
+  <!-- Memory bar -->
+  <string name="free_ram">Freier RAM-Speicher: <xliff:g id="number">%d </xliff:g> MB</string>
 </resources>
