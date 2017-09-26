@@ -4035,6 +4035,12 @@ public final class Settings {
         public static final String SHOW_TILE_SUMMARY = "show_tile_summary";
 
         /**
+         * Remove conditions in settings
+         * @hide
+         */
+        public static final String DISABLE_SETTINGS_CONDITIONS = "disable_settings_conditions";
+
+        /**
          * Enable two columns in settings
          * @hide
          */
