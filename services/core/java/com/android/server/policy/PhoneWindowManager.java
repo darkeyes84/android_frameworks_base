@@ -79,6 +79,10 @@ import android.hardware.hdmi.HdmiPlaybackClient;
 import android.hardware.hdmi.HdmiPlaybackClient.OneTouchPlayCallback;
 import android.hardware.input.InputManagerInternal;
 import android.hardware.input.InputManager;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.media.AudioAttributes;
 import android.media.AudioManager;
 import android.media.AudioSystem;
@@ -899,6 +903,12 @@ public class PhoneWindowManager implements WindowManagerPolicy {
 
     int mDesiredRotation = -1;
 
+    private boolean mTorchProximity;
+    private SensorEventListener mProximityListener;
+    private SensorManager mSensorManager;
+    private Sensor mProximitySensor;
+    private android.os.PowerManager.WakeLock mProximityWakeLock;
+
     private class PolicyHandler extends Handler {
         @Override
         public void handleMessage(Message msg) {
@@ -980,7 +990,11 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     break;
                 }
                 case MSG_TOGGLE_TORCH: {
-                    toggleTorch();
+					if (mTorchProximity && !mTorchEnabled) {
+						checkProximitySensor();
+					} else {
+                        toggleTorch();
+                    }
                     break;
                 }
                 case MSG_BACK_DELAYED_PRESS:
@@ -1020,6 +1034,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     UserHandle.USER_ALL);
             resolver.registerContentObserver(CMSettings.System.getUriFor(
                     CMSettings.System.TORCH_LONG_PRESS_POWER_TIMEOUT), false, this,
+                    UserHandle.USER_ALL);
+            resolver.registerContentObserver(CMSettings.System.getUriFor(
+                    CMSettings.System.TORCH_LONG_PRESS_POWER_PROXIMITY), false, this,
                     UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.Secure.getUriFor(
                     Settings.Secure.INCALL_BACK_BUTTON_BEHAVIOR), false, this,
@@ -1703,6 +1720,41 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         return mLongPressOnPowerBehavior;
     }
 
+    private void checkProximitySensor() {
+        if (mProximityListener == null) {
+            synchronized (mProximityWakeLock) {
+                mProximityWakeLock.acquire();
+                mProximityListener = new SensorEventListener() {
+                    @Override
+                    public void onSensorChanged(SensorEvent event) {
+				    	clearProximitySensor();
+			    		if (event.values[0]
+                                >= mProximitySensor.getMaximumRange()) {
+			    			toggleTorch();
+                        }
+                    }
+
+                    @Override
+                    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+                        // Do nothing
+                    }
+                };
+                mSensorManager.registerListener(mProximityListener,
+                        mProximitySensor, SensorManager.SENSOR_DELAY_FASTEST);
+	        }
+	    }
+	}
+
+    private void clearProximitySensor() {
+		if (mProximityWakeLock.isHeld()) {
+            mProximityWakeLock.release();
+        }
+        if (mProximityListener != null) {
+            mSensorManager.unregisterListener(mProximityListener, mProximitySensor);
+            mProximityListener = null;
+        }
+    }
+
     private boolean hasLongPressOnPowerBehavior() {
         return getResolvedLongPressOnPowerBehavior() != LONG_PRESS_POWER_NOTHING;
     }
@@ -1976,6 +2028,11 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         mAppOpsManager = (AppOpsManager) mContext.getSystemService(Context.APP_OPS_SERVICE);
         mHasFeatureWatch = mContext.getPackageManager().hasSystemFeature(FEATURE_WATCH);
         mAlarmManager = (AlarmManager) mContext.getSystemService(Context.ALARM_SERVICE);
+
+        mSensorManager = (SensorManager) mContext.getSystemService(Context.SENSOR_SERVICE);
+        mProximitySensor = mSensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
+        mProximityWakeLock = ((PowerManager) mContext.getSystemService(Context.POWER_SERVICE))
+                .newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "ProximityWakeLock");
 
         mOPGestures = new OPGesturesListener(context, new OPGesturesListener.Callbacks() {
             @Override
@@ -2521,6 +2578,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             mTorchTimeout = CMSettings.System.getIntForUser(
                     resolver, CMSettings.System.TORCH_LONG_PRESS_POWER_TIMEOUT, 0,
                     UserHandle.USER_CURRENT);
+            mTorchProximity = CMSettings.System.getIntForUser(
+                    resolver, CMSettings.System.TORCH_LONG_PRESS_POWER_PROXIMITY, 1,
+                    UserHandle.USER_CURRENT) == 1;
             mHomeWakeScreen = (CMSettings.System.getIntForUser(resolver,
                     CMSettings.System.HOME_WAKE_SCREEN, 1, UserHandle.USER_CURRENT) == 1) &&
                     ((mDeviceHardwareWakeKeys & KEY_MASK_HOME) != 0);
