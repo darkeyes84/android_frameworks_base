@@ -37,8 +37,8 @@
   <string name="quick_settings_music_pause">إيقاف مؤقت</string>
   <string name="accessibility_quick_settings_ambient_display_off">العرض المحيطي لا يعمل</string>
   <string name="accessibility_quick_settings_ambient_display_on">العرض المحيطي يعمل</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_off">تم إيقاف عرض المحيط</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_on">تم تشغيل عرض المحيط</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_off">العرض المحيطي معطل</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_on">العرض المحيطي مغعل</string>
   <string name="quick_settings_ambient_display_label">عرض المحيط</string>
   <string name="accessibility_quick_settings_usb_tether_off">ربط USB لا يعمل</string>
   <string name="accessibility_quick_settings_usb_tether_on">ربط USB يعمل</string>
@@ -67,7 +67,7 @@
   <string name="accessibility_quick_settings_heads_up_changed_on">تم تشغيل الاشعارات العلوية العائمة</string>
   <string name="qs_menu_anim">مؤثرات الtiles</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-  <string name="keyguard_indication_dash_charging_time">الشحن السريع (<xliff:g id="charging_time_left" example=" اربع ساعات و 2 دقيقة">%s</xliff:g> حتى الإمتلاء)</string>
+  <string name="keyguard_indication_dash_charging_time">الشحن السريع</string>
   <string name="keyguard_plugged_in_dash_charging">الشحن السريع</string>
   <!-- Heads up snooze toast -->
   <string name="heads_up_snooze_message_one_minute">الإشعار العلوي سيوقف المنبه لدقيقة واحدة</string>
@@ -86,4 +86,6 @@
   <string name="quick_settings_expanded_desktop_off">طبيعي</string>
   <string name="quick_settings_expanded_navigation_off">إخفاء شريط التنقل</string>
   <string name="quick_settings_expanded_statusbar_off">إخفاء شريط الحالة</string>
+  <!-- Memory bar -->
+  <string name="free_ram">ذاكرة الوصول العشوائي الحرة</string>
 </resources>
