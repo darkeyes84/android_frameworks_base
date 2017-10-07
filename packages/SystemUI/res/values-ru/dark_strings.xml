@@ -89,8 +89,8 @@
   <!-- Memory bar -->
   <string name="free_ram">Свободно RAM: <xliff:g id="number">%d</xliff:g>MB</string>
   <!-- Pie controls -->
-  <string name="pie_state_name">PIE</string>
-  <string name="pie_state_summary">Use PIE while in immersive mode</string>
-  <string name="pie_battery_level">"BATTERY LEVEL "</string>
-  <string name="quick_settings_pie">PIE</string>
+  <string name="pie_state_name">Расширенная панель управления</string>
+  <string name="pie_state_summary">Использовать панель PIE в полноэкранном режиме</string>
+  <string name="pie_battery_level">"Уровень заряда аккумулятора"</string>
+  <string name="quick_settings_pie">Расширенная панель управления</string>
 </resources>
