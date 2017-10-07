@@ -89,8 +89,8 @@
   <!-- Memory bar -->
   <string name="free_ram">RAM libre: <xliff:g id="number">%d</xliff:g>MB</string>
   <!-- Pie controls -->
-  <string name="pie_state_name">Controles PIE</string>
+  <string name="pie_state_name">PIE</string>
   <string name="pie_state_summary">Usar controles PIE en modo inmersivo</string>
   <string name="pie_battery_level">"NIVEL DE BATERIA "</string>
-  <string name="quick_settings_pie">Controles PIE</string>
+  <string name="quick_settings_pie">PIE</string>
 </resources>
