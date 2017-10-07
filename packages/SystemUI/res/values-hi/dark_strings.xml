@@ -89,8 +89,8 @@
   <!-- Memory bar -->
   <string name="free_ram">मुफ्त रैम <xliff:g id="number"> %d </xliff:g>MB</string>
   <!-- Pie controls -->
-  <string name="pie_state_name">PIE</string>
-  <string name="pie_state_summary">Use PIE while in immersive mode</string>
-  <string name="pie_battery_level">"BATTERY LEVEL "</string>
-  <string name="quick_settings_pie">PIE</string>
+  <string name="pie_state_name">पाई</string>
+  <string name="pie_state_summary">इमर्सिव मोड मे होने पर पाई कंट्रोल्स का उपयोग करें</string>
+  <string name="pie_battery_level">"बैटरी स्तर "</string>
+  <string name="quick_settings_pie">पाई</string>
 </resources>
