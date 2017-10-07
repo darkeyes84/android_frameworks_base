@@ -90,7 +90,7 @@
   <string name="free_ram">Свободна RAM памет<xliff:g id="число">%d</xliff:g>MБ</string>
   <!-- Pie controls -->
   <string name="pie_state_name">PIE</string>
-  <string name="pie_state_summary">Използвай PIE в режим на \"потапяне\"</string>
+  <string name="pie_state_summary">Използвай PIE в режим \"Цял екран\"</string>
   <string name="pie_battery_level">"НИВО НА БАТЕРИЯТА "</string>
   <string name="quick_settings_pie">PIE</string>
 </resources>
