@@ -21,7 +21,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Quick Settings tiles -->
   <string name="quick_settings_screenshot_label">截屏</string>
-  <string name="quick_settings_region_screenshot_label">区域截图</string>
+  <string name="quick_settings_region_screenshot_label">局部截图</string>
   <string name="quick_settings_caffeine_label">常亮</string>
   <string name="accessibility_quick_settings_caffeine_off">关闭常亮</string>
   <string name="accessibility_quick_settings_caffeine_on">开启常亮</string>
