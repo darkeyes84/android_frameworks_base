@@ -61,9 +61,6 @@ public class PieController extends EdgeGestureManager.EdgeGestureActivationListe
     static final String HOME_BUTTON = "home";
     static final String RECENT_BUTTON = "recent";
 
-    /* Analogous to NAVBAR_ALWAYS_AT_RIGHT */
-    static final boolean PIE_ALWAYS_AT_RIGHT = true;
-
     private static PieController sInstance;
 
     private AudioManager mAudioManager;
@@ -286,13 +283,9 @@ public class PieController extends EdgeGestureManager.EdgeGestureActivationListe
     private int convertAbsoluteToRelativeGravity(int gravity) {
         // only mess around with Pie in landscape
         if (mRelocatePieOnRotation && isLandScape()) {
-            // no questions asked if right is preferred
-            if (PIE_ALWAYS_AT_RIGHT) {
-                return Gravity.RIGHT;
-            } else {
-                // bottom is now right/left (depends on the direction of rotation)
-                return mRotation == Surface.ROTATION_90 ? Gravity.RIGHT : Gravity.LEFT;
-            }
+			boolean isLeftHanded = Settings.Secure.getIntForUser(mContext.getContentResolver(),
+                    Settings.Secure.PIE_LEFT_HANDED, 0, UserHandle.USER_CURRENT) == 1;
+            return isLeftHanded ? Gravity.LEFT : Gravity.RIGHT;
         }
         return gravity;
     }
@@ -304,20 +297,9 @@ public class PieController extends EdgeGestureManager.EdgeGestureActivationListe
     private int convertRelativeToAbsoluteGravity(int gravity) {
         // only mess around with Pie in landscape
         if (mRelocatePieOnRotation && isLandScape()) {
-            if (PIE_ALWAYS_AT_RIGHT) {
-                // no questions asked if right is preferred
-                return Gravity.RIGHT;
-            } else {
-                // just stick to the edge when possible
-                switch (gravity) {
-                    case Gravity.LEFT:
-                        return mRotation == Surface.ROTATION_90 ? Gravity.NO_GRAVITY : Gravity.BOTTOM;
-                    case Gravity.RIGHT:
-                        return mRotation == Surface.ROTATION_90 ? Gravity.BOTTOM : Gravity.NO_GRAVITY;
-                    case Gravity.BOTTOM:
-                        return mRotation == Surface.ROTATION_90 ? Gravity.LEFT : Gravity.RIGHT;
-                }
-            }
+			boolean isLeftHanded = Settings.Secure.getIntForUser(mContext.getContentResolver(),
+                    Settings.Secure.PIE_LEFT_HANDED, 0, UserHandle.USER_CURRENT) == 1;
+            return isLeftHanded ? Gravity.LEFT : Gravity.RIGHT;
         }
         return gravity;
     }
@@ -334,10 +316,6 @@ public class PieController extends EdgeGestureManager.EdgeGestureActivationListe
      * @see #isGravityPossible(int)
      */
     protected boolean isGravityPossible(int gravity) {
-        if (mRelocatePieOnRotation && isLandScape() && PIE_ALWAYS_AT_RIGHT) {
-            return gravity == Gravity.RIGHT;
-        }
-
         return convertRelativeToAbsoluteGravity(gravity) != Gravity.NO_GRAVITY;
     }
 

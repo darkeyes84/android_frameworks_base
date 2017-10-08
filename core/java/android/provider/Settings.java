@@ -6951,6 +6951,14 @@ public final class Settings {
         public static final String PIE_GRAVITY = "pie_gravity";
 
         /**
+         * PIE controls location in landscape.
+         * Gravity.LEFT
+         * Gravity.RIGHT (default)
+         * @hide
+         */
+        public static final String PIE_LEFT_HANDED = "pie_left_handed";
+
+        /**
          * Whether to show battery circle in PIE controls.
          * 0 = Text only
          * 1 = Circle only

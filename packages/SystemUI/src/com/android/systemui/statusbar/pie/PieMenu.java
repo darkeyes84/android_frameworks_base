@@ -440,7 +440,8 @@ public class PieMenu extends RelativeLayout {
         mTogglePoint[mNumberOfSnapPoints++] = new SettingsPoint(mWidth / 2
                 + (mPieBottom ? 0 : (pieRight ? -mSettingsOffset : mSettingsOffset))
                 + (mPanelOrientation == Gravity.BOTTOM ? 0 :
-                (isLandScape() ? -mSettingsOffsetLand : (pieRight ? -mNOTOffsetX : mNOTOffsetX))),
+                (isLandScape() ? (pieRight ? -mSettingsOffsetLand : mSettingsOffsetLand)
+                               : (pieRight ? -mNOTOffsetX : mNOTOffsetX))),
                 mHeight / (mPanelOrientation == Gravity.BOTTOM ? 6 : 2), mNOTRadius, mSettingsLogo,
                 mNOTSize);
 
@@ -452,8 +453,8 @@ public class PieMenu extends RelativeLayout {
             }
             setColor(mNOTLogo, mDarkThemeEnabled ? mForegroundColor : mBackgroundColor);
             mTogglePoint[mNumberOfSnapPoints++] = new NowOnTapPoint(mWidth / 2 +
-                    (mPanelOrientation == Gravity.BOTTOM ? 0 : (isLandScape() ? mWidth / 7 :
-                    (pieRight ? -mNOTOffsetX : mNOTOffsetX))), mHeight / 2 +
+                    (mPanelOrientation == Gravity.BOTTOM ? 0 : (isLandScape() ? (pieRight ? mWidth / 7 : -mWidth / 7)
+                    : (pieRight ? -mNOTOffsetX : mNOTOffsetX))), mHeight / 2 +
                     (mPanelOrientation == Gravity.BOTTOM ? mNOTOffsetY : 0),
                     mNOTRadius, mNOTLogo, mNOTSize);
         }
@@ -625,12 +626,9 @@ public class PieMenu extends RelativeLayout {
         // network icon layoutparams
         RelativeLayout.LayoutParams lp = new
                 RelativeLayout.LayoutParams(mStatusIconSize, mStatusIconSize);
-        lp.leftMargin = isLandScape() ? mStatusOffset : 0;
-        lp.rightMargin = isLandScape() ? 0 : mStatusOffset;
-        lp.topMargin = isLandScape() ? mHeight - mStatusOffset * 2 : mStatusOffset;
-        if (!isLandScape()) {
-            lp.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
-        }
+        lp.rightMargin = mStatusOffset;
+        lp.topMargin = mStatusOffset;
+        lp.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
         mNetworkIcon.setLayoutParams(lp);
 
         // wifi icon layoutparams
@@ -789,11 +787,12 @@ public class PieMenu extends RelativeLayout {
                 if (mPieBottom) {
                     lp.addRule(RelativeLayout.ALIGN_PARENT_TOP);
                 }
+                final boolean pieRight = mPanelOrientation == Gravity.RIGHT;
                 lp.topMargin = mHeight / (mPieBottom ? 2 : 4) + (int)
                         (mPieBottom ? mIconOffsetY : mIconOffsetYside) + (int)
                         (isLandScape() ? mLandOffsetY : 0);
                 lp.leftMargin = mWidth / 2 - (int) iconOffsetX -
-                        (isLandScape() ? (int) mLandOffsetX : 0);
+                        (isLandScape() ? (pieRight ? (int) mLandOffsetX : (int) -mLandOffsetX) : 0);
                 view.setLayoutParams(lp);
                 addView(view);
                 mIconViews.add(view);
@@ -1201,36 +1200,33 @@ public class PieMenu extends RelativeLayout {
             if (mStatusIndicator == 2 || mStatusIndicator == 3) {
                 mNetworkIcon.setAlpha((int) (mBackgroundFraction * 0xff));
                 if (mNetworkText != null) {
-                    if (!isLandScape()) {
-                        mStatusPaint.setTextAlign(Paint.Align.RIGHT);
-                    }
-                    canvas.drawText(mNetworkText, isLandScape() ? mWidth / 12 : mWidth -
-                              (mWidth / 8), isLandScape() ? (mHeight - (mStatusOffset
-                              + mStatusTextTopMarginLand)) : (mStatusOffset
-                              + mStatusTextTopMargin), mStatusPaint);
+                    mStatusPaint.setTextAlign(Paint.Align.RIGHT);
+                    canvas.drawText(mNetworkText, mWidth - mWidth / (isLandScape() ? 12 : 8),
+                    mStatusOffset + mStatusTextTopMargin, mStatusPaint);
                     // restore to default alignment
                     mStatusPaint.setTextAlign(Paint.Align.LEFT);
                 }
             }
+            final boolean pieRight = mPanelOrientation == Gravity.RIGHT;
             canvas.drawText(mClockText, mWidth / 2 - mClockOffsetX -
-                    (isLandScape() ? mLandOffsetX : 0), mHeight / (mPieBottom ? 2 : 4)
+                    (isLandScape() ? (pieRight ? mLandOffsetX : -mLandOffsetX) : 0), mHeight / (mPieBottom ? 2 : 4)
                     - mClockOffsetY + (isLandScape() ? mLandOffsetY : 0), mClockPaint);
             canvas.drawText(getSimpleDate(), mWidth / 2 - mDateOffsetX -
-                    (isLandScape() ? mLandOffsetX : 0), mHeight / (mPieBottom ? 2 : 4)
+                    (isLandScape() ? (pieRight ? mLandOffsetX : -mLandOffsetX) : 0), mHeight / (mPieBottom ? 2 : 4)
                     - mDateOffsetY + (isLandScape() ? mLandOffsetY : 0), mStatusPaint);
             // Don't draw battery text if disabled
             if (mBatteryMode == 1 || mBatteryMode ==3) {
                 canvas.drawText(mBatteryText, mWidth / 2 - mBatteryOffsetX -
-                        (isLandScape() ? mLandOffsetX : 0), mHeight / (mPieBottom ? 2 : 4) -
+                        (isLandScape() ? (pieRight ? mLandOffsetX : -mLandOffsetX) : 0), mHeight / (mPieBottom ? 2 : 4) -
                         (mPieBottom ? mBatteryOffsetY : mBatteryOffsetYSide) +
                         (isLandScape() ? mLandOffsetY : 0), mStatusPaint);
             }
             // Hide line when there are no notifications
             if (mNotifications.size() > 0) {
-                canvas.drawLine(mWidth / 2 - mLineLength / 2 - (isLandScape() ? mLineOffsetLand : 0),
+                canvas.drawLine(mWidth / 2 - mLineLength / 2 - (isLandScape() ? (pieRight ? mLineOffsetLand : -mLineOffsetLand) : 0),
                         (mPieBottom ? mHeight / 2 - mLineOffset : mHeight / 4 + mLineOffsetSide)
                         + (isLandScape() ? mLandOffsetY : 0), mWidth / 2 + mLineLength / 2 -
-                        (isLandScape() ? mLineOffsetLand : 0),
+                        (isLandScape() ? (pieRight ? mLineOffsetLand : -mLineOffsetLand) : 0),
                         (mPieBottom ? mHeight / 2 - mLineOffset : mHeight / 4 + mLineOffsetSide)
                         + (isLandScape() ? mLandOffsetY : 0), mLinePaint);
             }
