@@ -90,7 +90,7 @@
   <string name="free_ram">RAM Libera: <xliff:g id="number">%d</xliff:g>MB</string>
   <!-- Pie controls -->
   <string name="pie_state_name">PIE</string>
-  <string name="pie_state_summary">Use PIE while in immersive mode</string>
+  <string name="pie_state_summary">Utilizza i controlli PIE in modalità immersiva</string>
   <string name="pie_battery_level">"LIVELLO BATTERIA "</string>
   <string name="quick_settings_pie">PIE</string>
 </resources>
