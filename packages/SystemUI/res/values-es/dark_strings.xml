@@ -91,6 +91,6 @@
   <!-- Pie controls -->
   <string name="pie_state_name">PIE</string>
   <string name="pie_state_summary">Usar controles PIE en modo inmersivo</string>
-  <string name="pie_battery_level">"NIVEL DE BATERIA "</string>
+  <string name="pie_battery_level">"NIVEL DE BATERÍA "</string>
   <string name="quick_settings_pie">PIE</string>
 </resources>
