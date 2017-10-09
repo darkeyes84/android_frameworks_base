@@ -91,6 +91,6 @@
   <!-- Pie controls -->
   <string name="pie_state_name">Розширена панель навігації</string>
   <string name="pie_state_summary">Використовувати розширену панель навігації в повноекранному режимі</string>
-  <string name="pie_battery_level">"Рівень заряду акумулятора"</string>
+  <string name="pie_battery_level">"Рівень заряду акумулятора "</string>
   <string name="quick_settings_pie">Розширена панель навігації</string>
 </resources>
