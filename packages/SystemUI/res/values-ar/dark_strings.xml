@@ -89,8 +89,8 @@
   <!-- Memory bar -->
   <string name="free_ram">ذاكرة الوصول العشوائي الحرة</string>
   <!-- Pie controls -->
-  <string name="pie_state_name">PIE</string>
-  <string name="pie_state_summary">Use PIE while in immersive mode</string>
-  <string name="pie_battery_level">"BATTERY LEVEL "</string>
-  <string name="quick_settings_pie">PIE</string>
+  <string name="pie_state_name">نمط الدائرة</string>
+  <string name="pie_state_summary">استخدام المخطط الدائري في وضع غامر</string>
+  <string name="pie_battery_level">"مستوى البطارية "</string>
+  <string name="quick_settings_pie">نمط الدائرة</string>
 </resources>
