@@ -89,8 +89,8 @@
   <!-- Memory bar -->
   <string name="free_ram">남은 램: <xliff:g id="number">%d</xliff:g>MB</string>
   <!-- Pie controls -->
-  <string name="pie_state_name">PIE</string>
-  <string name="pie_state_summary">Use PIE while in immersive mode</string>
-  <string name="pie_battery_level">"BATTERY LEVEL "</string>
-  <string name="quick_settings_pie">PIE</string>
+  <string name="pie_state_name">PIE 컨트롤</string>
+  <string name="pie_state_summary">전체 화면 모드에서 파이 컨트롤 사용</string>
+  <string name="pie_battery_level">"배터리 잔량 "</string>
+  <string name="quick_settings_pie">PIE 컨트롤</string>
 </resources>
