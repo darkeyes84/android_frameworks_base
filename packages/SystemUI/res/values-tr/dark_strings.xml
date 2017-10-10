@@ -90,7 +90,7 @@
   <string name="free_ram">Free RAM: <xliff:g id="NUMBER">%d</xliff:g>MB</string>
   <!-- Pie controls -->
   <string name="pie_state_name">PIE</string>
-  <string name="pie_state_summary">Use PIE while in immersive mode</string>
-  <string name="pie_battery_level">"BATTERY LEVEL "</string>
+  <string name="pie_state_summary">Tam ekran modundayken pie kontrollerini kullanın</string>
+  <string name="pie_battery_level">"PİL SEVİYESİ "</string>
   <string name="quick_settings_pie">PIE</string>
 </resources>
