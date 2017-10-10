@@ -88,4 +88,9 @@
   <string name="quick_settings_expanded_statusbar_off">Ascunde bara de stare</string>
   <!-- Memory bar -->
   <string name="free_ram">RAM liber: <xliff:g id="number">%d</xliff:g>MB</string>
+  <!-- Pie controls -->
+  <string name="pie_state_name">Controale evantai</string>
+  <string name="pie_state_summary">Utilizaţi controale evantai în modul imersiv</string>
+  <string name="pie_battery_level">"NIVELUL BATERIEI "</string>
+  <string name="quick_settings_pie">Controale evantai</string>
 </resources>

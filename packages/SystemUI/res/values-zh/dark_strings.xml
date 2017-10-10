@@ -21,7 +21,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Quick Settings tiles -->
   <string name="quick_settings_screenshot_label">截屏</string>
-  <string name="quick_settings_region_screenshot_label">区域截图</string>
+  <string name="quick_settings_region_screenshot_label">局部截图</string>
   <string name="quick_settings_caffeine_label">常亮</string>
   <string name="accessibility_quick_settings_caffeine_off">关闭常亮</string>
   <string name="accessibility_quick_settings_caffeine_on">开启常亮</string>
@@ -88,4 +88,9 @@
   <string name="quick_settings_expanded_statusbar_off">隐藏状态栏</string>
   <!-- Memory bar -->
   <string name="free_ram">可用内存: <xliff:g id="number">%d</xliff:g>MB</string>
+  <!-- Pie controls -->
+  <string name="pie_state_name">Pie</string>
+  <string name="pie_state_summary">在沉浸模式下启用 Pie 控制</string>
+  <string name="pie_battery_level">"电池电量 "</string>
+  <string name="quick_settings_pie">Pie</string>
 </resources>

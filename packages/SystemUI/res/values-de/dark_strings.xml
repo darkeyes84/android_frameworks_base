@@ -67,8 +67,8 @@
   <string name="accessibility_quick_settings_heads_up_changed_on">Heads Up-Benachrichtigungen eingeschaltet</string>
   <string name="qs_menu_anim">Kacheln animieren</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-  <string name="keyguard_indication_dash_charging_time">Wird schnell aufgeladen (voll in <xliff:g id="charging_time_left" example="4 Stunden und 2 Minuten">%s</xliff:g>)</string>
-  <string name="keyguard_plugged_in_dash_charging">Schnelles Aufladen</string>
+  <string name="keyguard_indication_dash_charging_time">Dash Charging (voll in <xliff:g id="charging_time_left" example="4 Stunden und 2 Minuten">%s</xliff:g>)</string>
+  <string name="keyguard_plugged_in_dash_charging">Dash Charging</string>
   <!-- Heads up snooze toast -->
   <string name="heads_up_snooze_message_one_minute">Heads Up-Benachrichtigungen für 1 Minute deaktiviert</string>
   <string name="heads_up_snooze_message">Heads-Up ist für <xliff:g id="number">%d</xliff:g> Minuten deaktiviert</string>
@@ -88,4 +88,9 @@
   <string name="quick_settings_expanded_statusbar_off">Statusleiste ausblenden</string>
   <!-- Memory bar -->
   <string name="free_ram">Freier RAM-Speicher: <xliff:g id="number">%d </xliff:g> MB</string>
+  <!-- Pie controls -->
+  <string name="pie_state_name">PIE-Halbkreissteuerung</string>
+  <string name="pie_state_summary">PIE im immersiven Modus verwenden</string>
+  <string name="pie_battery_level">"AKKUSTAND "</string>
+  <string name="quick_settings_pie">PIE-Halbkreissteuerung</string>
 </resources>

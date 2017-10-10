@@ -88,4 +88,9 @@
   <string name="quick_settings_expanded_statusbar_off">Masquer la barre d\'état</string>
   <!-- Memory bar -->
   <string name="free_ram">RAM Libre: <xliff:g id="number">%d</xliff:g>MO</string>
+  <!-- Pie controls -->
+  <string name="pie_state_name">PIE</string>
+  <string name="pie_state_summary">Utiliser le menu PIE en mode immersif</string>
+  <string name="pie_battery_level">"NIVEAU DE LA BATTERIE "</string>
+  <string name="quick_settings_pie">PIE</string>
 </resources>
