@@ -89,8 +89,8 @@
   <!-- Memory bar -->
   <string name="free_ram">Wolna pamięć RAM: <xliff:g id="number">%d</xliff:g>MB</string>
   <!-- Pie controls -->
-  <string name="pie_state_name">PIE</string>
-  <string name="pie_state_summary">Use PIE while in immersive mode</string>
+  <string name="pie_state_name">Interfejs PIE</string>
+  <string name="pie_state_summary">Używaj interfejsu PIE trybie rozszerzonego pulpitu</string>
   <string name="pie_battery_level">"POZIOM NAŁADOWANIA BATERII "</string>
-  <string name="quick_settings_pie">PIE</string>
+  <string name="quick_settings_pie">Interfejs PIE</string>
 </resources>
