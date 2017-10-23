@@ -68,12 +68,12 @@ public final class NightDisplayService extends SystemService
     private static final boolean DEBUG = false;
 
     /**
-     * Night display ~= 3400 K.
+     * Night display ~= 2650 K.
      */
     private static final float[] MATRIX_NIGHT = new float[] {
         1,      0,      0, 0,
-        0, 0.754f,      0, 0,
-        0,      0, 0.516f, 0,
+        0, 0.647f,      0, 0,
+        0,      0, 0.325f, 0,
         0,      0,      0, 1
     };
 
