@@ -126,7 +126,11 @@ public class PieController extends EdgeGestureManager.EdgeGestureActivationListe
     }
 
     public void detachPie() {
-         mBar.updatePieControls(!mPieAttached);
+        mBar.updatePieControls(false);
+    }
+
+    public void attachPie() {
+        mBar.updatePieControls(true);
     }
 
     public void resetPie(boolean enabled, int gravity) {

@@ -5017,6 +5017,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                 mKeyguardUserSwitcher.setKeyguard(true, fromShadeLocked);
             }
             mStatusBarView.removePendingHideExpandedRunnables();
+            if (mPieController != null) mPieController.detachPie();
         } else {
             mKeyguardIndicationController.setVisible(false);
             if (mKeyguardUserSwitcher != null) {
@@ -5025,6 +5026,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                         mState == StatusBarState.SHADE_LOCKED ||
                         fromShadeLocked);
             }
+            if (mPieController != null) mPieController.attachPie();
         }
         if (mState == StatusBarState.KEYGUARD || mState == StatusBarState.SHADE_LOCKED) {
             mScrimController.setKeyguardShowing(true);

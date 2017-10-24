@@ -344,7 +344,7 @@ public abstract class BaseStatusBar extends SystemUI implements
 
             updateLockscreenNotificationSetting();
 
-            updatePieControls(!pieEnabled);
+            updatePieControls(pieEnabled);
         }
     };
 
@@ -881,15 +881,15 @@ public abstract class BaseStatusBar extends SystemUI implements
                 com.android.internal.R.array.config_nonBlockableNotificationPackages));
     }
 
-    public void updatePieControls(boolean reset) {
+    public void updatePieControls(boolean enabled) {
         ContentResolver resolver = mContext.getContentResolver();
 
-        if (reset) {
-            toggleOrientationListener(false);
-        } else {
+        if (enabled) {
             getOrientationListener();
             toggleOrientationListener(true);
-        }
+        } else {
+		    toggleOrientationListener(false);
+		}
 
         if (mPieController == null) {
             mPieController = PieController.getInstance();
@@ -898,7 +898,7 @@ public abstract class BaseStatusBar extends SystemUI implements
 
         int gravity = Settings.Secure.getIntForUser(resolver,
                 Settings.Secure.PIE_GRAVITY, 0, UserHandle.USER_CURRENT);
-        mPieController.resetPie(!reset, gravity);
+        mPieController.resetPie(enabled, gravity);
     }
 
     public void toggleOrientationListener(boolean enable) {
@@ -1097,7 +1097,7 @@ public abstract class BaseStatusBar extends SystemUI implements
         ContentResolver resolver = mContext.getContentResolver();
         boolean pieEnabled = Settings.Secure.getIntForUser(resolver,
                 Settings.Secure.PIE_STATE, 0, UserHandle.USER_CURRENT) == 1;
-        updatePieControls(!pieEnabled);
+        updatePieControls(pieEnabled);
     }
 
     protected void bindDismissListener(final ExpandableNotificationRow row) {
