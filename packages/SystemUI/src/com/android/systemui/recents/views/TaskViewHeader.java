@@ -200,8 +200,6 @@ public class TaskViewHeader extends FrameLayout
     private static final String RECENTS_LOCK_ICON =
             "system:" + Settings.System.RECENTS_LOCK_ICON;
 
-    private static boolean mShowLockIcon;
-
     public TaskViewHeader(Context context) {
         this(context, null);
     }
@@ -274,13 +272,12 @@ public class TaskViewHeader extends FrameLayout
     public void onTuningChanged(String key, String newValue) {
        switch (key) {
             case RECENTS_LOCK_ICON:
-                mShowLockIcon =
+                Recents.mAllowLockTask =
                     newValue != null && Integer.parseInt(newValue) == 1;
                 break;
             default:
                 break;
         }
-        Recents.mAllowLockTask = mShowLockIcon;
         if (!Recents.mAllowLockTask)
             TaskStackView.mStack.removeAllLockedTasks();
     }
@@ -554,12 +551,18 @@ public class TaskViewHeader extends FrameLayout
                 mLightDismissDrawable : mDarkDismissDrawable);
         mDismissButton.setContentDescription(t.dismissDescription);
         mDismissButton.setOnClickListener(this);
-        mDismissButton.setClickable(false);
+        mDismissButton.setClickable(true);
+        mDismissButton.setVisibility(View.VISIBLE);
+        mDismissButton.setAlpha(1f);
         ((RippleDrawable) mDismissButton.getBackground()).setForceSoftware(true);
-        updateLockTaskDrawable();
-        mLockTaskButton.setOnClickListener(this);
-        mLockTaskButton.setClickable(false);
-        ((RippleDrawable) mLockTaskButton.getBackground()).setForceSoftware(true);
+        if (Recents.mAllowLockTask) {
+            updateLockTaskDrawable();
+            mLockTaskButton.setOnClickListener(this);
+            mLockTaskButton.setClickable(true);
+            mLockTaskButton.setVisibility(View.VISIBLE);
+            mLockTaskButton.setAlpha(1f);
+            ((RippleDrawable) mLockTaskButton.getBackground()).setForceSoftware(true);
+        }
 
         // When freeform workspaces are enabled, then update the move-task button depending on the
         // current task
@@ -620,44 +623,7 @@ public class TaskViewHeader extends FrameLayout
 
     /** Animates this task bar if the user does not interact with the stack after a certain time. */
     void startNoUserInteractionAnimation() {
-        int duration = getResources().getInteger(R.integer.recents_task_enter_from_app_duration);
-        mDismissButton.setVisibility(View.VISIBLE);
-        mDismissButton.setClickable(true);
-        if (mDismissButton.getVisibility() == VISIBLE) {
-            mDismissButton.animate()
-                    .alpha(1f)
-                    .setInterpolator(Interpolators.FAST_OUT_LINEAR_IN)
-                    .setDuration(duration)
-                    .start();
-        } else {
-            mDismissButton.setAlpha(1f);
-        }
-        if (Recents.mAllowLockTask) {
-            mLockTaskButton.setVisibility(View.VISIBLE);
-            mLockTaskButton.setClickable(true);
-            mLockTaskButton.animate()
-                    .alpha(1f)
-                    .setInterpolator(Interpolators.FAST_OUT_LINEAR_IN)
-                    .setDuration(duration)
-                    .start();
-        } else {
-            mLockTaskButton.setVisibility(View.INVISIBLE);
-            mLockTaskButton.setClickable(false);
-            mLockTaskButton.setAlpha(1f);
-        }
-        if (mMoveTaskButton != null) {
-            if (mMoveTaskButton.getVisibility() == VISIBLE) {
-                mMoveTaskButton.setVisibility(View.VISIBLE);
-                mMoveTaskButton.setClickable(true);
-                mMoveTaskButton.animate()
-                        .alpha(1f)
-                        .setInterpolator(Interpolators.FAST_OUT_LINEAR_IN)
-                        .setDuration(duration)
-                        .start();
-            } else {
-                mMoveTaskButton.setAlpha(1f);
-            }
-        }
+        return;
     }
 
     /**
@@ -665,22 +631,7 @@ public class TaskViewHeader extends FrameLayout
      * time.
      */
     public void setNoUserInteractionState() {
-        mDismissButton.setVisibility(View.VISIBLE);
-        mDismissButton.animate().cancel();
-        mDismissButton.setAlpha(1f);
-        mDismissButton.setClickable(true);
-        if (Recents.mAllowLockTask) {
-            mLockTaskButton.setVisibility(View.VISIBLE);
-            mLockTaskButton.animate().cancel();
-            mLockTaskButton.setAlpha(1f);
-            mLockTaskButton.setClickable(true);
-        }
-        if (mMoveTaskButton != null) {
-            mMoveTaskButton.setVisibility(View.VISIBLE);
-            mMoveTaskButton.animate().cancel();
-            mMoveTaskButton.setAlpha(1f);
-            mMoveTaskButton.setClickable(true);
-        }
+        return;
     }
 
     /**
@@ -688,17 +639,7 @@ public class TaskViewHeader extends FrameLayout
      * time.
      */
     void resetNoUserInteractionState() {
-        mDismissButton.setVisibility(View.INVISIBLE);
-        mDismissButton.setAlpha(0f);
-        mDismissButton.setClickable(false);
-        mLockTaskButton.setVisibility(View.INVISIBLE);
-        mLockTaskButton.setAlpha(0f);
-        mLockTaskButton.setClickable(false);
-        if (mMoveTaskButton != null) {
-            mMoveTaskButton.setVisibility(View.INVISIBLE);
-            mMoveTaskButton.setAlpha(0f);
-            mMoveTaskButton.setClickable(false);
-        }
+        return;
     }
 
     @Override
