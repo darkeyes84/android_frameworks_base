@@ -453,7 +453,7 @@ public class PieMenu extends RelativeLayout {
             }
             setColor(mNOTLogo, mDarkThemeEnabled ? mForegroundColor : mBackgroundColor);
             mTogglePoint[mNumberOfSnapPoints++] = new NowOnTapPoint(mWidth / 2 +
-                    (mPanelOrientation == Gravity.BOTTOM ? 0 : (isLandScape() ? (pieRight ? mWidth / 7 : -mWidth / 7)
+                    (mPanelOrientation == Gravity.BOTTOM ? 0 : (isLandScape() ? (pieRight ? mWidth / 6 : -mWidth / 6)
                     : (pieRight ? -mNOTOffsetX : mNOTOffsetX))), mHeight / 2 +
                     (mPanelOrientation == Gravity.BOTTOM ? mNOTOffsetY : 0),
                     mNOTRadius, mNOTLogo, mNOTSize);

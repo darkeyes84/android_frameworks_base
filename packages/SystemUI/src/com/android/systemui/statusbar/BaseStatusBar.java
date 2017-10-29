@@ -764,6 +764,9 @@ public abstract class BaseStatusBar extends SystemUI implements
         mContext.getContentResolver().registerContentObserver(
                 Settings.Secure.getUriFor(Settings.Secure.PIE_GRAVITY), false,
                 mSettingsObserver, UserHandle.USER_ALL);
+        mContext.getContentResolver().registerContentObserver(
+                Settings.Secure.getUriFor(Settings.Secure.PIE_LEFT_HANDED), false,
+                mSettingsObserver, UserHandle.USER_ALL);
         if (ENABLE_LOCK_SCREEN_ALLOW_REMOTE_INPUT) {
             mContext.getContentResolver().registerContentObserver(
                     Settings.Secure.getUriFor(Settings.Secure.LOCK_SCREEN_ALLOW_REMOTE_INPUT),
@@ -882,6 +885,10 @@ public abstract class BaseStatusBar extends SystemUI implements
     }
 
     public void updatePieControls(boolean enabled) {
+		updatePieControls(enabled, false);
+	}
+
+    public void updatePieControls(boolean enabled, boolean override) {
         ContentResolver resolver = mContext.getContentResolver();
 
         if (enabled) {
@@ -898,7 +905,7 @@ public abstract class BaseStatusBar extends SystemUI implements
 
         int gravity = Settings.Secure.getIntForUser(resolver,
                 Settings.Secure.PIE_GRAVITY, 0, UserHandle.USER_CURRENT);
-        mPieController.resetPie(enabled, gravity);
+        mPieController.resetPie(enabled, gravity, override);
     }
 
     public void toggleOrientationListener(boolean enable) {
@@ -936,7 +943,7 @@ public abstract class BaseStatusBar extends SystemUI implements
                 public void onOrientationChanged(int orientation) {
                     int rotation = mDisplay.getRotation();
                     if (rotation != mOrientation) {
-                        if (mPieController != null) mPieController.detachPie();
+                        if (mPieController != null) mPieController.updatePie();
                         mOrientation = rotation;
                     }
                 }
@@ -1077,7 +1084,7 @@ public abstract class BaseStatusBar extends SystemUI implements
         }
         int rotation = mDisplay.getRotation();
         if (rotation != mOrientation) {
-            if (mPieController != null) mPieController.detachPie();
+            if (mPieController != null) mPieController.updatePie();
             mOrientation = rotation;
         }
     }

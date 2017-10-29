@@ -49,7 +49,7 @@
     <dimen name="pie_battery_width">3.5sp</dimen>
     <dimen name="pie_shader_width">1dp</dimen>
     <dimen name="pie_settings_offset">55dp</dimen>
-    <dimen name="pie_settings_offset_land">210dp</dimen>
+    <dimen name="pie_settings_offset_land">240dp</dimen>
     <dimen name="pie_status_item_size">16dp</dimen>
     <dimen name="pie_status_offset">20dp</dimen>
     <dimen name="pie_status_text_top_margin">13dp</dimen>

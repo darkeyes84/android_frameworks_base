@@ -130,10 +130,14 @@ public class PieController extends EdgeGestureManager.EdgeGestureActivationListe
     }
 
     public void attachPie() {
-        mBar.updatePieControls(true);
+        mBar.updatePieControls(true, true);
     }
 
-    public void resetPie(boolean enabled, int gravity) {
+    public void updatePie() {
+		mBar.updatePieControls(mPieAttached);
+	}
+
+    public void resetPie(boolean enabled, int gravity, boolean override) {
         mRotation = mWindowManager.getDefaultDisplay().getRotation();
 
         if (mPieAttached) {
@@ -143,17 +147,17 @@ public class PieController extends EdgeGestureManager.EdgeGestureActivationListe
             }
             mPieAttached = false;
         }
-        if (enabled) attachPie(gravity);
+        if (enabled) attachPie(gravity, override);
     }
 
     private boolean showPie() {
-        final boolean pieEnabled = Settings.Secure.getIntForUser(mContext.getContentResolver(),
+        boolean pieEnabled = Settings.Secure.getIntForUser(mContext.getContentResolver(),
                 Settings.Secure.PIE_STATE, 0, UserHandle.USER_CURRENT) == 1;
         return pieEnabled;
     }
 
-    public void attachPie(int gravity) {
-        if(showPie()) {
+    public void attachPie(int gravity, boolean override) {
+        if(showPie() && (!mKeyguardManager.inKeyguardRestrictedInputMode() || override)) {
             // want some slice?
             switch (gravity) {
                 // this is just main gravity, the trigger is centered later
@@ -387,7 +391,7 @@ public class PieController extends EdgeGestureManager.EdgeGestureActivationListe
                 @Override
                 public void run() {
                     if (!gainTouchFocus(mPie.getWindowToken())) {
-                        detachPie();
+                        updatePie();
                     }
                     restoreListenerState();
                 }
