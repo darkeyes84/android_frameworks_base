@@ -19,78 +19,78 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Quick Settings tiles -->
-  <string name="quick_settings_screenshot_label">Bildschirmfoto</string>
-  <string name="quick_settings_region_screenshot_label">Partieller Screenshot</string>
-  <string name="quick_settings_caffeine_label">Caffeine</string>
-  <string name="accessibility_quick_settings_caffeine_off">Caffeine aus</string>
-  <string name="accessibility_quick_settings_caffeine_on">Caffeine an</string>
-  <string name="quick_settings_sync_label">Synchronisation</string>
-  <string name="accessibility_quick_settings_sync_off">Synchronisation aus</string>
-  <string name="accessibility_quick_settings_sync_on">Synchronisation an</string>
-  <string name="accessibility_quick_settings_sync_changed_off">Synchronisation ausgeschaltet</string>
-  <string name="accessibility_quick_settings_sync_changed_on">Synchronisation eingeschaltet</string>
-  <string name="quick_settings_reboot_label">Neustart</string>
-  <string name="quick_settings_reboot_recovery_label">Wiederherstellung</string>
-  <string name="quick_settings_music_label">Musik</string>
-  <string name="quick_settings_music_play">Wiedergabe</string>
-  <string name="quick_settings_music_pause">Pause</string>
-  <string name="accessibility_quick_settings_ambient_display_off">Inaktivitätsbildschirm aus</string>
-  <string name="accessibility_quick_settings_ambient_display_on">Inaktivitätsbildschirm an</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_off">Inaktivitätsbildschirm wurde ausgeschaltet</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_on">Inaktivitätsbildschirm wurde aktiviert</string>
-  <string name="quick_settings_ambient_display_label">Inaktivitätsbildschirm</string>
-  <string name="accessibility_quick_settings_usb_tether_off">USB Tethering aus</string>
-  <string name="accessibility_quick_settings_usb_tether_on">USB Tethering an</string>
-  <string name="accessibility_quick_settings_usb_tether_changed_off">USB Tethering ausgeschaltet</string>
-  <string name="accessibility_quick_settings_usb_tether_changed_on">USB-Tethering eingeschaltet</string>
-  <string name="quick_settings_usb_tether_label">USB Tethering</string>
-  <string name="qs_menu_item_columns">Spalten (Hochformat)</string>
-  <string name="qs_menu_item_columns_landscape">Spalten (Querformat)</string>
-  <string name="qs_menu_item_rows">Zeilen (Hochformat)</string>
-  <string name="qs_menu_item_rows_landscape">Zeilen (Querformat)</string>
-  <string name="qs_menu_item_one">1</string>
-  <string name="qs_menu_item_two">2</string>
-  <string name="qs_menu_item_three">3</string>
-  <string name="qs_menu_item_four">4</string>
-  <string name="qs_menu_item_five">5</string>
-  <string name="qs_menu_item_six">6</string>
-  <string name="qs_menu_item_reset">Zurücksetzen</string>
-  <!-- Advance quick setting tile -->
-  <string name="quick_settings_adb_network">ADB über Netzwerk</string>
-  <string name="quick_settings_network_adb_enabled_label">Aktiviert</string>
-  <string name="quick_settings_network_adb_disabled_label">Deaktiviert</string>
-  <string name="quick_settings_heads_up_label">Heads Up-Benachrichtigungen</string>
-  <string name="accessibility_quick_settings_heads_up_off">Heads Up-Benachrichtigungen aus</string>
-  <string name="accessibility_quick_settings_heads_up_on">Heads Up-Benachrichtigungen an</string>
-  <string name="accessibility_quick_settings_heads_up_changed_off">Heads Up-Benachrichtigungen ausgeschaltet</string>
-  <string name="accessibility_quick_settings_heads_up_changed_on">Heads Up-Benachrichtigungen eingeschaltet</string>
-  <string name="qs_menu_anim">Kacheln animieren</string>
-  <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-  <string name="keyguard_indication_dash_charging_time">Dash Charging (voll in <xliff:g id="charging_time_left" example="4 Stunden und 2 Minuten">%s</xliff:g>)</string>
-  <string name="keyguard_plugged_in_dash_charging">Dash Charging</string>
-  <!-- Heads up snooze toast -->
-  <string name="heads_up_snooze_message_one_minute">Heads Up-Benachrichtigungen für 1 Minute deaktiviert</string>
-  <string name="heads_up_snooze_message">Heads-Up ist für <xliff:g id="number">%d</xliff:g> Minuten deaktiviert</string>
-  <string name="qs_menu_qqs_count_title">Icon der Schnellzugriffsleiste</string>
-  <string name="qs_menu_qqs_count_seven">7</string>
-  <string name="qs_menu_qqs_count_eight">8</string>
-  <!-- vpn icon switch -->
-  <string name="status_bar_vpn">VPN</string>
-  <!-- data saver icon switch -->
-  <string name="status_bar_datasaver">Datensparmodus</string>
-  <string name="qs_menu_vpn">VPN Warnungen verbergen</string>
-  <!-- Expanded desktop tile -->
-  <string name="quick_settings_expanded_desktop_label">Erweiterter Desktop</string>
-  <string name="quick_settings_expanded_desktop">Erweitert</string>
-  <string name="quick_settings_expanded_desktop_off">Standard</string>
-  <string name="quick_settings_expanded_navigation_off">Navigationsleiste ausblenden</string>
-  <string name="quick_settings_expanded_statusbar_off">Statusleiste ausblenden</string>
-  <!-- Memory bar -->
-  <string name="free_ram">Freier RAM-Speicher: <xliff:g id="number">%d </xliff:g> MB</string>
-  <!-- Pie controls -->
-  <string name="pie_state_name">PIE-Halbkreissteuerung</string>
-  <string name="pie_state_summary">PIE im immersiven Modus verwenden</string>
-  <string name="pie_battery_level">"AKKUSTAND "</string>
-  <string name="quick_settings_pie">PIE-Halbkreissteuerung</string>
+    <!-- Quick Settings tiles -->
+    <string name="quick_settings_screenshot_label">Bildschirmfoto</string>
+    <string name="quick_settings_region_screenshot_label">Partieller Screenshot</string>
+    <string name="quick_settings_caffeine_label">Caffeine</string>
+    <string name="accessibility_quick_settings_caffeine_off">Caffeine aus</string>
+    <string name="accessibility_quick_settings_caffeine_on">Caffeine an</string>
+    <string name="quick_settings_sync_label">Synchronisation</string>
+    <string name="accessibility_quick_settings_sync_off">Synchronisation aus</string>
+    <string name="accessibility_quick_settings_sync_on">Synchronisation an</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Synchronisation ausgeschaltet</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Synchronisation eingeschaltet</string>
+    <string name="quick_settings_reboot_label">Neustart</string>
+    <string name="quick_settings_reboot_recovery_label">Wiederherstellung</string>
+    <string name="quick_settings_music_label">Musik</string>
+    <string name="quick_settings_music_play">Wiedergabe</string>
+    <string name="quick_settings_music_pause">Pause</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Inaktivitätsbildschirm aus</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Inaktivitätsbildschirm an</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Inaktivitätsbildschirm wurde ausgeschaltet</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Inaktivitätsbildschirm wurde aktiviert</string>
+    <string name="quick_settings_ambient_display_label">Inaktivitätsbildschirm</string>
+    <string name="accessibility_quick_settings_usb_tether_off">USB Tethering aus</string>
+    <string name="accessibility_quick_settings_usb_tether_on">USB Tethering an</string>
+    <string name="accessibility_quick_settings_usb_tether_changed_off">USB Tethering ausgeschaltet</string>
+    <string name="accessibility_quick_settings_usb_tether_changed_on">USB-Tethering eingeschaltet</string>
+    <string name="quick_settings_usb_tether_label">USB Tethering</string>
+    <string name="qs_menu_item_columns">Spalten (Hochformat)</string>
+    <string name="qs_menu_item_columns_landscape">Spalten (Querformat)</string>
+    <string name="qs_menu_item_rows">Zeilen (Hochformat)</string>
+    <string name="qs_menu_item_rows_landscape">Zeilen (Querformat)</string>
+    <string name="qs_menu_item_one">1</string>
+    <string name="qs_menu_item_two">2</string>
+    <string name="qs_menu_item_three">3</string>
+    <string name="qs_menu_item_four">4</string>
+    <string name="qs_menu_item_five">5</string>
+    <string name="qs_menu_item_six">6</string>
+    <string name="qs_menu_item_reset">Zurücksetzen</string>
+    <!-- Advance quick setting tile -->
+    <string name="quick_settings_adb_network">ADB über Netzwerk</string>
+    <string name="quick_settings_network_adb_enabled_label">Aktiviert</string>
+    <string name="quick_settings_network_adb_disabled_label">Deaktiviert</string>
+    <string name="quick_settings_heads_up_label">Heads Up-Benachrichtigungen</string>
+    <string name="accessibility_quick_settings_heads_up_off">Heads Up-Benachrichtigungen aus</string>
+    <string name="accessibility_quick_settings_heads_up_on">Heads Up-Benachrichtigungen an</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Heads Up-Benachrichtigungen ausgeschaltet</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Heads Up-Benachrichtigungen eingeschaltet</string>
+    <string name="qs_menu_anim">Kacheln animieren</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_dash_charging_time">Dash Charging (voll in <xliff:g id="charging_time_left" example="4 Stunden und 2 Minuten">%s</xliff:g>)</string>
+    <string name="keyguard_plugged_in_dash_charging">Dash Charging</string>
+    <!-- Heads up snooze toast -->
+    <string name="heads_up_snooze_message_one_minute">Heads Up-Benachrichtigungen für 1 Minute deaktiviert</string>
+    <string name="heads_up_snooze_message">Heads-Up ist für <xliff:g id="number">%d</xliff:g> Minuten deaktiviert</string>
+    <string name="qs_menu_qqs_count_title">Icon der Schnellzugriffsleiste</string>
+    <string name="qs_menu_qqs_count_seven">7</string>
+    <string name="qs_menu_qqs_count_eight">8</string>
+    <!-- vpn icon switch -->
+    <string name="status_bar_vpn">VPN</string>
+    <!-- data saver icon switch -->
+    <string name="status_bar_datasaver">Datensparmodus</string>
+    <string name="qs_menu_vpn">VPN Warnungen verbergen</string>
+    <!-- Expanded desktop tile -->
+    <string name="quick_settings_expanded_desktop_label">Erweiterter Desktop</string>
+    <string name="quick_settings_expanded_desktop">Erweitert</string>
+    <string name="quick_settings_expanded_desktop_off">Standard</string>
+    <string name="quick_settings_expanded_navigation_off">Navigationsleiste ausblenden</string>
+    <string name="quick_settings_expanded_statusbar_off">Statusleiste ausblenden</string>
+    <!-- Memory bar -->
+    <string name="free_ram">Freier RAM-Speicher: <xliff:g id="number">%d </xliff:g> MB</string>
+    <!-- Pie controls -->
+    <string name="pie_state_name">PIE-Halbkreissteuerung</string>
+    <string name="pie_state_summary">PIE im immersiven Modus verwenden</string>
+    <string name="pie_battery_level">"AKKUSTAND "</string>
+    <string name="quick_settings_pie">PIE-Halbkreissteuerung</string>
 </resources>
