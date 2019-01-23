@@ -19,78 +19,78 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Quick Settings tiles -->
-  <string name="quick_settings_screenshot_label">截屏</string>
-  <string name="quick_settings_region_screenshot_label">局部截图</string>
-  <string name="quick_settings_caffeine_label">常亮</string>
-  <string name="accessibility_quick_settings_caffeine_off">关闭常亮</string>
-  <string name="accessibility_quick_settings_caffeine_on">开启常亮</string>
-  <string name="quick_settings_sync_label">同步</string>
-  <string name="accessibility_quick_settings_sync_off">关闭同步</string>
-  <string name="accessibility_quick_settings_sync_on">开启同步</string>
-  <string name="accessibility_quick_settings_sync_changed_off">同步已关闭</string>
-  <string name="accessibility_quick_settings_sync_changed_on">同步已打开</string>
-  <string name="quick_settings_reboot_label">重启</string>
-  <string name="quick_settings_reboot_recovery_label">恢复模式</string>
-  <string name="quick_settings_music_label">音乐</string>
-  <string name="quick_settings_music_play">播放</string>
-  <string name="quick_settings_music_pause">暂停</string>
-  <string name="accessibility_quick_settings_ambient_display_off">主动显示关闭</string>
-  <string name="accessibility_quick_settings_ambient_display_on">主动显示开启</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_off">主动显示已关闭</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_on">主动显示已开启</string>
-  <string name="quick_settings_ambient_display_label">主动显示</string>
-  <string name="accessibility_quick_settings_usb_tether_off">关闭 USB 网络共享</string>
-  <string name="accessibility_quick_settings_usb_tether_on">开启 USB 网络共享</string>
-  <string name="accessibility_quick_settings_usb_tether_changed_off">USB 网络共享已关闭</string>
-  <string name="accessibility_quick_settings_usb_tether_changed_on">USB 网络共享已开启</string>
-  <string name="quick_settings_usb_tether_label">USB 共享网络</string>
-  <string name="qs_menu_item_columns">竖屏列数</string>
-  <string name="qs_menu_item_columns_landscape">横屏列数</string>
-  <string name="qs_menu_item_rows">竖屏行数</string>
-  <string name="qs_menu_item_rows_landscape">横屏行数</string>
-  <string name="qs_menu_item_one">1</string>
-  <string name="qs_menu_item_two">2</string>
-  <string name="qs_menu_item_three">3</string>
-  <string name="qs_menu_item_four">4</string>
-  <string name="qs_menu_item_five">5</string>
-  <string name="qs_menu_item_six">6</string>
-  <string name="qs_menu_item_reset">重置</string>
-  <!-- Advance quick setting tile -->
-  <string name="quick_settings_adb_network">网络 ADB 调试</string>
-  <string name="quick_settings_network_adb_enabled_label">已启用</string>
-  <string name="quick_settings_network_adb_disabled_label">已禁用</string>
-  <string name="quick_settings_heads_up_label">浮动通知</string>
-  <string name="accessibility_quick_settings_heads_up_off">关闭浮动通知</string>
-  <string name="accessibility_quick_settings_heads_up_on">开启浮动通知</string>
-  <string name="accessibility_quick_settings_heads_up_changed_off">浮动通知已关闭</string>
-  <string name="accessibility_quick_settings_heads_up_changed_on">浮动通知已开启</string>
-  <string name="qs_menu_anim">翻转动画</string>
-  <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-  <string name="keyguard_indication_dash_charging_time">正在快速充电 (还需 <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> 充满)</string>
-  <string name="keyguard_plugged_in_dash_charging">正在快速充电</string>
-  <!-- Heads up snooze toast -->
-  <string name="heads_up_snooze_message_one_minute">浮动通知已延时 1 分钟</string>
-  <string name="heads_up_snooze_message">浮动通知已延时 <xliff:g id="number">%d</xliff:g> 分钟</string>
-  <string name="qs_menu_qqs_count_title">快捷栏图标数</string>
-  <string name="qs_menu_qqs_count_seven">7</string>
-  <string name="qs_menu_qqs_count_eight">8</string>
-  <!-- vpn icon switch -->
-  <string name="status_bar_vpn">VPN</string>
-  <!-- data saver icon switch -->
-  <string name="status_bar_datasaver">流量节省程序</string>
-  <string name="qs_menu_vpn">隐藏 VPN 警告</string>
-  <!-- Expanded desktop tile -->
-  <string name="quick_settings_expanded_desktop_label">扩展桌面</string>
-  <string name="quick_settings_expanded_desktop">展开</string>
-  <string name="quick_settings_expanded_desktop_off">普通</string>
-  <string name="quick_settings_expanded_navigation_off">隐藏导航栏</string>
-  <string name="quick_settings_expanded_statusbar_off">隐藏状态栏</string>
-  <!-- Memory bar -->
-  <string name="free_ram">可用内存: <xliff:g id="number">%d</xliff:g>MB</string>
-  <!-- Pie controls -->
-  <string name="pie_state_name">Pie</string>
-  <string name="pie_state_summary">在沉浸模式下启用 Pie 控制</string>
-  <string name="pie_battery_level">"电池电量 "</string>
-  <string name="quick_settings_pie">Pie</string>
+    <!-- Quick Settings tiles -->
+    <string name="quick_settings_screenshot_label">截屏</string>
+    <string name="quick_settings_region_screenshot_label">局部截图</string>
+    <string name="quick_settings_caffeine_label">常亮</string>
+    <string name="accessibility_quick_settings_caffeine_off">关闭常亮</string>
+    <string name="accessibility_quick_settings_caffeine_on">开启常亮</string>
+    <string name="quick_settings_sync_label">同步</string>
+    <string name="accessibility_quick_settings_sync_off">关闭同步</string>
+    <string name="accessibility_quick_settings_sync_on">开启同步</string>
+    <string name="accessibility_quick_settings_sync_changed_off">同步已关闭</string>
+    <string name="accessibility_quick_settings_sync_changed_on">同步已打开</string>
+    <string name="quick_settings_reboot_label">重启</string>
+    <string name="quick_settings_reboot_recovery_label">恢复模式</string>
+    <string name="quick_settings_music_label">音乐</string>
+    <string name="quick_settings_music_play">播放</string>
+    <string name="quick_settings_music_pause">暂停</string>
+    <string name="accessibility_quick_settings_ambient_display_off">主动显示关闭</string>
+    <string name="accessibility_quick_settings_ambient_display_on">主动显示开启</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">主动显示已关闭</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">主动显示已开启</string>
+    <string name="quick_settings_ambient_display_label">主动显示</string>
+    <string name="accessibility_quick_settings_usb_tether_off">关闭 USB 网络共享</string>
+    <string name="accessibility_quick_settings_usb_tether_on">开启 USB 网络共享</string>
+    <string name="accessibility_quick_settings_usb_tether_changed_off">USB 网络共享已关闭</string>
+    <string name="accessibility_quick_settings_usb_tether_changed_on">USB 网络共享已开启</string>
+    <string name="quick_settings_usb_tether_label">USB 共享网络</string>
+    <string name="qs_menu_item_columns">竖屏列数</string>
+    <string name="qs_menu_item_columns_landscape">横屏列数</string>
+    <string name="qs_menu_item_rows">竖屏行数</string>
+    <string name="qs_menu_item_rows_landscape">横屏行数</string>
+    <string name="qs_menu_item_one">1</string>
+    <string name="qs_menu_item_two">2</string>
+    <string name="qs_menu_item_three">3</string>
+    <string name="qs_menu_item_four">4</string>
+    <string name="qs_menu_item_five">5</string>
+    <string name="qs_menu_item_six">6</string>
+    <string name="qs_menu_item_reset">重置</string>
+    <!-- Advance quick setting tile -->
+    <string name="quick_settings_adb_network">网络 ADB 调试</string>
+    <string name="quick_settings_network_adb_enabled_label">已启用</string>
+    <string name="quick_settings_network_adb_disabled_label">已禁用</string>
+    <string name="quick_settings_heads_up_label">浮动通知</string>
+    <string name="accessibility_quick_settings_heads_up_off">关闭浮动通知</string>
+    <string name="accessibility_quick_settings_heads_up_on">开启浮动通知</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">浮动通知已关闭</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">浮动通知已开启</string>
+    <string name="qs_menu_anim">翻转动画</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_dash_charging_time">正在快速充电 (还需 <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> 充满)</string>
+    <string name="keyguard_plugged_in_dash_charging">正在快速充电</string>
+    <!-- Heads up snooze toast -->
+    <string name="heads_up_snooze_message_one_minute">浮动通知已延时 1 分钟</string>
+    <string name="heads_up_snooze_message">浮动通知已延时 <xliff:g id="number">%d</xliff:g> 分钟</string>
+    <string name="qs_menu_qqs_count_title">快捷栏图标数</string>
+    <string name="qs_menu_qqs_count_seven">7</string>
+    <string name="qs_menu_qqs_count_eight">8</string>
+    <!-- vpn icon switch -->
+    <string name="status_bar_vpn">VPN</string>
+    <!-- data saver icon switch -->
+    <string name="status_bar_datasaver">流量节省程序</string>
+    <string name="qs_menu_vpn">隐藏 VPN 警告</string>
+    <!-- Expanded desktop tile -->
+    <string name="quick_settings_expanded_desktop_label">扩展桌面</string>
+    <string name="quick_settings_expanded_desktop">展开</string>
+    <string name="quick_settings_expanded_desktop_off">普通</string>
+    <string name="quick_settings_expanded_navigation_off">隐藏导航栏</string>
+    <string name="quick_settings_expanded_statusbar_off">隐藏状态栏</string>
+    <!-- Memory bar -->
+    <string name="free_ram">可用内存: <xliff:g id="number">%d</xliff:g>MB</string>
+    <!-- Pie controls -->
+    <string name="pie_state_name">Pie</string>
+    <string name="pie_state_summary">在沉浸模式下启用 Pie 控制</string>
+    <string name="pie_battery_level">"电池电量 "</string>
+    <string name="quick_settings_pie">Pie</string>
 </resources>
