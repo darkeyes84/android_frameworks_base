@@ -19,78 +19,78 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Quick Settings tiles -->
-  <string name="quick_settings_screenshot_label">Ekran Görüntüsü</string>
-  <string name="quick_settings_region_screenshot_label">Kısmi Ekran görüntüsü</string>
-  <string name="quick_settings_caffeine_label">Kafein</string>
-  <string name="accessibility_quick_settings_caffeine_off">Kafein kapalı</string>
-  <string name="accessibility_quick_settings_caffeine_on">Kafein açık</string>
-  <string name="quick_settings_sync_label">Senkronize et</string>
-  <string name="accessibility_quick_settings_sync_off">Senkronizasyon kapalı</string>
-  <string name="accessibility_quick_settings_sync_on">Senkronizasyon açık</string>
-  <string name="accessibility_quick_settings_sync_changed_off">Senkronizasyon kapatıldı</string>
-  <string name="accessibility_quick_settings_sync_changed_on">Senkronizasyon açıldı</string>
-  <string name="quick_settings_reboot_label">Yeniden başlat</string>
-  <string name="quick_settings_reboot_recovery_label">Kurtarma modu</string>
-  <string name="quick_settings_music_label">Müzik</string>
-  <string name="quick_settings_music_play">Oynat</string>
-  <string name="quick_settings_music_pause">Duraklat</string>
-  <string name="accessibility_quick_settings_ambient_display_off">Bildirim ekranı kapalı</string>
-  <string name="accessibility_quick_settings_ambient_display_on">Bildirim ekranı açık</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_off">Bildirim ekranı kapatıldı</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_on">Bildirim ekranı açıldı</string>
-  <string name="quick_settings_ambient_display_label">Bildirim ekranı</string>
-  <string name="accessibility_quick_settings_usb_tether_off">USB internet paylaşımı kapalı</string>
-  <string name="accessibility_quick_settings_usb_tether_on">USB internet paylaşımı açık</string>
-  <string name="accessibility_quick_settings_usb_tether_changed_off">USB internet paylaşımı kapatıldı</string>
-  <string name="accessibility_quick_settings_usb_tether_changed_on">USB internet paylaşımı açıldı</string>
-  <string name="quick_settings_usb_tether_label">USB internet paylaşımı</string>
-  <string name="qs_menu_item_columns">Sütunlar (dikey)</string>
-  <string name="qs_menu_item_columns_landscape">Sütunlar (yatay)</string>
-  <string name="qs_menu_item_rows">Satırlar (dikey)</string>
-  <string name="qs_menu_item_rows_landscape">Satırlar (yatay)</string>
-  <string name="qs_menu_item_one">1</string>
-  <string name="qs_menu_item_two">2</string>
-  <string name="qs_menu_item_three">3</string>
-  <string name="qs_menu_item_four">4</string>
-  <string name="qs_menu_item_five">5</string>
-  <string name="qs_menu_item_six">6</string>
-  <string name="qs_menu_item_reset">Sıfırla</string>
-  <!-- Advance quick setting tile -->
-  <string name="quick_settings_adb_network">Ağ üzerinden ADB</string>
-  <string name="quick_settings_network_adb_enabled_label">Etkin</string>
-  <string name="quick_settings_network_adb_disabled_label">Devre Dışı</string>
-  <string name="quick_settings_heads_up_label">Bildirim pencereleri</string>
-  <string name="accessibility_quick_settings_heads_up_off">Bildirim pencereleri kapalı</string>
-  <string name="accessibility_quick_settings_heads_up_on">Bildirim pencereleri açık</string>
-  <string name="accessibility_quick_settings_heads_up_changed_off">Bildirim pencereleri kapatıldı</string>
-  <string name="accessibility_quick_settings_heads_up_changed_on">Bildirim pencereleri açıldı</string>
-  <string name="qs_menu_anim">Karolara animasyon ekle</string>
-  <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-  <string name="keyguard_indication_dash_charging_time">Dash Şarj Oluyor (tam dolmasına <xliff:g id="kalan_şarj_süresi" örnek="4 saat and 2 dakika">%s</xliff:g> kaldı)</string>
-  <string name="keyguard_plugged_in_dash_charging">Hızlı Şarj Oluyor</string>
-  <!-- Heads up snooze toast -->
-  <string name="heads_up_snooze_message_one_minute">Ortam bildirimleri 1 dakika erteleniyor</string>
-  <string name="heads_up_snooze_message">Ortam bildirimleri <xliff:g id="number">%d</xliff:g> dakikalığına devre dışı</string>
-  <string name="qs_menu_qqs_count_title">Hızlı erişim simgeleri</string>
-  <string name="qs_menu_qqs_count_seven">7</string>
-  <string name="qs_menu_qqs_count_eight">8</string>
-  <!-- vpn icon switch -->
-  <string name="status_bar_vpn">VPN</string>
-  <!-- data saver icon switch -->
-  <string name="status_bar_datasaver">Veri tasarrufu</string>
-  <string name="qs_menu_vpn">VPN uyarısını gizle</string>
-  <!-- Expanded desktop tile -->
-  <string name="quick_settings_expanded_desktop_label">Genişletilmiş Masaüstü</string>
-  <string name="quick_settings_expanded_desktop">Genişletilmiş</string>
-  <string name="quick_settings_expanded_desktop_off">Normal</string>
-  <string name="quick_settings_expanded_navigation_off">Gezinme çubuğunu gizle</string>
-  <string name="quick_settings_expanded_statusbar_off">Durum çubuğunu gizle</string>
-  <!-- Memory bar -->
-  <string name="free_ram">Free RAM: <xliff:g id="NUMBER">%d</xliff:g>MB</string>
-  <!-- Pie controls -->
-  <string name="pie_state_name">PIE</string>
-  <string name="pie_state_summary">Tam ekran modundayken pie kontrollerini kullanın</string>
-  <string name="pie_battery_level">"PİL SEVİYESİ "</string>
-  <string name="quick_settings_pie">PIE</string>
+    <!-- Quick Settings tiles -->
+    <string name="quick_settings_screenshot_label">Ekran Görüntüsü</string>
+    <string name="quick_settings_region_screenshot_label">Kısmi Ekran görüntüsü</string>
+    <string name="quick_settings_caffeine_label">Kafein</string>
+    <string name="accessibility_quick_settings_caffeine_off">Kafein kapalı</string>
+    <string name="accessibility_quick_settings_caffeine_on">Kafein açık</string>
+    <string name="quick_settings_sync_label">Senkronize et</string>
+    <string name="accessibility_quick_settings_sync_off">Senkronizasyon kapalı</string>
+    <string name="accessibility_quick_settings_sync_on">Senkronizasyon açık</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Senkronizasyon kapatıldı</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Senkronizasyon açıldı</string>
+    <string name="quick_settings_reboot_label">Yeniden başlat</string>
+    <string name="quick_settings_reboot_recovery_label">Kurtarma modu</string>
+    <string name="quick_settings_music_label">Müzik</string>
+    <string name="quick_settings_music_play">Oynat</string>
+    <string name="quick_settings_music_pause">Duraklat</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Bildirim ekranı kapalı</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Bildirim ekranı açık</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Bildirim ekranı kapatıldı</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Bildirim ekranı açıldı</string>
+    <string name="quick_settings_ambient_display_label">Bildirim ekranı</string>
+    <string name="accessibility_quick_settings_usb_tether_off">USB internet paylaşımı kapalı</string>
+    <string name="accessibility_quick_settings_usb_tether_on">USB internet paylaşımı açık</string>
+    <string name="accessibility_quick_settings_usb_tether_changed_off">USB internet paylaşımı kapatıldı</string>
+    <string name="accessibility_quick_settings_usb_tether_changed_on">USB internet paylaşımı açıldı</string>
+    <string name="quick_settings_usb_tether_label">USB internet paylaşımı</string>
+    <string name="qs_menu_item_columns">Sütunlar (dikey)</string>
+    <string name="qs_menu_item_columns_landscape">Sütunlar (yatay)</string>
+    <string name="qs_menu_item_rows">Satırlar (dikey)</string>
+    <string name="qs_menu_item_rows_landscape">Satırlar (yatay)</string>
+    <string name="qs_menu_item_one">1</string>
+    <string name="qs_menu_item_two">2</string>
+    <string name="qs_menu_item_three">3</string>
+    <string name="qs_menu_item_four">4</string>
+    <string name="qs_menu_item_five">5</string>
+    <string name="qs_menu_item_six">6</string>
+    <string name="qs_menu_item_reset">Sıfırla</string>
+    <!-- Advance quick setting tile -->
+    <string name="quick_settings_adb_network">Ağ üzerinden ADB</string>
+    <string name="quick_settings_network_adb_enabled_label">Etkin</string>
+    <string name="quick_settings_network_adb_disabled_label">Devre Dışı</string>
+    <string name="quick_settings_heads_up_label">Bildirim pencereleri</string>
+    <string name="accessibility_quick_settings_heads_up_off">Bildirim pencereleri kapalı</string>
+    <string name="accessibility_quick_settings_heads_up_on">Bildirim pencereleri açık</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Bildirim pencereleri kapatıldı</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Bildirim pencereleri açıldı</string>
+    <string name="qs_menu_anim">Karolara animasyon ekle</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_dash_charging_time">Dash Şarj Oluyor (tam dolmasına <xliff:g id="kalan_şarj_süresi" örnek="4 saat and 2 dakika">%s</xliff:g> kaldı)</string>
+    <string name="keyguard_plugged_in_dash_charging">Hızlı Şarj Oluyor</string>
+    <!-- Heads up snooze toast -->
+    <string name="heads_up_snooze_message_one_minute">Ortam bildirimleri 1 dakika erteleniyor</string>
+    <string name="heads_up_snooze_message">Ortam bildirimleri <xliff:g id="number">%d</xliff:g> dakikalığına devre dışı</string>
+    <string name="qs_menu_qqs_count_title">Hızlı erişim simgeleri</string>
+    <string name="qs_menu_qqs_count_seven">7</string>
+    <string name="qs_menu_qqs_count_eight">8</string>
+    <!-- vpn icon switch -->
+    <string name="status_bar_vpn">VPN</string>
+    <!-- data saver icon switch -->
+    <string name="status_bar_datasaver">Veri tasarrufu</string>
+    <string name="qs_menu_vpn">VPN uyarısını gizle</string>
+    <!-- Expanded desktop tile -->
+    <string name="quick_settings_expanded_desktop_label">Genişletilmiş Masaüstü</string>
+    <string name="quick_settings_expanded_desktop">Genişletilmiş</string>
+    <string name="quick_settings_expanded_desktop_off">Normal</string>
+    <string name="quick_settings_expanded_navigation_off">Gezinme çubuğunu gizle</string>
+    <string name="quick_settings_expanded_statusbar_off">Durum çubuğunu gizle</string>
+    <!-- Memory bar -->
+    <string name="free_ram">Free RAM: <xliff:g id="NUMBER">%d</xliff:g>MB</string>
+    <!-- Pie controls -->
+    <string name="pie_state_name">PIE</string>
+    <string name="pie_state_summary">Tam ekran modundayken pie kontrollerini kullanın</string>
+    <string name="pie_battery_level">"PİL SEVİYESİ "</string>
+    <string name="quick_settings_pie">PIE</string>
 </resources>
